@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Receipt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="uii.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">KINNECTRIC</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Computers</a></li>
+            <li><a href="#">Telephony & Tablets</a></li>
+            <li><a href="#">TV</a></li>
+            <li><a href="#">Printers</a></li>
+            <li><a href="#">Headphones</a></li>
+        </ul>
+        <div class="cart-icon">
+            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+        </div>
+    </nav>
+
+    <div data-layer="CARD" class="Card">
+        <div data-layer="Rectangle 27" class="Rectangle27"></div>
+    
+        <!-- Etape 1: Adresse -->
+        <div data-layer="Group 8" class="Group8">
+            <div data-svg-wrapper data-layer="Frame" class="Frame">
+                <span class="material-symbols-outlined">home_pin</span>
+            </div>
+            <div class="Step1Address">
+                <span class="step-number">Step 1</span><br/>
+                <span class="step-label">Address</span>
+            </div>
+        </div>
+        
+        <!-- Etape 2: Shipping -->
+        <div data-layer="Group 6" class="Group6">
+            <div class="Step2Shipping">
+                <span class="step-number">Step 2</span><br/>
+                <span class="step-label">Shipping</span>
+            </div>
+            <div data-svg-wrapper data-layer="Frame" class="Frame">
+                <span class="material-symbols-outlined">delivery_truck_speed</span>
+            </div>
+        </div>
+    
+        <!-- Etape 3: Payement -->
+        <div data-layer="Group 7" class="Group7">
+            <div class="Step3Payment">
+                <span class="step-number">Step 3</span><br/>
+                <span class="step-label">Payment</span>
+            </div>
+            <div data-svg-wrapper data-layer="Frame" class="Frame">
+                <span class="material-symbols-outlined">paid</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conteneur principal -->
+
+     
+    <div class="step-panel" id="step1">
+        <h2 class="select-adress">SELECT ADDRESS</h2>
+    
+        <div class="address-options">
+            <div class="address-option">
+                <input type="radio" name="address" id="address1" checked>
+                <label for="address1">
+                    <span class="address-text">
+                    <span class="titre-adresse">    TUNIS, ARIANA </span> <br>
+                 
+                        résidence l'avenir cite el ghazela<br>
+                        2083
+                    </span>
+                    <span class="edit-icon">
+                        <span class="material-symbols-outlined edit-size">
+                            edit
+                        </span>
+                    </span>
+                    <span class="delete-icon">
+                        <span class="material-symbols-outlined delete-size">
+                            close
+                        </span>
+                    </span>
+                </label>
+            </div>
+            
+            <div class="address-option">
+                <input type="radio" name="address" id="address2">
+                <label for="address2">
+                    <span class="address-text">
+                        <span class="titre-adresse">   TUNIS, ARIANA </span><br>
+                        résidence l'avenir cite el ghazela<br>
+                        2083
+                    </span>
+                    <span class="edit-icon">
+                        <span class="material-symbols-outlined edit-size">
+                            edit
+                        </span>
+                    </span>
+                    <span class="delete-icon">
+                        <span class="material-symbols-outlined delete-size">
+                            close
+                        </span>
+                    </span>
+                </label>
+            </div>
+            
+            <div class="add-address">
+                <span class="line"></span>
+                <span class="plus"><span class="material-symbols-outlined">
+                    add_circle
+                    </span></span>
+                <span class="line"></span>
+            </div>
+            
+    
+            <div class="new-address">
+                <button class="depots-button">Dépôts</button>
+                <button class="back-button" >Back</button>
+                <button class="next-button" onclick="showStep(2)">Next</button>
+            </div>
+        </div>
+    </div>
+    <div class="step-panel hidden" id="step2">
+        <h2 class="select-adress">SELECT SHIPPING </h2>
+        
+        <div class="shipping-options">
+            <div class="shipping-option">
+                <input type="radio" name="shipping" id="shipping1">
+                <label for="shipping1">
+                    <span class="titre-adresse">FREE</span> 
+                    <span class="description">Regular shipment</span> 
+                    <span class="date">15 juin 2025</span>
+                </label>
+            </div>
+            
+            <div class="shipping-option">
+                <input type="radio" name="shipping" id="shipping2">
+                <label for="shipping2">
+                    <span class="titre-adresse">8TND</span> 
+                    <span class="description">Get your delivery as soon as possible</span>
+                    <span class="date">5 juin 2025</span>
+                </label>
+            </div>
+            
+            <div class="shipping-option">
+                <input type="radio" name="shipping" id="shipping3">
+                <label for="shipping3">
+                    <span class="titre-adresse">Scheduled</span> 
+                    <span class="description">Scheduled Shipment</span> 
+                    <span class="date">Select Date</span>
+                </label>
+            </div>
+            
+        </div>
+    
+        <div class="delivery-time">
+            <h2 class="select-adress">FIX DELVERY TIMEI</h2>
+            <div class="carousel-container">
+                <div class="carousel-item"><h4>DAY</h4><ul class="carousel" id="day-carousel"></ul></div>
+                <div class="carousel-item"><h4>MONTH</h4><ul class="carousel" id="month-carousel"></ul></div>
+                <div class="carousel-item"><h4>YEAR</h4><ul class="carousel" id="year-carousel"></ul></div>
+                <div class="carousel-item"><h4>HOUR</h4><ul class="carousel" id="hour-carousel"></ul></div>
+                <div class="carousel-item"><h4>MINUTE</h4><ul class="carousel" id="minute-carousel"></ul></div>
+                <div class="carousel-item">
+                    <h4>AM & PM</h4>
+                    <ul class="carousel" id="AMPM-carousel">
+                        <li onclick="selectItemAMPM(this)">AM</li>
+                        <li onclick="selectItemAMPM(this)">PM</li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+        <div class="button-container">
+            <button class="back-button" onclick="showStep(1)">Back</button>
+            <button class="next-button" onclick="showStep(3)">Next</button>
+        </div>
+        
+    </div>
+
+    <div class="step-panel hidden" id="step3">
+        <h2 class="select-adress">PAYMENT</h2>
+        <div class="payment-card">
+            <div class="headerssl">SSL SECURED PAYMENT</div>
+
+            <div class="input-container">
+                <input type="text" placeholder="Cardholder Name">
+            </div>
+
+            <div class="input-container">
+                <input type="text" placeholder="Card Number">
+            </div>
+
+            <div class="input-row">
+                <div class="small-input">
+                    <input type="text" placeholder="Exp Date">
+                </div>
+                <div class="small-input">
+                    <input type="text" placeholder="CVV">
+                </div>
+            </div>
+
+            <div class="save-info">
+                <input type="checkbox" class="checkbox-icon">
+                Save Info
+                <button class="pay-button">PAY</button>
+            </div>
+
+           
+        </div>       <div class="button-container">
+            <button class="back-button" onclick="showStep(2)">Back</button>
+      </div>
+        
+    </div>
+        
+    
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>KINNECTRIC</h3>
+            </div>
+            <div class="footer-section">
+                <h3>BUY NOW</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Computers</a></li>
+                    <li><a href="#">Telephony & Tablets</a></li>
+                    <li><a href="#">TV</a></li>
+                    <li><a href="#">Printers</a></li>
+                    <li><a href="#">Headphones</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>CUSTOMER SUPPORT</h3>
+                <ul>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>CONTACT</h3>
+                <ul>
+                    <li><a href="#">Email</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+            <div class="footer-section newsletter">
+                <h3>JOIN OUR NEWSLETTER</h3>
+                <div class="newsletter-input">
+                    <input type="email" placeholder="Email Address">
+                    <button type="submit">SUBMIT</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+// Fonction pour sélectionner un élément et lui ajouter un style de sélection
+function scrollCarousel(carouselId, direction) {
+    let container = document.getElementById(carouselId);
+    let items = container.querySelectorAll('li');
+    let selected = container.querySelector('.selected');
+    
+    if (selected) {
+        // Trouver l'index de l'élément sélectionné
+        let currentIndex = Array.from(items).indexOf(selected);
+
+        // Calculer l'index suivant/précédent
+        let newIndex = currentIndex + direction;
+
+        // Vérifier si l'index est dans les limites
+        if (newIndex >= 0 && newIndex < items.length) {
+            let targetItem = items[newIndex];
+            
+            // Mettre à jour la classe 'selected'
+            selectItem(container, targetItem);
+
+            // Faire défiler l'élément vers la position cible
+            container.scrollBy({
+                top: targetItem.offsetTop - container.scrollTop,
+                behavior: 'smooth'
+            });
+        }
+    }
+}
+
+function selectItem(container, item) {
+    // Supprimer la classe 'selected' de tous les éléments
+    let items = container.querySelectorAll('li');
+    items.forEach(i => i.classList.remove('selected'));
+    
+    // Ajouter la classe 'selected' à l'élément cliqué
+    item.classList.add('selected');
+}
+
+function generateOptions(id, min, max, step = 1) {
+    let container = document.getElementById(id);
+    for (let i = min; i <= max; i += step) {
+        let li = document.createElement("li");
+        li.textContent = i.toString().padStart(2, '0');
+        li.onclick = function () { selectItem(container, li); };  // Utiliser la fonction de sélection
+        container.appendChild(li);
+    }
+}
+
+generateOptions("day-carousel", 1, 31);
+generateOptions("year-carousel", new Date().getFullYear(), new Date().getFullYear() + 5);
+generateOptions("hour-carousel", 0, 23);
+generateOptions("minute-carousel", 0, 55, 5);
+
+// Ajouter les mois à la carrousel
+document.querySelectorAll("#month-carousel").forEach(item => {
+  ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"].forEach(mois => {
+    let li = document.createElement("li");
+    li.textContent = mois;
+    li.onclick = function () { selectItem(item, li); };  // Utiliser la fonction de sélection
+    item.appendChild(li);
+  });
+});
+
+
+        function showStep(stepNumber) {
+            // Masquer toutes les étapes
+            document.querySelectorAll(".step-panel").forEach((panel, index) => {
+                panel.classList.toggle("hidden", index !== stepNumber - 1);
+            });
+
+            // Mettre à jour la couleur des étapes et des icônes
+            document.querySelectorAll(".Group8, .Group6, .Group7").forEach((step, index) => {
+                const stepElement = step.querySelector(".step-label");
+                const iconElement = step.querySelector(".material-symbols-outlined");
+
+                if (index + 1 === stepNumber) {
+                    step.classList.add("active"); // Étape active
+                } else {
+                    step.classList.remove("active"); // Étapes inactives
+                }
+            });
+        }
+
+        // Initialiser l'étape active
+        showStep(1);
+        function selectItemAMPM(item) {
+    let container = document.getElementById("AMPM-carousel");
+    let items = container.querySelectorAll('li');
+    items.forEach(i => i.classList.remove('selected'));
+    item.classList.add('selected');
+}
+
+    </script>
+</body>
+</html>
