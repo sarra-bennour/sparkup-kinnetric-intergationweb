@@ -1,0 +1,435 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background-color: #281549;
+}
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background: #FF4FF3 ; 
+    filter: blur(310px);
+  }
+
+.circle:nth-child(1) {
+    width: 679px;
+    height: 679px;
+    background: #832EFF ; 
+    transform: translateX(-309px) translateY(-109px);
+  }
+  
+  .circle:nth-child(2) {
+    width: 679px;
+    height: 679px;
+    background: #FF4FF3 ; 
+    transform: translateX(1173px) translateY(515px);
+  }
+  
+  .circle:nth-child(3) {
+    width: 679px;
+    height: 679px;
+    background: #FF4FF3 ; 
+    transform: translateX(-427px) translateY(1305px);
+  }
+  
+  .circle:nth-child(4) {
+    width: 679px;
+    height: 679px;
+    background: #832EFF ; 
+    transform: translateX(1100px) translateY(2106px);
+  }
+  
+  .circle:nth-child(5) {
+    width: 679px;
+    height: 679px;
+    background: #832EFF ; 
+    transform: translateX(-435px) translateY(3178px);
+  }
+
+
+/* NAV-BAR */
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Outfit', sans-serif;
+    padding: 1em 2em;
+    padding-left: 8em;
+}
+
+nav>a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.8em;
+}
+
+.navbar-links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* gap: 2em; */
+    font-size: 1em;
+    font-family: 'Outfit', sans-serif;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    padding: 1em 1.5em;
+}
+
+.navbar-links a:hover {
+    text-decoration: underline;
+}
+
+.cart {
+    align-items: center;
+}
+
+.cart img {
+    width: 33px;
+    height: 33px;
+}
+
+/*footer*/
+footer {
+    font-family: 'Outfit', sans-serif;
+}
+
+.footer-section>h3:only-child {
+    color: white;
+    font-weight: bold;
+
+}
+
+footer h3 {
+    color: #FF4FF3;
+    margin-top: 1.25em;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+
+/*hero*/
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 29em;
+    background-color: #a773ef8c;
+    padding-left: 1em;
+    position: relative;
+}
+
+.hero-content {
+    display: flex;
+    color: white;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 50%;
+}
+
+.hero>.hero-content {
+    margin-top: 7em;
+}
+
+.hero-content pre {
+    font-size: 3.75em;
+    font-weight: bold;
+    font-family: 'Outfit', sans-serif;
+    text-transform: uppercase;
+    margin: 0;
+    margin-top: -1.5em;
+    line-height: 1;
+}
+
+.hero-content h3 {
+    color: #FF4FF3;
+    font-family: 'Outfit', sans-serif;
+    font-size: 2em;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+    margin-top: -1.5em;
+    padding-left: 4.4em;
+    padding-bottom: 1em;
+}
+
+button {
+    background: linear-gradient(90deg, #832EFF 0%, #FF4FF3 100%);
+    color: white;
+    font-family: 'Outfit', sans-serif;
+    text-transform: uppercase;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    width: 13em;
+    height: 4em;
+    border: none;
+    border-radius: 5em;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.hero button {
+    position: absolute;
+
+    bottom: 1em;
+    left: 9.5em;
+}
+
+
+.hero>img {
+    width: 32.9375em;
+    height: 26.59375em;
+    position: absolute;
+    right: 13em;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 7em;
+    margin-left: 2em;
+}
+
+
+/*products*/
+
+.products {
+    min-height: 100vh;
+    background: #281549;
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+}
+
+.products-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 2rem;
+}
+
+.product-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+
+.product-item {
+    position: relative;
+    width: 21.5em;
+    height: 30em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 5em;
+    object-fit: cover;
+}
+
+.section-title {
+    text-align: left;
+    font-family: 'Outfit', sans-serif;
+    font-size: 3.5em;
+    color: white;
+    text-transform: uppercase;
+}
+
+
+.product-item button {
+    position: absolute;
+    bottom: 1.5em;
+    left: 4.5em;
+}
+
+
+/*headphones*/
+
+.headphones {
+    min-height: 100vh;
+    background: #281549;
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+}
+
+.headphones-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: fr;
+    gap: 2rem;
+}
+
+.headphones-content>h1{
+    margin-left: 1em;
+}
+
+
+.headphones-section {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.headphone-image {
+    width: 80%;
+    /* max-width: 400px; */
+    height: auto;
+    margin-left: 3em;
+    border-radius: 5em;
+}
+
+.product-info {
+    color: white;
+}
+
+.tag-new {
+    color: #FF4FF3;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.title {
+    font-size: 3rem;
+    font-family: 'Outfit', sans-serif;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.description {
+    color: white;
+    margin-bottom: 2rem;
+}
+
+
+/*ACCESSORIES*/
+
+
+.accessories {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Outfit', sans-serif;
+}
+
+
+
+.accessories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: -1rem;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-image {
+    width: 90%;
+    height: 15em;
+    border-radius: 4rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-content {
+    margin-top: 1.4rem;
+    margin-left: 1em;
+}
+
+.card-title {
+    color: white;
+    font-size: 1.6em;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.card-subtitle {
+    color: #e455e9;
+    font-size: 1.6em;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.price {
+    color: white;
+    font-size: 1.6em;
+    font-weight: 500;
+}   
+
+
+
+
+
+
+
+
+
+/*DEPOT MAP*/
+#map {
+    width: 100%;
+    height: 50em; 
+    max-width: 90em; 
+    margin: auto; 
+    border-radius: 1em;
+}
+
+.search {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    top: 10em;
+    right: 15em;
+}

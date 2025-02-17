@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <div id="navbar"></div>
+    <!-- END NAVBAR -->
+
+    <div class="map">
+        <h1 class="section-title">Our Depots</h1>
+        <div class="search">
+            <input type="text" name="search" id="search" placeholder="Search for a depot">
+        </div>
+        <div id="map"></div>
+    </div>
+    
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        function initMap() {
+            var map = L.map('map').setView([36.8065, 10.1815], 12); // Coordonnées de Tunis
+
+            // Charger OpenStreetMap
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+
+            // Ajouter les marqueurs des dépôts
+            var depots = [
+                { coords: [36.8065, 10.1815], name: "Tunis Depot" },
+                { coords: [36.7949, 10.0732], name: "Ariana Depot" }, // Exemple de localisation à Ariana
+                { coords: [36.7256, 10.2921], name: "Ben Arous Depot" } // Exemple de localisation à Ben Arous
+            ];
+
+            depots.forEach(depot => {
+                L.marker(depot.coords).addTo(map)
+                    .bindPopup(depot.name)
+                    .openPopup();
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", initMap);
+    </script>
+
+    <!-- FOOTER -->
+    <div id="footer"></div>
+    <!-- END FOOTER --> 
+
+    <script>
+        function loadComponent(id, file) {
+            fetch(file)
+                .then(response => response.text())
+                .then(data => document.getElementById(id).innerHTML = data);
+        }
+        loadComponent("navbar", "navbar.html");
+        loadComponent("footer", "footer.html");
+    </script>
+</body>
+</html>

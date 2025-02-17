@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KENNECTRIC - HOME</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <div id="navbar"></div>
+
+    <!-- END NAVBAR -->
+    <!-- BLURED CIRCLES -->
+    <div class="background">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+    <!-- END BLURED CIRCLES -->
+    
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-content">
+            <pre>
+            Unbeatable 
+            prices on your 
+            favorite
+            products
+        </pre>
+            <h3>buy more for less</h3>
+            <button>see our products</button>
+        </div>
+        <img src="public/assets/images/hero-image.png" alt="Hero Image">
+    </div>
+    <!-- END HERO -->
+    <!-- PRODUCTS -->
+    <div class="products">
+        <div class="products-content">
+            <h1 class="section-title">our products</h1>
+            <div class="product-grid">
+                <div class="product-item">
+                    <img src="public/assets/images/headphones-image.png" alt="Headphones" class="product-image">
+                    <button>Headphones</button>
+                </div>
+                <div class="product-item">
+                    <img src="public/assets/images/accessories-image.png" alt="Accessories" class="product-image">
+                    <button>Accessories</button>
+                </div>
+                <div class="product-item">
+                    <img src="public/assets/images/phones-image.png" alt="Phones" class="product-image">
+                    <button>Phones</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END PRODUCTS -->
+
+    <!-- HEADPHONES -->
+    <div class="headphones">
+        <div class="headphones-content">
+            <h1 class="section-title">OUR HEADPHONES</h1>
+            <div class="headphones-section">
+                <img src="public/assets/images/headphone.jpg" alt="Premium wireless headphones with neon lighting"
+                    class="headphone-image">
+                <div class="product-info">
+                    <div class="tag-new">NEW</div>
+                    <h2 class="title">Take Your Music Everywhere</h2>
+                    <p class="description">Best headphones brands</p>
+                    <button class="shop-now">SHOP NOW</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END HEADPHONES -->
+    <!-- ACCESSORIES -->
+    <div class="accessories">
+        <h1 class="section-title">OUR ACCESSORIES</h1>
+        <div class="accessories-grid">
+            <div class="card">
+                <div class="card-image">
+                    <img src="public/assets/images/pack1.png" alt="Person showing phone protection">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">FOR THOSE WHO WANTS TO PROTECT THEIR PHONES</h2>
+                    <h3 class="card-subtitle">PROTECTIVE FILMS PACK</h3>
+                    <div class="price">35 TND</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="public/assets/images/pack2.png" alt="People taking selfie">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">FOR THOSE WHO WANTS TO PERSONALIZE THEIR PHONES</h2>
+                    <h3 class="card-subtitle">PHONE CASES PACK</h3>
+                    <div class="price">75 TND</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="public/assets/images/pack3.png" alt="People using phones">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">FOR THOSE WHO IN TEAMS</h2>
+                    <h3 class="card-subtitle">PHONE CASES & FILMS PROTECTION PACK</h3>
+                    <div class="price">100 TND</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END ACCESSORIES -->
+    <!-- FOOTER -->
+    <div id="footer"></div>
+    <!-- END FOOTER -->
+    <!-- Load External Navbar and Footer -->
+    <script>
+        function loadComponent(id, file) {
+            fetch(file)
+                .then(response => response.text())
+                .then(data => document.getElementById(id).innerHTML = data);
+        }
+        loadComponent("navbar", "navbar.html");
+        loadComponent("footer", "footer.html");
+    </script>
+</body>
+
+</html>
