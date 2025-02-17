@@ -1,0 +1,1073 @@
+.degradation-line {
+    height: 14px;
+    width: 1440px;
+    background: linear-gradient(to right, #FF4FF3, #832EFF);
+    width: 100%;
+}
+.breadcrumb {
+    color: #fff;
+    margin-left: 218px;
+
+
+}
+
+.breadcrumb a {
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 200px; /* Regular weight */
+    padding: 10px 1px;
+    font-size: 17px; /* Font size for the links */
+    letter-spacing: 1px;
+
+
+
+}
+
+.breadcrumb a.previous {
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 200px; /* Regular weight */
+    padding: 10px 1px;
+    font-size: 17px; /* Font size for the links */
+    letter-spacing: 1px;
+    opacity: 0.5;
+}
+
+
+
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+h1.prod {
+    font-size: 55px; /* Font size */
+    color: #fff; /* White color */
+    font-family: 'Outfit', sans-serif; /* Font family */
+    font-weight: 700; /* Bold (700 is bold, 600 is semi-bold) */
+    margin-left: 200px; /* Left margin */
+    letter-spacing: 4px; /* Letter spacing */
+    line-height: 100%; /* Line height */
+}
+
+
+
+.search-bar {
+    position: relative;
+    display: inline-block;
+    margin: 20px;
+    margin-right: 207px;
+
+}
+
+.search-bar input {
+    padding: 10px 50px 10px 20px; 
+    width: 270px;
+    height: 44px;
+    border-radius: 64px;
+    border: none;
+    background-color: #151343;
+    color: rgb(255, 255, 255);
+}
+
+.search-bar input::placeholder {
+    color: rgb(255, 255, 255);
+    font-family: 'Roboto', sans-serif;
+opacity: 70%;
+    font-weight: 300; /* Regular weight */
+    font-size: 13px; /* Font size for the placeholder */
+}
+
+.search-bar button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    background: linear-gradient(to right, #832EFF, #FF4FF3);
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 73px;
+    width: 55px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-bar button svg {
+    height: 20px;
+    width: 20px;
+    stroke: white;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #281549;
+    color: white;
+}
+
+.logo {
+    font-weight: bold;
+    font-family: 'Outfit', sans-serif;
+    font-size: 30px;
+    margin-top: 30px;
+    margin-left: 188px;
+    margin-right: 170px;
+
+
+
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    gap: 25px;
+
+}
+
+.nav-links a {
+    
+    text-decoration: none;
+    color: white;
+    padding: 10px 1px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 200px; /* Regular weight */
+    font-size: 17px; /* Font size for the links */
+    letter-spacing: 1px;
+    
+
+
+}
+/* 
+.nav-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+} */
+
+
+
+.cart-icon {
+height: 50px;
+width: 60px;
+margin-top: 25px;
+margin-right: 60px;
+}
+
+
+.container {
+    max-width: 1063px;
+    max-height: 256.82px;
+    margin-top: 45px;
+    margin-left: 220px;
+    background-color: rgba(166, 115, 239, 0.5); 
+    border-radius: 50px;
+}
+
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    margin-bottom: 20px;
+    border-radius: 50px;
+ 
+
+}
+
+.grid-section {
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.grid-section h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #fff;
+}
+
+
+
+
+
+.grid-section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+.grid-section ul li {
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 14px;
+    color: #ffffff;
+    position: relative;
+    padding-left: 35px; 
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 2px;
+}
+
+.grid-section ul li input[type="checkbox"] {
+    appearance: none; 
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 21.88px;
+    height: 16.46px;
+    border: 2.5px solid white; 
+    border-radius: 3px; 
+    background-color: transparent; 
+    cursor: pointer;
+}
+
+.grid-section ul li input[type="checkbox"]:checked {
+    background-color: white; 
+
+}
+
+
+
+
+.price-ram-section {
+display: grid;
+grid-template-columns: 1fr;
+
+padding: 10px;
+border-radius: 5px;
+min-height: 200px;
+min-width: 450px;
+align-items: center; 
+}
+
+.price-ram-grid {
+   display: flex; 
+   align-items: center; 
+   background-color: aqua;
+}
+
+.price-ram-grid h3 {
+   margin-top: 0;
+   font-size: 18px;
+}
+
+.price-ram-grid div {
+   padding: 10px;
+   text-align: center;
+}
+
+
+.price-ram-grid .price-item {
+border-bottom: 10px solid #000000; 
+padding-bottom: 10px; 
+margin-bottom: 10px; 
+
+}
+
+
+
+.reset-apply {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.reset-apply button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+.reset-apply button:hover {
+    background-color: #555;
+} 
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   font-family: 'Outfit', sans-serif;
+   background-color: #281549;
+}
+
+
+
+
+.container-prod {
+display: flex;
+gap: 33px;
+flex-wrap: wrap;
+max-width: 1200px;
+margin: 68px auto 10px; /* Adjusted margin-top */
+margin-left: 220px;
+position: relative;
+
+
+}
+
+
+.product-card {
+   
+   text-align: center;
+   color: rgb(255, 255, 255);
+   max-width: 242px;
+   max-height: 464px;
+   position: relative;
+
+}
+
+.product-card img {
+   width: 60%;
+   border-radius: 50px;
+   min-height: 230px;
+   min-width: 230px;
+}
+
+
+.checkmark {
+    position: absolute; /* Allows manual positioning */
+    top: -10px; /* Adjust as needed */
+    right: -10px; /* Adjust as needed */
+    width: 36px; /* Adjusted size */
+    height: 36px;
+    border-radius: 50%;
+    border: 3px solid #FF4FF3; /* Ensure visible border */
+    color: #FF4FF3;
+    font-size: 20px; /* Slightly larger for clarity */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent; /* No background */
+    font-weight: bold;
+}
+
+
+.product-card h4 {
+margin-top: 31px; /* Adjusted margin-top */
+font-size: 20px;
+font-family: 'Roboto', sans-serif;
+font-weight: 600; /* Semi-bold */
+}
+
+
+.product-card h4.hh {
+margin-top: 2.5px; /* Adjusted margin-top */
+font-size: 20px;
+font-family: 'Arial', sans-serif;
+font-weight: 600; /* Semi-bold */
+}
+
+
+
+
+.brand {
+    display: inline-block; /* Keeps it inline like the image */
+    color: #A9A0B2; /* Grayish text color */
+    padding: 5px 15px; /* Adjust padding to match */
+    border-radius: 8px; /* Smooth edges */
+    font-size: 40px; /* Adjust to match the size */
+    font-family: 'Arial', sans-serif; /* Close to Lenovo's font */
+    font-weight: bold; /* Bold text */
+    font-style: italic; /* Italicized */
+    text-transform: capitalize; /* Ensures "Lenovo" styling */
+    letter-spacing: 1px; /* Adjust for precision */
+}
+
+
+
+
+.availability {
+   border: 2px solid #03DABA;
+   padding: 10px 20px;
+   display: inline-block;
+   border-radius: 13px;
+   color: #03DABA;
+   margin-bottom: 10px;
+   font-size: 16px;
+   font-family: 'Roboto', sans-serif;  /* Use the correct font */
+font-weight: 600; 
+height: 46px; 
+width: 230px; 
+   
+}
+
+.nonavailability {
+   border: 2px solid #FF4545;
+   padding: 5px 10px;
+   display: inline-block;
+   border-radius: 13px;
+   color: #FF4545;
+   font-weight: medium;
+   margin-bottom: 10px;
+   font-size: 16px;
+
+}
+
+.price {
+   font-size: 35px;
+   color: #FF4FF3;
+   font-family: 'Roboto', sans-serif;
+   font-weight: 900; 
+}
+
+
+/* 
+footer {
+    color: white;
+    padding: 50px 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 10px; 
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+.footer-section h3 {
+    font-size: 14px;
+    margin-bottom: 15px;
+    margin-right: 2px;
+    margin-left: 2px;
+    color: #e92eff;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: #dfd6e6;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #ffffff;
+}
+
+.logo-footer {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.newsletter {
+    max-width: 320px;
+    margin-left: 10px;
+}
+
+.newsletter h3 {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: #ff29e9;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.newsletter input[type="email"] {
+    width: 80%;
+    padding: 12px;
+    border: none;
+    border-radius: 20px;
+    background-color: #0b0423;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    text-indent: 10px;
+    margin-right: 10px;
+}
+
+.newsletter button {
+    padding: 12px 20px;
+    background: linear-gradient(to right, #ff29e9, #ff4d96);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.newsletter button:hover {
+    opacity: 0.8;
+}
+
+.email-input {
+    position: relative;
+    display: inline-block;
+    margin: 20px;
+    margin-right: 300px;
+}
+
+.email-input input {
+    padding: 10px 50px 10px 20px;
+    width: 270px;
+    height: 44px;
+    border-radius: 64px;
+    border: none;
+    background-color: #151343;
+    color: rgb(255, 255, 255);
+}
+
+.email-input input::placeholder {
+    color: rgb(255, 255, 255);
+    font-family: 'Roboto', sans-serif;
+    opacity: 70%;
+    font-weight: 300;
+    font-size: 13px;
+}
+
+.email-input button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    background: linear-gradient(to right, #832EFF, #FF4FF3);
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 73px;
+    width: 55px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.email-input button svg {
+    height: 20px;
+    width: 20px;
+    stroke: white;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px; 
+    }
+
+    .footer-section {
+        margin-bottom: 20px;
+    }
+
+    .newsletter input[type="email"] {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .newsletter button {
+        width: 100%;
+    }
+} */
+
+
+
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.pagination button {
+    background: linear-gradient(135deg, #a200ff, #ff00ff);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination button:hover {
+    opacity: 0.8;
+}
+
+.pagination .page-number {
+    background: transparent;
+    border: 2px solid #ff00ff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.pagination .page-number:hover {
+    background: rgba(255, 0, 255, 0.2);
+}
+
+.pagination .current {
+    background: linear-gradient(135deg, #a200ff, #ff00ff);
+    color: white;
+    border: none;
+}
+
+.pagination .prev, .pagination .next {
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination .prev svg, .pagination .next svg {
+    width: 24px;
+    height: 24px;
+    stroke: white;
+}
+
+.pagination .dots {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: default;
+}
+
+.chat-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: transparent;
+    border: 3px solid #ff00ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.chat-icon img {
+    width: 32px;
+    height: 32px;
+    filter: brightness(0) saturate(100%) invert(39%) sepia(97%) saturate(5671%) hue-rotate(280deg) brightness(97%) contrast(104%);
+}
+
+.chat-icon:hover {
+    background: rgba(255, 0, 255, 0.2);
+}
+/* 
+
+footer {
+    color: white;
+    padding: 50px 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 20px; 
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 0; 
+}
+
+.footer-section h3 {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: #e92eff;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: #dfd6e6;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #ffffff;
+}
+
+.logo-footer {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.newsletter {
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+}
+
+.newsletter h3 {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: #ff29e9;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.newsletter .email-input {
+    width: 100%; 
+    margin: 0;
+}
+
+.newsletter input[type="email"] {
+    width: 100%; 
+    padding: 12px;
+    border: none;
+    border-radius: 20px;
+    background-color: #0b0423;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    text-indent: 10px;
+}
+
+.newsletter button {
+    padding: 12px 20px;
+    background: linear-gradient(to right, #ff29e9, #ff4d96);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: 0.3s;
+    margin-top: 10px; 
+}
+
+.newsletter button:hover {
+    opacity: 0.8;
+}
+
+.email-input {
+    position: relative;
+    display: inline-block;
+    width: 100%; 
+}
+
+.email-input input {
+    padding: 10px 50px 10px 20px;
+    width: 100%; 
+    height: 44px;
+    border-radius: 64px;
+    border: none;
+    background-color: #151343;
+    color: rgb(255, 255, 255);
+}
+
+.email-input input::placeholder {
+    color: rgb(255, 255, 255);
+    font-family: 'Roboto', sans-serif;
+    opacity: 70%;
+    font-weight: 300;
+    font-size: 13px;
+}
+
+.email-input button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    background: linear-gradient(to right, #832EFF, #FF4FF3);
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 73px;
+    width: 55px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.email-input button svg {
+    height: 20px;
+    width: 20px;
+    stroke: white;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px; 
+    }
+
+    .footer-section {
+        margin-bottom: 20px;
+    }
+
+    .newsletter {
+        align-items: center; 
+    }
+
+    .newsletter input[type="email"] {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .newsletter button {
+        width: 100%;
+    }
+} */
+
+
+
+footer {
+    color: white;
+    padding: 50px 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 20px; /* Consistent gap between all sections */
+}
+
+.footer-section {
+    flex: 1 1 200px; /* Allow sections to grow and shrink, but set a base width */
+    margin: 0; /* Remove margins to ensure consistent spacing */
+}
+
+.footer-section h3 {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: #e92eff;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: #dfd6e6;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #ffffff;
+}
+
+.logo-footer {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.newsletter {
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align content to the left */
+}
+
+.newsletter h3 {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: #ff29e9;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.newsletter .email-input {
+    width: 100%; /* Make the email input container full width */
+    margin: 0; /* Remove margins to ensure alignment */
+}
+
+.newsletter input[type="email"] {
+    width: 100%; /* Full width input */
+    padding: 12px;
+    border: none;
+    border-radius: 20px;
+    background-color: #0b0423;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    text-indent: 10px;
+}
+
+.newsletter button {
+    padding: 12px 20px;
+    background: linear-gradient(to right, #ff29e9, #ff4d96);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: 0.3s;
+    margin-top: 1px; /* Add space between input and button */
+}
+
+.newsletter button:hover {
+    opacity: 0.8;
+}
+
+.email-input {
+    position: relative;
+    display: inline-block;
+    width: 100%; /* Full width */
+}
+
+.email-input input {
+    padding: 10px 50px 10px 20px;
+    width: 100%; /* Full width */
+    height: 44px;
+    border-radius: 64px;
+    border: none;
+    background-color: #151343;
+    color: rgb(255, 255, 255);
+}
+
+.email-input input::placeholder {
+    color: rgb(255, 255, 255);
+    font-family: 'Roboto', sans-serif;
+    opacity: 70%;
+    font-weight: 300;
+    font-size: 13px;
+}
+
+.email-input button {
+    position: absolute;
+    right: 6px;
+    top: 47%;
+    transform: translateY(-50%);
+    padding: 10px;
+    background: linear-gradient(to right, #832EFF, #FF4FF3);
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 73px;
+    width: 70px;
+    height: 33px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px; /* Consistent gap for mobile view */
+    }
+
+    .footer-section {
+        margin-bottom: 20px;
+    }
+
+    .newsletter {
+        align-items: center; /* Center align for mobile */
+    }
+
+    .newsletter input[type="email"] {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .newsletter button {
+        width: 100%;
+    }
+}
