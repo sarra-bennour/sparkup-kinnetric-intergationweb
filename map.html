@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinnectric</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+<div class="degradation-line"></div>
+<nav>
+    <div class="logo">KINNECTRIC</div>
+    <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Computers</a></li>
+        <li><a href="#">Telephony & Tablets</a></li>
+        <li><a href="#">TV</a></li>
+        <li><a href="#">Printers</a></li>
+        <li><a href="#">Headphones</a></li>
+    </ul>
+    <div class="cart-icon">
+        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+    </div>
+</nav>
+<body>
+    <div class="container">
+        
+            
+            
+        
+        <div class="breadcrumb">Home / Cart / Payment / <b>Depots</b></div>
+        <div class="search-bar">
+            <input type="text" placeholder="El Ghazella">
+            <button>⌕</button>
+        </div>        
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+        
+        <div class="chatbot-icon">
+            <a href="#" onclick="openChatbox()">
+                <i class="fas fa-robot"></i> <!-- Robot Icon -->
+            </a>
+        </div>
+        
+        
+
+        <footer>
+            <div class="footer-links">
+                <!-- Logo Alignment -->
+                <div class="logo1">
+                    <h5>KINNECTRIC</h5>
+                </div>
+        
+                <!-- Footer Content with Links -->
+                <div>
+                    <h4>BUY NOW</h4>
+                    <ul>
+                        <li><a href="#">Computers</a></li>
+                        <li><a href="#">Phones</a></li>
+                        <li><a href="#">TV</a></li>
+                        <li><a href="#">Printers</a></li>
+                        <li><a href="#">Headphones</a></li>
+                    </ul>
+                </div>
+        
+                <div>
+                    <h4>CUSTOMER SUPPORT</h4>
+                    <ul>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                </div>
+        
+                <div>
+                    <h4>CONTACT</h4>
+                    <ul>
+                        <li><a href="#">Email</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                    </ul>
+                </div>
+            
+        
+            <!-- Newsletter Section -->
+            <div class="newsletter">
+                <h4>JOIN OUR NEWSLETTER</h4>
+                <div class="newsletter-input-container">
+                    <input type="email" placeholder="Email Address">
+                    <button>SUBMIT</button>
+                </div>
+            </div>
+        </div>
+        </footer>
+        
+    </div>
+    <div class="degradation-line"></div>
+</body>
+<script>
+    var map = L.map('map').setView([36.8500, 10.1980], 13); // Coordinates for the center of the map (e.g., London)
+  
+    // Adding OpenStreetMap tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+  
+    // Adding a marker at the center location
+    L.marker([36.8500, 10.1980]).addTo(map)
+      .bindPopup('El Ghazela')
+      .openPopup();
+
+
+    function openChatbox() {
+        // Replace this with your chatbot window logic or open a chat popup
+        alert("heyyyyyy!");
+    }
+  </script>
+  
+</html>
