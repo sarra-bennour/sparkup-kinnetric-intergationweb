@@ -405,11 +405,10 @@ position: relative;
    min-width: 230px;
 }
 
-
 .checkmark {
     position: absolute; /* Allows manual positioning */
-    top: -7px; /* Adjust as needed */
-    right: -6px; /* Adjust as needed */
+    top: 30px; /* Adjust as needed */
+    left: 210px; /* Adjust as needed */
     width: 36px; /* Adjusted size */
     height: 36px;
     border-radius: 50%;
@@ -421,7 +420,34 @@ position: relative;
     align-items: center;
     background-color: transparent; /* No background */
     font-weight: bold;
+    cursor: pointer;
+    position: relative; /* Needed for absolute positioning of tooltip */
 }
+
+/* Tooltip styling */
+.checkmark::after {
+    content: "Trusted by experts, recommended for excellence"; /* Change this to your message */
+    position: absolute;
+    bottom: 150%; /* Position above the checkmark */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(168, 123, 230, 0.681); /* Opacity of 57% */
+    color: white;
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: 50px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s;
+}
+
+/* Show tooltip on hover */
+.checkmark:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
 
 
 .product-card h4 {
