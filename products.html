@@ -5,23 +5,16 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>KINNECTRIC</title>
      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
      <link rel="stylesheet" href="styles.css">
  </head>
  <body>
     <div class="degradation-line"></div>
 
-    <nav class="navbar">
-        <a class="logo" >KINNECTRIC</a>
-        <div class="nav-links">
-            <a href="acceuil.html">Home</a>
-            <a href="#">Computers</a>
-            <a href="#">Telephony & Tablets</a>
-            <a href="#">TV</a>
-            <a href="#">Printers</a>
-            <a href="#">Headphones</a>
-        </div>
-        <a href="cart.html"><img src="cart.png" class="cart-icon" ></a>
-    </nav>
+    <div id="navbar"></div>
+
+
+ 
 
     
 
@@ -42,147 +35,145 @@
             </button>
         </div>
     </div>
- 
-      <div class="container">
-         <div class="grid">
-           <div class="grid-section">
-                   <h3>BRANDS</h3>
-                 <ul>
-                     <li>
-                        <label>
-                            <input type="checkbox" name="processor" value="i5"> Apple
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="checkbox" name="processor" value="i5"> Lenovo
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="checkbox" name="processor" value="i5"> HP
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="checkbox" name="processor" value="i5">Samsung
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="checkbox" name="processor" value="i5"> Dell
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="checkbox" name="processor" value="i5"> MSI
-                        </label>
-                    </li>
-                    
-                 </ul>
-             </div>
- 
-             <div class="grid-section">
-                <h3>PROCESSOR</h3>
-                <ul>
-                    <li>
-                        <label>
-                            <input type="checkbox" name="processor" value="i5"> Intel Core i5
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="checkbox" name="processor" value="i7"> Intel Core i7
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="checkbox" name="processor" value="i9"> Intel Core i9
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="checkbox" name="processor" value="ryzen5"> AMD Ryzen 5
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="checkbox" name="processor" value="ryzen7"> AMD Ryzen 7
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="checkbox" name="processor" value="ryzen9"> AMD Ryzen 9
-                        </label>
-                    </li>
-                </ul>
+
+    <div class="filter-container">
+        <div class="filter-section">
+            <div class="filter-title">BRANDS</div>
+            <div class="checkbox-group">
+                <label class="checkbox-item">
+                    <input type="checkbox">
+                    <span class="custom-checkbox"></span>
+                    Apple
+                </label>
+                <label class="checkbox-item">
+                    <input type="checkbox">
+                    <span class="custom-checkbox"></span>
+                    Lenovo
+                </label>
+                <label class="checkbox-item">
+                    <input type="checkbox">
+                    <span class="custom-checkbox"></span>
+                    HP
+                </label>
+                <label class="checkbox-item">
+                    <input type="checkbox">
+                    <span class="custom-checkbox"></span>
+                    Samsung
+                </label>
+                <label class="checkbox-item">
+                    <input type="checkbox">
+                    <span class="custom-checkbox"></span>
+                    Dell
+                </label>
+                <label class="checkbox-item">
+                    <input type="checkbox">
+                    <span class="custom-checkbox"></span>
+                    MSI
+                </label>
             </div>
-            
- 
-             <div class="grid-section">
-                 <h3>COLOR</h3>
-                 <ul>
-                     <li>
-                        <label>
-                            <input type="checkbox" name="processor" value="i5">Black
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="checkbox" name="processor" value="i5"> Silver
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="checkbox" name="processor" value="i5"> Blue
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="checkbox" name="processor" value="i5"> Gray
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="checkbox" name="processor" value="i5"> Gold
-                        </label>
-                    </li>
-                 </ul>
-             </div>
- 
-             <div class="price-ram-section">
-                 <div class="price-ram-grid">
-                     <h3>PRICE</h3>
-                     <div class="price-item">650 TND</div>
-                     <div class="price-item">13,599 TND</div>
-                 </div>
-             
-                 <div class="price-ram-grid">
-                     <h3>RAM</h3>
-                     <div>4 Go</div>
-                     <div>64 Go</div>
-                 </div>
-             </div>
-         </div>
- 
-         
-         <div class="reset-apply">
-             <button>RESET</button>
-             <button>APPLY</button>
-   
-         </div> 
-    </div> 
+        </div>
 
-    <div class="container-prod">
-   
+        <div class="filter-section">
+            <div class="filter-title">PROCESSOR</div>
+            <div class="checkbox-group">
+                <label class="checkbox-item">
+                    <input type="checkbox">
+                    <span class="custom-checkbox"></span>
+                    Intel Core I5
+                </label>
+                <label class="checkbox-item">
+                    <input type="checkbox">
+                    <span class="custom-checkbox"></span>
+                    Intel Core I7
+                </label>
+                <label class="checkbox-item">
+                    <input type="checkbox">
+                    <span class="custom-checkbox"></span>
+                    Intel Core I9
+                </label>
+                <label class="checkbox-item">
+                    <input type="checkbox">
+                    <span class="custom-checkbox"></span>
+                    AMD Ryzen 5
+                </label>
+                <label class="checkbox-item">
+                    <input type="checkbox">
+                    <span class="custom-checkbox"></span>
+                    AMD Ryzen 7
+                </label>
+                <label class="checkbox-item">
+                    <input type="checkbox">
+                    <span class="custom-checkbox"></span>
+                    AMD Ryzen 9
+                </label>
+            </div>
+        </div>
 
+        <div class="filter-section">
+            <div class="filter-title">COLOR</div>
+            <div class="checkbox-group">
+                <label class="checkbox-item">
+                    <input type="checkbox">
+                    <span class="custom-checkbox"></span>
+                    Black
+                </label>
+                <label class="checkbox-item">
+                    <input type="checkbox">
+                    <span class="custom-checkbox"></span>
+                    Silver
+                </label>
+                <label class="checkbox-item">
+                    <input type="checkbox">
+                    <span class="custom-checkbox"></span>
+                    Blue
+                </label>
+                <label class="checkbox-item">
+                    <input type="checkbox">
+                    <span class="custom-checkbox"></span>
+                    Gray
+                </label>
+                <label class="checkbox-item">
+                    <input type="checkbox">
+                    <span class="custom-checkbox"></span>
+                    Gold
+                </label>
+            </div>
+        </div>
+
+        <div class="range-section">
+            <div class="range-container">
+                <div class="filter-title">PRICE</div>
+                <div class="range-header">
+                    <span>650 TND</span>
+                    <span>13 599 TND</span>
+                </div>
+                <input type="range" min="650" max="13599" value="650">
+            </div>
+
+            <div class="range-container">
+                <div class="filter-title">RAM</div>
+                <div class="range-header">
+                    <span>4 Go</span>
+                    <span>64 Go</span>
+                </div>
+                <input type="range" min="4" max="64" value="4">
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-reset">RESET</button>
+                <button class="btn btn-apply">APPLY</button>
+            </div>
+        </div>
+    </div>
+
+      <div class="container-prod">
     <div class="product-card">
         <div class="checkmark">✔</div>
         <img src="pc.jpg" alt="Laptop Image">
         <h4>PC PORTABLE ASUS VIVOBOOK 15 X515KA</h4>
         <div class="brand">Lenovo</div>
         <div class="availability">AVAILABLE IN REAL TIME</div>
-        <div class="price">653 TND</div>
+        <div class="priceProd">653 TND</div>
     </div>
 
     <div class="product-card">
@@ -191,7 +182,7 @@
         <h4>PC PORTABLE ASUS VIVOBOOK 15 X515KA</h4>
         <div class="brand">Lenovo</div>
         <div class="availability">AVAILABLE IN REAL TIME</div>
-        <div class="price">653 TND</div>
+        <div class="priceProd">653 TND</div>
     </div>
 
     <div class="product-card">
@@ -200,7 +191,7 @@
         <h4>PC PORTABLE ASUS VIVOBOOK 15 X515KA</h4>
         <div class="brand">Lenovo</div>
         <div class="nonavailability"> NOT AVAILABLE IN REAL TIME</div>
-        <div class="price">653 TND</div>
+        <div class="priceProd">653 TND</div>
     </div>
     <div class="product-card">
         <div class="checkmark">✔</div>
@@ -208,7 +199,7 @@
         <h4>PC PORTABLE ASUS VIVOBOOK 15 X515KA</h4>
         <div class="brand">Lenovo</div>
         <div class="availability">AVAILABLE IN REAL TIME</div>
-        <div class="price">653 TND</div>
+        <div class="priceProd">653 TND</div>
     </div>
     
     <div class="product-card">
@@ -217,7 +208,7 @@
         <h4>PC PORTABLE ASUS VIVOBOOK 15 X515KA</h4>
         <div class="brand">Lenovo</div>
         <div class="nonavailability"> NOT AVAILABLE IN REAL TIME</div>
-        <div class="price">653 TND</div>
+        <div class="priceProd">653 TND</div>
     </div>
 
     <div class="product-card">
@@ -226,7 +217,7 @@
         <h4>PC PORTABLE ASUS VIVOBOOK 15 X515KA</h4>
         <div class="brand">Lenovo</div>
         <div class="availability">AVAILABLE IN REAL TIME</div>
-        <div class="price">653 TND</div>
+        <div class="priceProd">653 TND</div>
     </div>
 
     <div class="product-card">
@@ -235,7 +226,7 @@
         <h4>PC PORTABLE ASUS VIVOBOOK 15 X515KA</h4>
         <div class="brand">Lenovo</div>
         <div class="availability">AVAILABLE IN REAL TIME</div>
-        <div class="price">653 TND</div>
+        <div class="priceProd">653 TND</div>
     </div>
     <div class="product-card">
         <div class="checkmark">✔</div>
@@ -243,7 +234,7 @@
         <h4>PC PORTABLE ASUS VIVOBOOK 15 X515KA</h4>
         <div class="brand">Lenovo</div>
         <div class="availability">AVAILABLE IN REAL TIME</div>
-        <div class="price">653 TND</div>
+        <div class="priceProd">653 TND</div>
     </div>
     
     <div class="product-card">
@@ -252,7 +243,7 @@
         <h4>PC PORTABLE ASUS VIVOBOOK 15 X515KA</h4>
         <div class="brand">Lenovo</div>
         <div class="nonavailability"> NOT AVAILABLE IN REAL TIME</div>
-        <div class="price">653 TND</div>
+        <div class="priceProd">653 TND</div>
     </div>
 
     <div class="product-card">
@@ -261,7 +252,7 @@
         <h4>PC PORTABLE ASUS VIVOBOOK 15 X515KA</h4>
         <div class="brand">Lenovo</div>
         <div class="availability">AVAILABLE IN REAL TIME</div>
-        <div class="price">653 TND</div>
+        <div class="priceProd">653 TND</div>
     </div>
 
     <div class="product-card">
@@ -270,7 +261,7 @@
         <h4>PC PORTABLE ASUS VIVOBOOK 15 X515KA</h4>
         <div class="brand">Lenovo</div>
         <div class="availability">AVAILABLE IN REAL TIME</div>
-        <div class="price">653 TND</div>
+        <div class="priceProd">653 TND</div>
     </div>
     <div class="product-card">
         <div class="checkmark">✔</div>
@@ -278,7 +269,7 @@
         <h4>PC PORTABLE ASUS VIVOBOOK 15 X515KA</h4>
         <div class="brand">Lenovo</div>
         <div class="availability">AVAILABLE IN REAL TIME</div>
-        <div class="price">653 TND</div>
+        <div class="priceProd">653 TND</div>
     </div>
 </div>
 <div class="pagination">
@@ -308,52 +299,25 @@
 </div>
 
 
-<footer>
-    <div class="footer-container">
-        <div class="footer-section">
-            <a class="logo-footer">KINNECTRIC</a>
-        </div>
-        <div class="footer-section">
-            <h3>BUY NOW</h3>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Computers</a></li>
-                <li><a href="#">Telephony & Tablets</a></li>
-                <li><a href="#">TV</a></li>
-                <li><a href="#">Printers</a></li>
-                <li><a href="#">Headphones</a></li>
-            </ul>
-        </div>
-        <div class="footer-section">
-            <h3>CUSTOMER SUPPORT</h3>
-            <ul>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Help Center</a></li>
-                <li><a href="#">About</a></li>
-            </ul>
-        </div>
-        <div class="footer-section">
-            <h3>CONTACT</h3>
-            <ul>
-                <li><a href="#">Email</a></li>
-                <li><a href="#">LinkedIn</a></li>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">Twitter</a></li>
-            </ul>
-        </div>
-        <div class="footer-section newsletter">
-            <h3>JOIN OUR NEWSLETTER</h3>
-            <div class="email-input">
-                <input type="text" placeholder="Email Address">
-                <button type="submit">Submit</button>
-            </div>
-        </div>
-    </div>
-</footer>
-
+<div id="footer"></div>
 
      <div class="degradation-line"></div>
 
+   <script>
+        // Function to load external HTML
+        function loadHTML(id, url) {
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                })
+                .catch(error => console.error('Error loading HTML:', error));
+        }
+
+        // Load nav and footer
+        loadHTML('navbar', 'navbar.html');
+        loadHTML('footer', 'footer.html');
+    </script>
 
      
  </body>
