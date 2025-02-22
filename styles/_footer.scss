@@ -1,0 +1,57 @@
+footer {
+    background: #2E0854;
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    margin: 10px;
+
+    h3 {
+        color: white;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+            a {
+                color: white;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+.newsletter-input {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+
+    input {
+        padding: 8px;
+        border: none;
+        border-radius: 5px;
+    }
+
+    button {
+        padding: 8px 12px;
+        border: none;
+        border-radius: 5px;
+        background: #FF00FF;
+        color: white;
+        cursor: pointer;
+    }
+}

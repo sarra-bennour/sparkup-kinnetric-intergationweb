@@ -1,0 +1,42 @@
+@import "variables";
+
+.shipping-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.shipping-option {
+  width: 800px;
+  height: 70px;
+  padding: 10px;
+  background: #D1CED5;
+  color: #281549;
+  border-radius: 73px;
+  margin: 10px 0;
+  display: flex;
+ 
+  align-items: center;
+  position: relative;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  input[type="radio"] {
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #888;
+    border-radius: 50%;
+    margin-right: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  input[type="radio"]:checked {
+    border-color: #6C5DD3;
+    background-color: rgb(57, 21, 71);
+  }
+}

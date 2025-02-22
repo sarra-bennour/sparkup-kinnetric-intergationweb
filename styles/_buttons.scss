@@ -1,0 +1,50 @@
+@import "variables";
+.new-address {
+    margin-left: 690px;
+    display: flex;
+    justify-content: flex-end;  // Aligne les boutons à droite
+    gap: 20px;  // Espacement entre les boutons
+}
+
+button, .depots-button, .next-button {
+    font-family: $font-secondary;
+    background: $button-gradient;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 73px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px 15px;
+
+    &:hover {
+        background: linear-gradient(to right, #FF4FF3 0%, #832EFF 100%);
+    }
+}
+
+.depots-button,
+.next-button {
+    font-family: 'Outfit', sans-serif;
+    background: linear-gradient(to right, #832EFF 0%, #FF4FF3 100%);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 73px;
+    font-size: 16px;
+    cursor: pointer;
+    
+    &:hover {
+        background: linear-gradient(to right, #FF4FF3 0%, #832EFF 100%);
+    }
+}
+
+.back-button {
+    font-family: 'Outfit', sans-serif;
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 20px;
+    border-radius: 73px;
+    font-size: 16px;
+    cursor: pointer;
+}

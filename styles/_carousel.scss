@@ -1,0 +1,42 @@
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+}
+
+.carousel-item {
+    text-align: center;
+    margin: 0 30px;
+}
+
+.carousel {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 50px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    max-height: 120px;
+    display: flex;
+    flex-direction: column;
+    scroll-snap-type: y mandatory;
+
+    li {
+        padding: 5px 10px;
+        text-align: center;
+        cursor: pointer;
+        background: #D1CED5;
+        color: #000000;
+        margin: 5px 0;
+        border-radius: 5px;
+        scroll-snap-align: start;
+
+        &.selected {
+            background-color: #6C5DD3;
+            color: white;
+        }
+    }
+}

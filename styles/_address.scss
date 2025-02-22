@@ -1,0 +1,68 @@
+@import "variables";  // Import des variables si nécessaires
+
+.address-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.address-option {
+  width: 100%;  // Prendre toute la largeur de l'écran ou selon le conteneur parent
+  max-width: 800px;  // Limiter à une largeur maximale
+  height: 80px;
+  padding: 10px 20px;  // Espacement autour du contenu
+  background: #D1CED5;
+  color: #281549;
+  border-radius: 73px;
+  margin: 10px 0;
+  display: flex;
+ 
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;  // Inclure le padding dans la largeur totale
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  input[type="radio"] {
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #888;
+    border-radius: 50%;
+    margin-right: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: transparent;  // Assurez-vous que le fond est transparent
+  }
+
+  input[type="radio"]:checked {
+    border-color: #6C5DD3;
+    background-color: hsl(284, 64%, 30%);
+  }
+  .address-text {
+    flex-direction: column;
+    justify-content: center;
+    color: #281549;
+    font-size: 16px;
+    text-align: left;  // Alignement du texte à gauche
+    font-weight: 500;
+    margin-right: auto;  // Décale l'élément vers la gauche
+  }
+  
+
+  .edit-icon, .delete-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 24px;
+    margin-left: 10px;
+  }
+
+  .edit-size, .delete-size {
+    font-size: 20px;
+  }
+}

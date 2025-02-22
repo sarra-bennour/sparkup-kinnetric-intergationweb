@@ -175,7 +175,7 @@ nav ul li a:hover {
 
 .address-option input[type="radio"]:checked {
     border-color: #6C5DD3;
-    background-color: rgb(0, 0, 0);  /* Fond blanc à l'intérieur */
+    background-color: rgb(57, 21, 71);  /* Fond blanc à l'intérieur */
 }
 
 .address-option input[type="radio"]:checked::before {
@@ -295,7 +295,7 @@ margin-top:50px ;
 /* Quand le radio est sélectionné */
 .shipping-option input[type="radio"]:checked {
     border-color: #6C5DD3;
-    background-color: rgb(0, 0, 0);  /* Fond interne noir */
+    background-color: rgb(57, 21, 71);   /* Fond interne noir */
 }
 
 /* Style interne du radio */
