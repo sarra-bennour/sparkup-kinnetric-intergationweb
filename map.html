@@ -32,14 +32,36 @@
             
             
         
-        <div class="breadcrumb">Home / Cart / Payment / <b>Depots</b></div>
+        <div class="breadcrumb">Home / Cart / Payment / Receipt /<b>Track</b></div>
         <div class="search-bar">
             <input type="text" placeholder="El Ghazella">
             <button>⌕</button>
         </div>        
         <div class="map-container">
+            <div class="left-panel">
+                <h2>Estimated Delivery Time</h2>
+                <div class="delivery-time-options">
+                    <div class="time-option">
+                        <input type="radio" id="time1" name="delivery-time" value="9:15 AM">
+                        <label for="time1">8:56 AM
+                            <h6>There is a traffic at rondpoint ghazella , i’m sorry . </h6>
+                        </label>
+                    </div>
+                    <div class="time-option">
+                        <input type="radio" id="time2" name="delivery-time" value="9:30 AM" >
+                        <label for="time2">9:15 AM
+                            <h6>I’m almost there , please wait to pick up your delivery .</h6>
+                        </label>
+                        
+                    </div>
+                    
+                </div>
+                <button class="disclaimer-btn">DISCLAIMER</button>
+            </div>
+    
             <div id="map"></div>
         </div>
+        
         
         <div class="chatbot-icon">
             <a href="#" onclick="openChatbox()">
@@ -69,7 +91,7 @@
                 </div>
         
                 <div>
-                    <h4>CUSTOMER SUPPORT</h4>
+                    <h4>CUSTOMER <br> SUPPORT</h4>
                     <ul>
                         <li><a href="#">Contact us</a></li>
                         <li><a href="#">Help Center</a></li>
