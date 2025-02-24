@@ -1,0 +1,15 @@
+@use 'variables' as *;
+
+@mixin button-style {
+    background: $btn-gradient;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: $border-radius;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+        background: $btn-hover-gradient;
+    }
+}

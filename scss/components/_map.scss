@@ -1,0 +1,27 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.map-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    margin-right: 31px;
+}
+
+#map {
+    width: 64%;
+    height: 400px;
+    border-radius: $border-radius;
+}
+
+.left-panel {
+    margin-left: 57px;
+    width: 27%;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    color: $text-color;
+    border-radius: $border-radius;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

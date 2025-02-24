@@ -1,0 +1,14 @@
+// Couleurs principales
+$primary-color: #FF4FF3;
+$secondary-color: #832EFF;
+$primary-dark: #2b1055; 
+$bg-gradient: linear-gradient(135deg, #2b1055, #7b1fa2);
+$text-color: white;
+
+// Boutons
+$btn-gradient: linear-gradient(to right, $secondary-color, $primary-color);
+$btn-hover-gradient: linear-gradient(to right, $primary-color, $secondary-color);
+
+// Tailles
+$border-radius: 20px;
+$container-width: 80%;
