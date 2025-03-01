@@ -779,22 +779,25 @@ footer {
   position: relative;
   background-color: rgba(255, 255, 255, 0.2431372549);
   display: flex;
-  align-items: center;
-  justify-content: space-evenly; /* Espacement égal entre les éléments */
-  padding: 0 20px;
+  align-items: center; /* Centrer verticalement */
+  justify-content: space-evenly; /* Espacement égal entre les groupes */
+  padding: 0 10px; /* Moins de padding à gauche et à droite */
   box-sizing: border-box;
   overflow-x: hidden;
 }
 
 .Group8, .Group6, .Group7 {
   display: flex;
-  align-items: center; /* Alignement vertical des éléments */
+  flex-direction: column;
+  align-items: center; /* Centrer verticalement à l'intérieur de chaque groupe */
+  justify-content: center;
+  width: 25%; /* Réduire la largeur des groupes */
 }
 
 .material-symbols-outlined {
   font-size: 24px; /* Taille de l'icône */
   color: #979797;
-  margin-right: 8px; /* Réduit l'espace entre l'icône et le texte */
+  margin-bottom: 8px; /* Espacement entre l'icône et le texte */
   transition: font-size 0.3s ease;
 }
 
@@ -838,6 +841,9 @@ footer {
   }
   .step-number, .step-label {
     font-size: 12px; /* Réduction du texte sur petits écrans */
+  }
+  .Card {
+    padding: 10px; /* Moins de padding pour les petits écrans */
   }
 }
 * {
