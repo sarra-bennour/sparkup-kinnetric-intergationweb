@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.5/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -168,24 +169,41 @@
             
         </div>
     
-        <div class="delivery-time">
-            <h2 class="select-adress">FIX DELVERY TIMEI</h2>
-            <div class="carousel-container">
-                <div class="carousel-item"><h4>DAY</h4><ul class="carousel" id="day-carousel"></ul></div>
-                <div class="carousel-item"><h4>MONTH</h4><ul class="carousel" id="month-carousel"></ul></div>
-                <div class="carousel-item"><h4>YEAR</h4><ul class="carousel" id="year-carousel"></ul></div>
-                <div class="carousel-item"><h4>HOUR</h4><ul class="carousel" id="hour-carousel"></ul></div>
-                <div class="carousel-item"><h4>MINUTE</h4><ul class="carousel" id="minute-carousel"></ul></div>
-                <div class="carousel-item">
-                    <h4>AM & PM</h4>
-                    <ul class="carousel" id="AMPM-carousel">
-                        <li onclick="selectItemAMPM(this)">AM</li>
-                        <li onclick="selectItemAMPM(this)">PM</li>
+        <div class="delivery-time p-4">
+            <h2 class="select-adress text-xl font-bold text-center mb-4">FIX DELIVERY TIME</h2>
+        
+            <div class="carousel-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div class="carousel-item text-center">
+                    <h4 class="font-semibold">DAY</h4>
+                    <ul class="carousel space-y-2 p-2 bg-gray-200 rounded-md" id="day-carousel"></ul>
+                </div>
+                <div class="carousel-item text-center">
+                    <h4 class="font-semibold">MONTH</h4>
+                    <ul class="carousel space-y-2 p-2 bg-gray-200 rounded-md" id="month-carousel"></ul>
+                </div>
+                <div class="carousel-item text-center">
+                    <h4 class="font-semibold">YEAR</h4>
+                    <ul class="carousel space-y-2 p-2 bg-gray-200 rounded-md" id="year-carousel"></ul>
+                </div>
+                <div class="carousel-item text-center">
+                    <h4 class="font-semibold">HOUR</h4>
+                    <ul class="carousel space-y-2 p-2 bg-gray-200 rounded-md" id="hour-carousel"></ul>
+                </div>
+                <div class="carousel-item text-center">
+                    <h4 class="font-semibold">MINUTE</h4>
+                    <ul class="carousel space-y-2 p-2 bg-gray-200 rounded-md" id="minute-carousel"></ul>
+                </div>
+                <div class="carousel-item text-center">
+                    <h4 class="font-semibold">AM & PM</h4>
+                    <ul class="carousel space-y-2 p-2 bg-gray-200 rounded-md" id="AMPM-carousel">
+                        <li class="cursor-pointer p-2 rounded-md bg-gray-300 hover:bg-gray-400" onclick="selectItemAMPM(this)">AM</li>
+                        <li class="cursor-pointer p-2 rounded-md bg-gray-300 hover:bg-gray-400" onclick="selectItemAMPM(this)">PM</li>
                     </ul>
                 </div>
-                
             </div>
         </div>
+        
+        
         <div class="button-container">
             <button class="back-button" onclick="showStep(1)">Back</button>
             <button class="next-button" onclick="showStep(3)">Next</button>

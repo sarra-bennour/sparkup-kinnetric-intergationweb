@@ -355,20 +355,25 @@ button:hover, .depots-button:hover, .next-button:hover, .back-button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+  text-align: left;
+  max-width: 90%;
+  width: 100%;
+  margin: auto;
+  gap: 10px;
 }
 
 .shipping-option {
-  width: 800px;
+  width: 100%;
+  max-width: 750px;
   height: 70px;
   padding: 10px;
   background: #D1CED5;
   color: #281549;
   border-radius: 73px;
-  margin: 10px 0;
   display: flex;
   align-items: center;
   position: relative;
+  transition: all 0.3s ease-in-out;
 }
 .shipping-option:hover {
   background: rgba(255, 255, 255, 0.3);
@@ -379,7 +384,7 @@ button:hover, .depots-button:hover, .next-button:hover, .back-button:hover {
   height: 24px;
   border: 2px solid #888;
   border-radius: 50%;
-  margin-right: 15px;
+  margin-left: 15px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -387,7 +392,65 @@ button:hover, .depots-button:hover, .next-button:hover, .back-button:hover {
   border-color: #6C5DD3;
   background-color: rgb(57, 21, 71);
 }
+.shipping-option label {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  align-items: center; /* Centrer verticalement */
+  padding-left: 15px;
+  width: 100%;
+}
+.shipping-option .titre-adresse {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left; /* Toujours à gauche */
+}
+.shipping-option .description {
+  font-size: 14px;
+  color: #444;
+  text-align: center; /* Centrer la description */
+  flex-grow: 1;
+}
+.shipping-option .date {
+  font-size: 12px;
+  color: #777;
+  text-align: left; /* Toujours à gauche */
+}
 
+/* 📏 Ajustements responsifs */
+@media (max-width: 768px) {
+  .shipping-option {
+    max-width: 95%;
+    height: 70px;
+    padding: 10px;
+  }
+  label {
+    padding-left: 10px;
+  }
+  .titre-adresse {
+    font-size: 14px;
+  }
+  .description {
+    font-size: 12px;
+  }
+  .date {
+    font-size: 10px;
+  }
+}
+@media (max-width: 480px) {
+  .titre-adresse {
+    font-size: 12px;
+  }
+  .description {
+    font-size: 10px;
+  }
+  .date {
+    font-size: 9px;
+  }
+  label {
+    padding-left: 8px;
+  }
+}
 footer {
   background: #2E0854;
   padding: 20px;
@@ -439,46 +502,118 @@ footer {
 }
 
 .carousel-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  position: relative;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* Par défaut une seule colonne */
+  gap: 0.25rem;
+  padding: 0 1rem;
 }
 
 .carousel-item {
   text-align: center;
-  margin: 0 30px;
+  padding: 0.25rem;
+  width: auto;
+  max-width: 90%;
+  margin: 0 auto;
+  position: relative; /* Nécessaire pour positionner les flèches par rapport à chaque item */
 }
 
+.carousel-item::before {
+  content: "↓"; /* Flèche pointant vers le bas */
+  font-size: 20px; /* Taille de la flèche */
+  position: absolute;
+  top: -20px; /* Positionner la flèche juste au-dessus de l'élément */
+  left: 50%;
+  transform: translateX(-50%); /* Centrer la flèche horizontalement */
+  color: #b2aec7; /* Couleur de la flèche (ajustez cette couleur) */
+  animation: bounceDown 1s infinite; /* Animation pour attirer l'attention */
+}
+
+.carousel-item::after {
+  content: "↑"; /* Flèche pointant vers le haut */
+  font-size: 20px; /* Taille de la flèche */
+  position: absolute;
+  bottom: -20px; /* Positionner la flèche juste en dessous de l'élément */
+  left: 50%;
+  transform: translateX(-50%); /* Centrer la flèche horizontalement */
+  color: #b2aec7; /* Couleur de la flèche (ajustez cette couleur) */
+  animation: bounceUp 1s infinite; /* Animation pour attirer l'attention */
+}
+
+/* Animation pour faire rebondir la flèche vers le bas */
+@keyframes bounceDown {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+/* Animation pour faire rebondir la flèche vers le haut */
+@keyframes bounceUp {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(5px);
+  }
+}
 .carousel {
   list-style: none;
   padding: 0;
   margin: 0;
   height: 50px;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
+  overflow-y: scroll; /* Permet le défilement mais cache la barre */
   max-height: 120px;
   display: flex;
   flex-direction: column;
+  scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
 }
+
+/* Pour masquer la barre de défilement, mais garder le défilement fonctionnel */
+.carousel::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
 .carousel li {
   padding: 5px 10px;
   text-align: center;
   cursor: pointer;
   background: #D1CED5;
   color: #000000;
-  margin: 5px 0;
+  margin: 2px 0;
   border-radius: 5px;
   scroll-snap-align: start;
 }
+
+/* Masquer le texte mais garder le carrousel fonctionnel */
+.carousel li span {
+  display: none; /* Cache le texte, mais garde l'élément cliquable */
+}
+
+/* Sélectionner un élément et lui ajouter un style */
 .carousel li.selected {
   background-color: #6C5DD3;
   color: white;
 }
 
+/* Points de rupture pour les écrans plus grands */
+@media (min-width: 640px) {
+  .carousel-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 768px) {
+  .carousel-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .carousel-container {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
 .edit-icon,
 .delete-icon {
   position: absolute;
@@ -857,6 +992,8 @@ body {
 }
 
 h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
   font-size: 24px;
   font-weight: bold;
   margin-left: 250px;
