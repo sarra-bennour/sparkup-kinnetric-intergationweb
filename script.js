@@ -89,3 +89,38 @@ function selectItemAMPM(item) {
     items.forEach(i => i.classList.remove('selected'));
     item.classList.add('selected');
 }
+document.addEventListener("DOMContentLoaded", function() {
+    const payButton = document.querySelector(".pay-button");
+    const popupOverlay = document.querySelector(".popup-overlay");
+    const closeButton = document.querySelector(".close-btn");
+
+    if (payButton) {
+        payButton.addEventListener("click", () => {
+            console.log("Bouton PAY cliqué"); // Vérification console
+            popupOverlay.classList.add("active");
+            document.querySelector(".blur-background").style.visibility = "visible";
+            document.querySelector(".blur-background").style.opacity = "1";
+        });
+    } else {
+        console.error("Le bouton PAY n'a pas été trouvé !");
+    }
+
+    if (closeButton) {
+        closeButton.addEventListener("click", () => {
+            console.log("Fermeture du popup"); // Vérification console
+            popupOverlay.classList.remove("active");
+            document.querySelector(".blur-background").style.visibility = "hidden";
+            document.querySelector(".blur-background").style.opacity = "0";
+        });
+    }
+
+    // Fermer la popup en cliquant en dehors
+    popupOverlay.addEventListener("click", (e) => {
+        if (e.target === popupOverlay) {
+            popupOverlay.classList.remove("active");
+            document.querySelector(".blur-background").style.visibility = "hidden";
+            document.querySelector(".blur-background").style.opacity = "0";
+        }
+    });
+});
+
