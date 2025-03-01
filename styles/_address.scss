@@ -1,26 +1,27 @@
-@import "variables";  // Import des variables si nécessaires
-
 .address-options {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  padding: 0 10vw;  // Utilisation de la largeur du viewport pour maintenir l'espace de chaque côté
+
+  // Optionnel : un max-width pour que tout s'ajuste sans dépasser une certaine largeur
+  max-width: 100%;
 }
 
 .address-option {
-  width: 100%;  // Prendre toute la largeur de l'écran ou selon le conteneur parent
-  max-width: 800px;  // Limiter à une largeur maximale
+  width: 100%;
+  max-width: 800px;  // Conserver une largeur maximale pour chaque option
   height: 80px;
-  padding: 10px 20px;  // Espacement autour du contenu
+  padding: 10px 20px;
   background: #D1CED5;
   color: #281549;
   border-radius: 73px;
   margin: 10px 0;
   display: flex;
- 
   align-items: center;
   position: relative;
-  box-sizing: border-box;  // Inclure le padding dans la largeur totale
+  box-sizing: border-box;
 
   &:hover {
     background: rgba(255, 255, 255, 0.3);
@@ -35,21 +36,22 @@
     margin-right: 15px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    background-color: transparent;  // Assurez-vous que le fond est transparent
+    background-color: transparent;
   }
 
   input[type="radio"]:checked {
     border-color: #6C5DD3;
     background-color: hsl(284, 64%, 30%);
   }
+
   .address-text {
     flex-direction: column;
     justify-content: center;
     color: #281549;
-    font-size: 16px;
-    text-align: left;  // Alignement du texte à gauche
-    font-weight: 500;
-    margin-right: auto;  // Décale l'élément vers la gauche
+    font-size: 1.2vw;  // Ajuste dynamique de la taille de la police en fonction de la largeur de l'écran
+    text-align: right;  // Aligner le texte à droite
+    font-weight: 400;  // Poids de police normal
+    margin-right: 0;  // Enlever le margin-right auto pour l'aligner à droite
   }
   
 
@@ -65,4 +67,113 @@
   .edit-size, .delete-size {
     font-size: 20px;
   }
+}
+
+// Media queries pour s'assurer que la taille de la police s'ajuste bien sur les petits écrans
+@media (max-width: 1070px) {
+  .address-options {
+    padding: 0 5vw;  // Réduction de l'espace sur les petits écrans
+  }
+
+  .address-option {
+    padding: 8px 15px;
+    font-size: 1.5vw;  // Ajuster la taille du texte pour s'adapter
+  }
+
+  .address-text {
+    font-size: 1.5vw;  // Ajuster la taille du texte
+  }
+
+  .edit-size, .delete-size {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .address-options {
+    padding: 0 5vw;  // Réduire un peu plus l'espace pour les écrans plus petits
+  }
+
+  .address-option {
+    padding: 6px 10px;
+    font-size: 2vw;  // Ajuster davantage la taille du texte
+  }
+
+  .address-text {
+    font-size: 2vw;  // Réduire la taille du texte pour les écrans très petits
+  }
+
+  .edit-size, .delete-size {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .address-options {
+    padding: 0 5vw;  // Réduire encore l'espace à gauche et à droite pour les petits écrans
+  }
+
+  .address-option {
+    padding: 5px 8px;
+    font-size: 2.5vw;  // Plus petit pour les très petits écrans
+  }
+
+  .address-text {
+    font-size: 2.5vw;  // Ajuste la taille du texte pour être plus petite
+  }
+
+  .edit-size, .delete-size {
+    font-size: 14px;
+  }
+}
+.add-address {
+  display: flex;
+  justify-content: center;  // Centrer horizontalement les éléments
+  align-items: center;  // Centrer verticalement les éléments
+  width: 100%;  // Prendre toute la largeur de l'écran
+  position: relative;  // Permet de positionner les éléments par rapport à ce conteneur
+  margin-top: 30px;  // Ajouter de l'espace en haut et garder un espacement visuel constant
+
+ 
+  .plus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;  // Superposer l'icône sur la ligne
+    font-size: 3.5vw;  // Réduire la taille de l'icône pour un meilleur ajustement
+    color: #6C5DD3;  // Couleur de l'icône
+    z-index: 1;  // Assure que l'icône reste au-dessus de la ligne
+    top: 50%;  // Centrer verticalement l'icône
+    transform: translateY(-50%);  // Ajuster l'icône pour bien la centrer au milieu de la ligne
+  }
+
+  .material-symbols-outlined {
+    font-size: inherit;  // Utiliser la taille de police définie dans .plus
+  }
+}
+
+// Media queries pour ajuster la taille de l'icône sur les petits écrans
+@media (max-width: 768px) {
+  .add-address {
+    margin-top: 20px;  // Espacement visuel ajusté pour les petits écrans
+    height: 60px;  // Réduire la hauteur sur les petits écrans
+  }
+
+  .plus {
+    font-size: 5vw;  // Ajuster la taille de l'icône sur les petits écrans
+  }
+
+}
+
+@media (max-width: 480px) {
+  .add-address {
+    margin-top: 15px;  // Réduire un peu plus l'espacement en haut
+    height: 50px;  // Réduire encore la hauteur sur les très petits écrans
+  }
+
+  .plus {
+    font-size: 6vw;  // Augmenter un peu la taille de l'icône pour les petits écrans
+  }
+
+  
 }

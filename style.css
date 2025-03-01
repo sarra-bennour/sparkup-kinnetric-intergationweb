@@ -1,4 +1,7 @@
 @charset "UTF-8";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 body {
   font-family: "Poppins", sans-serif;
   margin: 0;
@@ -49,15 +52,27 @@ nav ul li a {
 nav ul li a:hover {
   text-decoration: underline;
 }
+@media (max-width: 1000px) {
+  nav ul {
+    display: none;
+  }
+  nav .cart-icon {
+    display: none;
+  }
+}
 
 .new-address {
-  margin-left: 690px;
   display: flex;
   justify-content: flex-end;
   gap: 20px;
+  flex-wrap: wrap;
+  margin: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-button, .depots-button, .next-button {
+button, .depots-button, .next-button, .back-button {
   font-family: "Outfit", sans-serif;
   background: linear-gradient(to right, #832EFF 0%, #FF4FF3 100%);
   color: white;
@@ -67,21 +82,16 @@ button, .depots-button, .next-button {
   font-size: 16px;
   cursor: pointer;
   margin: 10px 15px;
+  transition: background 0.3s ease;
 }
-button:hover, .depots-button:hover, .next-button:hover {
+button:hover, .depots-button:hover, .next-button:hover, .back-button:hover {
   background: linear-gradient(to right, #FF4FF3 0%, #832EFF 100%);
 }
 
 .depots-button,
 .next-button {
-  font-family: "Outfit", sans-serif;
   background: linear-gradient(to right, #832EFF 0%, #FF4FF3 100%);
   color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 73px;
-  font-size: 16px;
-  cursor: pointer;
 }
 .depots-button:hover,
 .next-button:hover {
@@ -89,7 +99,6 @@ button:hover, .depots-button:hover, .next-button:hover {
 }
 
 .back-button {
-  font-family: "Outfit", sans-serif;
   background: transparent;
   color: white;
   border: 2px solid white;
@@ -99,6 +108,29 @@ button:hover, .depots-button:hover, .next-button:hover {
   cursor: pointer;
 }
 
+@media (max-width: 1070px) {
+  .new-address {
+    justify-content: flex-end;
+    padding-right: 10px;
+    width: 100%;
+  }
+  button, .depots-button, .next-button, .back-button {
+    width: auto;
+    font-size: 14px;
+    padding: 12px 15px;
+    margin: 10px 5px;
+  }
+}
+@media (max-width: 600px) {
+  .new-address {
+    padding-right: 5px;
+  }
+  button, .depots-button, .next-button, .back-button {
+    font-size: 12px;
+    padding: 10px 12px;
+    margin: 5px 3px;
+  }
+}
 .steps-container {
   display: flex;
   justify-content: space-between;
@@ -176,6 +208,8 @@ button:hover, .depots-button:hover, .next-button:hover {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  padding: 0 10vw;
+  max-width: 100%;
 }
 
 .address-option {
@@ -214,10 +248,10 @@ button:hover, .depots-button:hover, .next-button:hover {
   flex-direction: column;
   justify-content: center;
   color: #281549;
-  font-size: 16px;
-  text-align: left;
-  font-weight: 500;
-  margin-right: auto;
+  font-size: 1.2vw;
+  text-align: right;
+  font-weight: 400;
+  margin-right: 0;
 }
 .address-option .edit-icon, .address-option .delete-icon {
   display: flex;
@@ -231,6 +265,92 @@ button:hover, .depots-button:hover, .next-button:hover {
   font-size: 20px;
 }
 
+@media (max-width: 1070px) {
+  .address-options {
+    padding: 0 5vw;
+  }
+  .address-option {
+    padding: 8px 15px;
+    font-size: 1.5vw;
+  }
+  .address-text {
+    font-size: 1.5vw;
+  }
+  .edit-size, .delete-size {
+    font-size: 18px;
+  }
+}
+@media (max-width: 768px) {
+  .address-options {
+    padding: 0 5vw;
+  }
+  .address-option {
+    padding: 6px 10px;
+    font-size: 2vw;
+  }
+  .address-text {
+    font-size: 2vw;
+  }
+  .edit-size, .delete-size {
+    font-size: 16px;
+  }
+}
+@media (max-width: 600px) {
+  .address-options {
+    padding: 0 5vw;
+  }
+  .address-option {
+    padding: 5px 8px;
+    font-size: 2.5vw;
+  }
+  .address-text {
+    font-size: 2.5vw;
+  }
+  .edit-size, .delete-size {
+    font-size: 14px;
+  }
+}
+.add-address {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  margin-top: 30px;
+}
+.add-address .plus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  font-size: 3.5vw;
+  color: #6C5DD3;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.add-address .material-symbols-outlined {
+  font-size: inherit;
+}
+
+@media (max-width: 768px) {
+  .add-address {
+    margin-top: 20px;
+    height: 60px;
+  }
+  .plus {
+    font-size: 5vw;
+  }
+}
+@media (max-width: 480px) {
+  .add-address {
+    margin-top: 15px;
+    height: 50px;
+  }
+  .plus {
+    font-size: 6vw;
+  }
+}
 .shipping-options {
   display: flex;
   flex-direction: column;
@@ -359,14 +479,6 @@ footer {
   color: white;
 }
 
-.material-symbols-outlined {
-  font-size: 48px;
-  width: 48px;
-  height: 48px;
-  display: inline-block;
-  vertical-align: middle;
-}
-
 .edit-icon,
 .delete-icon {
   position: absolute;
@@ -411,7 +523,10 @@ footer {
   justify-content: flex-end;
   gap: 10px;
   margin-top: 20px;
-  margin-right: 250px;
+  margin-right: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .description {
@@ -429,6 +544,29 @@ footer {
   margin-left: auto;
 }
 
+@media (max-width: 1070px) {
+  .button-container {
+    justify-content: flex-end;
+    margin-right: 10px;
+    width: 100%;
+  }
+  button, .back-button, .next-button {
+    width: auto;
+    font-size: 14px;
+    padding: 12px 15px;
+    margin: 10px 5px;
+  }
+}
+@media (max-width: 600px) {
+  .button-container {
+    margin-right: 5px;
+  }
+  button, .back-button, .next-button {
+    font-size: 12px;
+    padding: 10px 12px;
+    margin: 5px 3px;
+  }
+}
 .payment-card {
   width: 600px;
   background: #D1CED5;
@@ -642,69 +780,98 @@ footer {
   background-color: rgba(255, 255, 255, 0.2431372549);
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-evenly; /* Espacement égal entre les éléments */
   padding: 0 20px;
   box-sizing: border-box;
   overflow-x: hidden;
 }
 
-.Card .Group8, .Card .Group6, .Card .Group7 {
-  position: relative;
+.Group8, .Group6, .Group7 {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
-  height: 60px;
-  box-sizing: border-box;
-  text-align: center; /* Assure un alignement central du texte */
+  align-items: center; /* Alignement vertical des éléments */
 }
 
-.Step1Address, .Step2Shipping, .Step3Payment {
+.material-symbols-outlined {
+  font-size: 24px; /* Taille de l'icône */
   color: #979797;
+  margin-right: 8px; /* Réduit l'espace entre l'icône et le texte */
+  transition: font-size 0.3s ease;
+}
+
+/* Texte de la numérotation et du label */
+.step-number, .step-label {
+  font-size: 14px;
+  color: #979797;
+}
+
+/* Active state : changement de couleur */
+.active .material-symbols-outlined {
+  color: white;
+  font-size: 28px;
+}
+
+.active .step-number, .active .step-label {
+  color: white;
+}
+
+/* Alignement des étapes avec icône et texte sur la même ligne */
+.Step1Address, .Step2Shipping, .Step3Payment {
+  display: flex;
+  align-items: center; /* Centrer verticalement */
+  margin-top: 10px;
 }
 
 .step-number {
-  font-size: 16px;
-  font-family: Outfit;
+  font-size: 12px;
   font-weight: 700;
-  color: #979797;
-  margin-bottom: 5px; /* Ajout d'un espacement entre le numéro et le label */
 }
 
 .step-label {
-  font-size: 16px;
-  font-family: Outfit;
+  font-size: 14px;
   font-weight: 400;
-  color: #979797;
 }
 
-/* Ajustement de l'icône */
-.material-symbols-outlined {
-  margin-left: -70px;
-  font-size: 34px;
-  width: 48px;
-  height: 48px;
-  color: #979797;
-  display: block;
-  margin-top: 25px; /* Ajout d'un espace au-dessus de l'icône */
-  margin-bottom: 10px; /* Ajout d'un espace en dessous de l'icône pour plus de séparation */
+/* Assurer l'adaptation pour les petits écrans */
+@media (max-width: 768px) {
+  .material-symbols-outlined {
+    font-size: 20px; /* Taille de l'icône réduite sur petits écrans */
+  }
+  .step-number, .step-label {
+    font-size: 12px; /* Réduction du texte sur petits écrans */
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Style de l'icône active */
-.active .material-symbols-outlined {
-  color: white;
-}
-
-/* Active state : change la couleur du texte */
-.active .step-number, .active .step-label {
-  color: white;
+body {
+  overflow-x: hidden; /* Cela empêche l'apparition d'un scroll horizontal */
 }
 
 h2 {
   font-size: 24px;
   font-weight: bold;
   margin-left: 250px;
+}
+@media (max-width: 1070px) {
+  h2 {
+    font-size: 20px;
+    margin-left: 150px;
+  }
+}
+@media (max-width: 768px) {
+  h2 {
+    font-size: 18px;
+    margin-left: 50px;
+  }
+}
+@media (max-width: 600px) {
+  h2 {
+    font-size: 16px;
+    margin-left: 20px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

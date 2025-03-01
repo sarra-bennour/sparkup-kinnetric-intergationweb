@@ -1,12 +1,19 @@
 @import "variables";
+
 .new-address {
-    margin-left: 690px;
     display: flex;
     justify-content: flex-end;  // Aligne les boutons à droite
     gap: 20px;  // Espacement entre les boutons
+    flex-wrap: wrap;  // Permet aux boutons de se déplacer sur plusieurs lignes si nécessaire
+    margin: 20px;  // Ajout d'un peu de marge autour du conteneur
+    width: 100%;  // Assure que la largeur du conteneur ne dépasse pas l'écran
+    box-sizing: border-box;  // Prend en compte la marge et le padding dans la largeur
+
+    // S'assure que les boutons restent dans le conteneur
+    overflow: hidden;  
 }
 
-button, .depots-button, .next-button {
+button, .depots-button, .next-button, .back-button {
     font-family: $font-secondary;
     background: $button-gradient;
     color: white;
@@ -16,6 +23,7 @@ button, .depots-button, .next-button {
     font-size: 16px;
     cursor: pointer;
     margin: 10px 15px;
+    transition: background 0.3s ease;  // Ajout d'une transition sur le hover
 
     &:hover {
         background: linear-gradient(to right, #FF4FF3 0%, #832EFF 100%);
@@ -24,14 +32,8 @@ button, .depots-button, .next-button {
 
 .depots-button,
 .next-button {
-    font-family: 'Outfit', sans-serif;
     background: linear-gradient(to right, #832EFF 0%, #FF4FF3 100%);
     color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 73px;
-    font-size: 16px;
-    cursor: pointer;
     
     &:hover {
         background: linear-gradient(to right, #FF4FF3 0%, #832EFF 100%);
@@ -39,7 +41,6 @@ button, .depots-button, .next-button {
 }
 
 .back-button {
-    font-family: 'Outfit', sans-serif;
     background: transparent;
     color: white;
     border: 2px solid white;
@@ -47,4 +48,33 @@ button, .depots-button, .next-button {
     border-radius: 73px;
     font-size: 16px;
     cursor: pointer;
+}
+
+// Media Queries pour les petits écrans
+@media (max-width: 1070px) {
+    .new-address {
+        justify-content: flex-end;  // Garder l'alignement à droite
+        padding-right: 10px;  // Ajouter un peu de marge à droite
+        width: 100%;  // Assurer que le conteneur ne dépasse pas la largeur de l'écran
+    }
+
+    button, .depots-button, .next-button, .back-button {
+        width: auto;  // Laisse les boutons avec une largeur automatique
+        font-size: 14px;  // Réduit la taille du texte
+        padding: 12px 15px;  // Ajuste le padding pour les petits écrans
+        margin: 10px 5px;  // Réduit l'espacement entre les boutons
+    }
+}
+
+// Pour les écrans très petits, par exemple sous 600px
+@media (max-width: 600px) {
+    .new-address {
+        padding-right: 5px;  // Ajouter encore plus de marge pour les très petits écrans
+    }
+
+    button, .depots-button, .next-button, .back-button {
+        font-size: 12px;  // Réduit encore la taille du texte
+        padding: 10px 12px;  // Ajuste encore plus le padding
+        margin: 5px 3px;  // Réduit l'espacement vertical
+    }
 }

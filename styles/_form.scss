@@ -204,61 +204,65 @@
     background-color: #ffffff3e;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-evenly; /* Espacement égal entre les éléments */
     padding: 0 20px;
     box-sizing: border-box;
     overflow-x: hidden;
 }
 
-.Card .Group8, .Card .Group6, .Card .Group7 {
-    position: relative;
+.Group8, .Group6, .Group7 {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    height: 60px;
-    box-sizing: border-box;
-    text-align: center; /* Assure un alignement central du texte */
+    align-items: center; /* Alignement vertical des éléments */
 }
 
-.Step1Address, .Step2Shipping, .Step3Payment {
-    color: #979797;
-}
-
-.step-number {
-    font-size: 16px;
-    font-family: Outfit;
-    font-weight: 700;
-    color: #979797;
-    margin-bottom: 5px; /* Ajout d'un espacement entre le numéro et le label */
-}
-
-.step-label {
-    font-size: 16px;
-    font-family: Outfit;
-    font-weight: 400;
-    color: #979797;
-}
-
-/* Ajustement de l'icône */
 .material-symbols-outlined {
-    margin-left: -70px;
-    font-size: 34px;
-    width: 48px;
-    height: 48px;
+    font-size: 24px; /* Taille de l'icône */
     color: #979797;
-    display: block;
-    margin-top: 25px; /* Ajout d'un espace au-dessus de l'icône */
-    margin-bottom: 10px; /* Ajout d'un espace en dessous de l'icône pour plus de séparation */
+    margin-right: 8px; /* Réduit l'espace entre l'icône et le texte */
+    transition: font-size 0.3s ease;
 }
 
-/* Style de l'icône active */
+/* Texte de la numérotation et du label */
+.step-number, .step-label {
+    font-size: 14px;
+    color: #979797;
+}
+
+/* Active state : changement de couleur */
 .active .material-symbols-outlined {
     color: white;
+    font-size: 28px;
 }
 
-/* Active state : change la couleur du texte */
 .active .step-number, .active .step-label {
     color: white;
 }
+
+/* Alignement des étapes avec icône et texte sur la même ligne */
+.Step1Address, .Step2Shipping, .Step3Payment {
+    display: flex;
+    align-items: center; /* Centrer verticalement */
+    margin-top: 10px;
+}
+
+.step-number {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.step-label {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* Assurer l'adaptation pour les petits écrans */
+@media (max-width: 768px) {
+    .material-symbols-outlined {
+        font-size: 20px; /* Taille de l'icône réduite sur petits écrans */
+    }
+
+    .step-number, .step-label {
+        font-size: 12px; /* Réduction du texte sur petits écrans */
+    }
+}
+

@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
     <!-- Navbar -->
@@ -28,47 +29,50 @@
 
     <div data-layer="CARD" class="Card">
         <div data-layer="Rectangle 27" class="Rectangle27"></div>
-    
-        <!-- Etape 1: Adresse -->
-        <div data-layer="Group 8" class="Group8">
-            <div data-svg-wrapper data-layer="Frame" class="Frame">
-                <span class="material-symbols-outlined">home_pin</span>
-            </div>
-            <div class="Step1Address">
-                <span class="step-number">Step 1</span><br/>
-                <span class="step-label">Address</span>
-            </div>
-        </div>
         
-        <!-- Etape 2: Shipping -->
-        <div data-layer="Group 6" class="Group6">
-            <div class="Step2Shipping">
-                <span class="step-number">Step 2</span><br/>
-                <span class="step-label">Shipping</span>
-            </div>
-            <div data-svg-wrapper data-layer="Frame" class="Frame">
-                <span class="material-symbols-outlined">delivery_truck_speed</span>
+        <div data-layer="Group 8" class="Group8">
+            <!-- Étape 1: Adresse -->
+            <div class="Step1Address text-center">
+                <span class="material-symbols-outlined">home_pin</span>
+                <div>
+                    <span class="step-number">Step 1</span>
+                    <span class="step-label">Address</span>
+                </div>
             </div>
         </div>
     
-        <!-- Etape 3: Payement -->
-        <div data-layer="Group 7" class="Group7">
-            <div class="Step3Payment">
-                <span class="step-number">Step 3</span><br/>
-                <span class="step-label">Payment</span>
+        <div data-layer="Group 6" class="Group6">
+            <!-- Étape 2: Shipping -->
+            <div class="Step2Shipping text-center">
+                <span class="material-symbols-outlined">delivery_truck_speed</span>
+                <div>
+                    <span class="step-number">Step 2</span>
+                    <span class="step-label">Shipping</span>
+                </div>
             </div>
-            <div data-svg-wrapper data-layer="Frame" class="Frame">
+        </div>
+    
+        <div data-layer="Group 7" class="Group7">
+            <!-- Étape 3: Payment -->
+            <div class="Step3Payment text-center">
                 <span class="material-symbols-outlined">paid</span>
+                <div>
+                    <span class="step-number">Step 3</span>
+                    <span class="step-label">Payment</span>
+                </div>
             </div>
         </div>
     </div>
-
+    
+    
     <!-- Conteneur principal -->
 
      
     <div class="step-panel" id="step1">
-        <h2 class="select-adress">SELECT ADDRESS</h2>
-    
+        <div class="flex justify-start">
+            <h2 class="select-adress text-2xl lg:text-3xl xl:text-4xl font-bold ml-[250px]">SELECT ADDRESS</h2>
+        </div>
+        
         <div class="address-options">
             <div class="address-option">
                 <input type="radio" name="address" id="address1" checked>
@@ -114,11 +118,11 @@
             </div>
             
             <div class="add-address">
-                <span class="line"></span>
+              
                 <span class="plus"><span class="material-symbols-outlined">
                     add_circle
                     </span></span>
-                <span class="line"></span>
+              
             </div>
             
     
@@ -130,8 +134,10 @@
         </div>
     </div>
     <div class="step-panel hidden" id="step2">
-        <h2 class="select-adress">SELECT SHIPPING </h2>
-        
+       
+        <div class="flex justify-start">
+            <h2 class="select-adress text-2xl lg:text-3xl xl:text-4xl font-bold ml-[250px]">SELECT SHIPPING </h2>
+        </div>
         <div class="shipping-options">
             <div class="shipping-option">
                 <input type="radio" name="shipping" id="shipping1">
@@ -188,7 +194,10 @@
     </div>
 
     <div class="step-panel hidden" id="step3">
-        <h2 class="select-adress">PAYMENT</h2>
+     
+        <div class="flex justify-start">
+            <h2 class="select-adress text-2xl lg:text-3xl xl:text-4xl font-bold ml-[250px]">PAYMENT </h2>
+        </div>
         <div class="payment-card">
             <div class="headerssl">SSL SECURED PAYMENT</div>
 
@@ -268,99 +277,7 @@
         </div>
     </footer>
 
-    <script>
-// Fonction pour sélectionner un élément et lui ajouter un style de sélection
-function scrollCarousel(carouselId, direction) {
-    let container = document.getElementById(carouselId);
-    let items = container.querySelectorAll('li');
-    let selected = container.querySelector('.selected');
-    
-    if (selected) {
-        // Trouver l'index de l'élément sélectionné
-        let currentIndex = Array.from(items).indexOf(selected);
+    <script src="script.js"></script>
 
-        // Calculer l'index suivant/précédent
-        let newIndex = currentIndex + direction;
-
-        // Vérifier si l'index est dans les limites
-        if (newIndex >= 0 && newIndex < items.length) {
-            let targetItem = items[newIndex];
-            
-            // Mettre à jour la classe 'selected'
-            selectItem(container, targetItem);
-
-            // Faire défiler l'élément vers la position cible
-            container.scrollBy({
-                top: targetItem.offsetTop - container.scrollTop,
-                behavior: 'smooth'
-            });
-        }
-    }
-}
-
-function selectItem(container, item) {
-    // Supprimer la classe 'selected' de tous les éléments
-    let items = container.querySelectorAll('li');
-    items.forEach(i => i.classList.remove('selected'));
-    
-    // Ajouter la classe 'selected' à l'élément cliqué
-    item.classList.add('selected');
-}
-
-function generateOptions(id, min, max, step = 1) {
-    let container = document.getElementById(id);
-    for (let i = min; i <= max; i += step) {
-        let li = document.createElement("li");
-        li.textContent = i.toString().padStart(2, '0');
-        li.onclick = function () { selectItem(container, li); };  // Utiliser la fonction de sélection
-        container.appendChild(li);
-    }
-}
-
-generateOptions("day-carousel", 1, 31);
-generateOptions("year-carousel", new Date().getFullYear(), new Date().getFullYear() + 5);
-generateOptions("hour-carousel", 0, 23);
-generateOptions("minute-carousel", 0, 55, 5);
-
-// Ajouter les mois à la carrousel
-document.querySelectorAll("#month-carousel").forEach(item => {
-  ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"].forEach(mois => {
-    let li = document.createElement("li");
-    li.textContent = mois;
-    li.onclick = function () { selectItem(item, li); };  // Utiliser la fonction de sélection
-    item.appendChild(li);
-  });
-});
-
-
-        function showStep(stepNumber) {
-            // Masquer toutes les étapes
-            document.querySelectorAll(".step-panel").forEach((panel, index) => {
-                panel.classList.toggle("hidden", index !== stepNumber - 1);
-            });
-
-            // Mettre à jour la couleur des étapes et des icônes
-            document.querySelectorAll(".Group8, .Group6, .Group7").forEach((step, index) => {
-                const stepElement = step.querySelector(".step-label");
-                const iconElement = step.querySelector(".material-symbols-outlined");
-
-                if (index + 1 === stepNumber) {
-                    step.classList.add("active"); // Étape active
-                } else {
-                    step.classList.remove("active"); // Étapes inactives
-                }
-            });
-        }
-
-        // Initialiser l'étape active
-        showStep(1);
-        function selectItemAMPM(item) {
-    let container = document.getElementById("AMPM-carousel");
-    let items = container.querySelectorAll('li');
-    items.forEach(i => i.classList.remove('selected'));
-    item.classList.add('selected');
-}
-
-    </script>
 </body>
 </html>
