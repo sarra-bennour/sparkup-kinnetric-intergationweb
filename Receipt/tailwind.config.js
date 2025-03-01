@@ -10,10 +10,6 @@ module.exports = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
@@ -27,9 +23,8 @@ module.exports = {
           foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
+          DEFAULT: "#ff4ff3",
           foreground: "hsl(var(--accent-foreground))",
-          DEFAULT: '#ff4ff3',
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -39,9 +34,9 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        primary: '#281549',
-        secondary: '#832eff',
-        dark: '#151343',
+        primary: "#281549",
+        secondary: "#832eff",
+        dark: "#151343",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -49,9 +44,10 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       backgroundImage: {
-        'gradient-purple': 'linear-gradient(to bottom, #281549, #832eff)',
-      }
+        "gradient-purple": "linear-gradient(to bottom, #281549, #832eff)",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
 }
+

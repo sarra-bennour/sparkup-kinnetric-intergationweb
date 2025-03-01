@@ -27,7 +27,7 @@ module.exports = {
           foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
+          DEFAULT: "#FF4FF3",
           foreground: "hsl(var(--accent-foreground))",
         },
         popover: {
@@ -38,10 +38,9 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        'primary': '#281549',
-        'secondary': '#832eff',
-        'accent': '#FF4FF3',
-        'dark': '#151343',
+        primary: "#281549",
+        secondary: "#832eff",
+        dark: "#151343",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -49,9 +48,10 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       backgroundImage: {
-        'gradient-purple': 'linear-gradient(to bottom, #281549, #832eff)',
-      }
-    }
+        "gradient-purple": "linear-gradient(to bottom, #281549, #832eff)",
+      },
+    },
   },
   plugins: [require("tailwindcss-animate")],
 }
+

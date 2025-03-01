@@ -11,13 +11,19 @@
   <header class="container mx-auto px-4 py-4">
     <div class="flex justify-between items-center">
       <div class="text-2xl font-bold">KINNECTRIC</div>
-      <nav class="hidden md:flex space-x-6">
-        <a href="#" class="hover:text-accent">Home</a>
-        <a href="#" class="hover:text-accent">Computers</a>
-        <a href="#" class="hover:text-accent">Telephony & Tablets</a>
-        <a href="#" class="hover:text-accent">TV</a>
-        <a href="#" class="hover:text-accent">Printers</a>
-        <a href="#" class="hover:text-accent">Headphones</a>
+      <!-- Mobile menu button -->
+      <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <nav id="main-nav" class="hidden md:flex space-x-6 absolute md:relative top-16 left-0 right-0 bg-primary md:bg-transparent p-4 md:p-0 z-50 flex-col md:flex-row items-start md:items-center">
+        <a href="#" class="hover:text-accent py-2 md:py-0">Home</a>
+        <a href="#" class="hover:text-accent py-2 md:py-0">Computers</a>
+        <a href="#" class="hover:text-accent py-2 md:py-0">Telephony & Tablets</a>
+        <a href="#" class="hover:text-accent py-2 md:py-0">TV</a>
+        <a href="#" class="hover:text-accent py-2 md:py-0">Printers</a>
+        <a href="#" class="hover:text-accent py-2 md:py-0">Headphones</a>
       </nav>
       <div class="text-2xl">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -28,8 +34,8 @@
   </header>
 
   <!-- Breadcrumb -->
-  <div class="container mx-auto px-4 mt-4 text-sm opacity-80">
-    <div class="flex space-x-2">
+  <div class="container mx-auto px-4 mt-4 text-sm opacity-80 overflow-x-auto">
+    <div class="flex space-x-2 whitespace-nowrap">
       <a href="#" class="hover:text-accent">Home</a>
       <span>/</span>
       <a href="#" class="hover:text-accent">Cart</a>
@@ -46,7 +52,7 @@
 
   <!-- Main Content -->
   <main class="container mx-auto px-4 py-8">
-    <div class="flex justify-between items-center mb-12">
+    <div id="header-section" class="flex justify-between items-center mb-12">
       <h1 class="text-5xl font-bold">ORDER DETAILS</h1>
       <div class="relative">
         <input 
@@ -83,7 +89,7 @@
             <div>+216 XX XXX XXX</div>
           </div>
         </div>
-        <div class="flex gap-4">
+        <div class="flex flex-wrap gap-4">
           <button class="bg-gradient-to-r from-[#832EFF] to-[#FF4FF3] text-white px-6 py-2.5 rounded-full text-sm hover:opacity-90 transition-opacity">
             SEE MORE PRODUCTS
           </button>
@@ -94,98 +100,96 @@
       </div>
 
       <!-- Right Section -->
-    <!-- Right Section -->
-<!-- Right Section -->
-<div class="qr-code-container">
-  <div class="qr-code-inner">
-    <!-- QR Code -->
-    <div class="bg-white p-4 rounded-xl w-32 h-32 flex items-center justify-center">
-      <img 
-        src="/images/Qrcode_wikipedia_fr_v2clean.png" 
-        alt="QR Code" 
-        class="w-24 h-24 object-contain"
-      />
-    </div>
-    
-    <!-- Text Content -->
-    <div class="space-y-8 text-center">
-      <p class="text-white font-medium text-lg uppercase leading-tight">
-        DON'T OPEN THE PACKAGE<br/>
-        UNTIL YOU SCAN THE QR<br/>
-        CODE
-      </p>
-      
-      <p class="text-white font-medium text-lg uppercase leading-tight">
-        IN CASE OF ANY<br/>
-        ISSUES,YOU CAN REQUEST<br/>
-        AN EXPRESS RETURN
-      </p>
-    </div>
-  </div>
-</div>
-  </main>
-
-  <!-- Footer (même que précédemment) -->
- <!-- Footer -->
-<footer class="mt-24 pt-12 pb-8">
-  <div class="container mx-auto px-4">
-    <div class="grid md:grid-cols-[200px_1fr_1fr_1fr_300px] gap-8">
-      <!-- Brand -->
-      <div>
-        <div class="text-xl font-bold text-white">KINNECTRIC</div>
-      </div>
-
-      <!-- Buy Now Links -->
-      <div>
-        <div class="text-[#FF4FF3] text-sm font-semibold mb-3">BUY NOW</div>
-        <ul class="space-y-2 text-xs">
-          <li><a href="#" class="text-white/80 hover:text-white">Home</a></li>
-          <li><a href="#" class="text-white/80 hover:text-white">Computers</a></li>
-          <li><a href="#" class="text-white/80 hover:text-white">Telephony & Tablets</a></li>
-          <li><a href="#" class="text-white/80 hover:text-white">TV</a></li>
-          <li><a href="#" class="text-white/80 hover:text-white">Printers</a></li>
-          <li><a href="#" class="text-white/80 hover:text-white">Headphones</a></li>
-        </ul>
-      </div>
-
-      <!-- Customer Support -->
-      <div>
-        <div class="text-[#FF4FF3] text-sm font-semibold mb-3">CUSTOMER SUPPORT</div>
-        <ul class="space-y-2 text-xs">
-          <li><a href="#" class="text-white/80 hover:text-white">Contact us</a></li>
-          <li><a href="#" class="text-white/80 hover:text-white">Help Center</a></li>
-          <li><a href="#" class="text-white/80 hover:text-white">About</a></li>
-        </ul>
-      </div>
-
-      <!-- Contact -->
-      <div>
-        <div class="text-[#FF4FF3] text-sm font-semibold mb-3">CONTACT</div>
-        <ul class="space-y-2 text-xs">
-          <li><a href="#" class="text-white/80 hover:text-white">Email</a></li>
-          <li><a href="#" class="text-white/80 hover:text-white">LinkedIn</a></li>
-          <li><a href="#" class="text-white/80 hover:text-white">Instagram</a></li>
-          <li><a href="#" class="text-white/80 hover:text-white">Twitter</a></li>
-        </ul>
-      </div>
-
-      <!-- Newsletter -->
-      <div>
-        <div class="text-[#FF4FF3] text-sm font-semibold mb-3">JOIN OUR NEWSLETTER</div>
-        <div class="flex gap-2 items-center">
-          <input 
-            type="email" 
-            placeholder="Email Address" 
-            class="flex-1 bg-[#1A103C] text-white placeholder-gray-400 px-4 py-2 rounded-full text-xs focus:outline-none"
-          />
-          <button class="bg-gradient-to-r from-[#832EFF] to-[#FF4FF3] hover:opacity-90 transition-opacity text-white px-4 py-2 rounded-full text-xs font-medium">
-            SUBMIT
-          </button>
+      <div id="qr-code-section" class="qr-code-container">
+        <div class="qr-code-inner">
+          <!-- QR Code -->
+          <div class="bg-white p-4 rounded-xl w-32 h-32 flex items-center justify-center">
+            <img 
+              src="/images/Qrcode_wikipedia_fr_v2clean.png" 
+              alt="QR Code" 
+              class="w-24 h-24 object-contain"
+            />
+          </div>
+          
+          <!-- Text Content -->
+          <div class="space-y-8 text-center">
+            <p class="text-white font-medium text-lg uppercase leading-tight">
+              DON'T OPEN THE PACKAGE<br/>
+              UNTIL YOU SCAN THE QR<br/>
+              CODE
+            </p>
+            
+            <p class="text-white font-medium text-lg uppercase leading-tight">
+              IN CASE OF ANY<br/>
+              ISSUES,YOU CAN REQUEST<br/>
+              AN EXPRESS RETURN
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-24 pt-12 pb-8">
+    <div class="container mx-auto px-4">
+      <div id="footer-grid" class="grid md:grid-cols-[200px_1fr_1fr_1fr_300px] gap-8">
+        <!-- Brand -->
+        <div>
+          <div class="text-xl font-bold text-white">KINNECTRIC</div>
+        </div>
+
+        <!-- Buy Now Links -->
+        <div>
+          <div class="text-[#FF4FF3] text-sm font-semibold mb-3">BUY NOW</div>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#" class="text-white/80 hover:text-white">Home</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white">Computers</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white">Telephony & Tablets</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white">TV</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white">Printers</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white">Headphones</a></li>
+          </ul>
+        </div>
+
+        <!-- Customer Support -->
+        <div>
+          <div class="text-[#FF4FF3] text-sm font-semibold mb-3">CUSTOMER SUPPORT</div>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#" class="text-white/80 hover:text-white">Contact us</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white">Help Center</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white">About</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <div class="text-[#FF4FF3] text-sm font-semibold mb-3">CONTACT</div>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#" class="text-white/80 hover:text-white">Email</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white">LinkedIn</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white">Instagram</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white">Twitter</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div>
+          <div class="text-[#FF4FF3] text-sm font-semibold mb-3">JOIN OUR NEWSLETTER</div>
+          <div class="flex gap-2 items-center">
+            <input 
+              type="email" 
+              placeholder="Email Address" 
+              class="flex-1 bg-[#1A103C] text-white placeholder-gray-400 px-4 py-2 rounded-full text-xs focus:outline-none"
+            />
+            <button class="bg-gradient-to-r from-[#832EFF] to-[#FF4FF3] hover:opacity-90 transition-opacity text-white px-4 py-2 rounded-full text-xs font-medium">
+              SUBMIT
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <!-- Chat Button -->
   <div class="fixed bottom-6 right-6">
@@ -195,5 +199,106 @@
       </svg>
     </button>
   </div>
+
+  <!-- JavaScript pour la responsivité -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Éléments DOM
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mainNav = document.getElementById('main-nav');
+      const headerSection = document.getElementById('header-section');
+      const qrCodeSection = document.getElementById('qr-code-section');
+      const footerGrid = document.getElementById('footer-grid');
+      
+      // Fonction pour vérifier si l'écran est mobile
+      function isMobile() {
+        return window.innerWidth < 768; // 768px est le breakpoint md de Tailwind
+      }
+      
+      // Fonction pour ajuster l'interface en fonction de la taille de l'écran
+      function adjustInterface() {
+        // Ajuster le header
+        if (isMobile()) {
+          headerSection.classList.remove('flex', 'justify-between', 'items-center');
+          headerSection.classList.add('flex', 'flex-col', 'items-start', 'gap-4');
+        } else {
+          headerSection.classList.remove('flex-col', 'items-start', 'gap-4');
+          headerSection.classList.add('flex', 'justify-between', 'items-center');
+        }
+        
+        // Ajuster la section QR code
+        if (isMobile()) {
+          qrCodeSection.style.marginLeft = '0';
+          qrCodeSection.style.width = '100%';
+          qrCodeSection.style.maxWidth = '320px';
+          qrCodeSection.style.margin = '0 auto';
+        } else {
+          // Rétablir les styles CSS d'origine pour desktop
+          qrCodeSection.style.width = '320px';
+          qrCodeSection.style.marginLeft = '200px';
+        }
+      }
+      
+      // Toggle du menu mobile
+      mobileMenuButton.addEventListener('click', function() {
+        if (mainNav.classList.contains('hidden')) {
+          mainNav.classList.remove('hidden');
+          mainNav.classList.add('flex');
+        } else {
+          mainNav.classList.add('hidden');
+          mainNav.classList.remove('flex');
+        }
+      });
+      
+      // Ajuster l'interface au chargement
+      adjustInterface();
+      
+      // Ajuster l'interface lors du redimensionnement de la fenêtre
+      window.addEventListener('resize', function() {
+        adjustInterface();
+        
+        // Réinitialiser la navigation sur desktop
+        if (!isMobile() && mainNav.classList.contains('hidden')) {
+          mainNav.classList.remove('hidden');
+          mainNav.classList.add('flex');
+        } else if (isMobile() && !mainNav.classList.contains('hidden') && !mainNav.classList.contains('menu-open')) {
+          mainNav.classList.add('hidden');
+          mainNav.classList.remove('flex');
+        }
+      });
+      
+      // Rendre les grilles d'informations responsives
+      const infoGrids = document.querySelectorAll('.grid.grid-cols-2');
+      infoGrids.forEach(grid => {
+        if (isMobile()) {
+          grid.classList.remove('grid-cols-2');
+          grid.classList.add('grid-cols-1', 'gap-1');
+        }
+        
+        window.addEventListener('resize', function() {
+          if (isMobile()) {
+            grid.classList.remove('grid-cols-2');
+            grid.classList.add('grid-cols-1', 'gap-1');
+          } else {
+            grid.classList.remove('grid-cols-1', 'gap-1');
+            grid.classList.add('grid-cols-2');
+          }
+        });
+      });
+      
+      // Améliorer l'accessibilité des liens
+      const links = document.querySelectorAll('a');
+      links.forEach(link => {
+        link.addEventListener('focus', function() {
+          this.classList.add('ring-2', 'ring-accent', 'outline-none');
+        });
+        
+        link.addEventListener('blur', function() {
+          this.classList.remove('ring-2', 'ring-accent', 'outline-none');
+        });
+      });
+    });
+  </script>
 </body>
 </html>
+
