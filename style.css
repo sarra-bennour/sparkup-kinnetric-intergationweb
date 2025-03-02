@@ -177,6 +177,17 @@ nav ul li a:hover {
   overflow: hidden;
 }
 
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 20px;
+  width: 90%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
 button, .depots-button, .next-button, .back-button {
   font-family: "Outfit", sans-serif;
   background: linear-gradient(to right, #832EFF 0%, #FF4FF3 100%);
@@ -799,17 +810,6 @@ footer {
   color: #979797;
 }
 
-.button-container {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  margin-top: 20px;
-  margin-right: 20px;
-  width: 100%;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
 .description {
   font-family: "Roboto", sans-serif;
   font-weight: normal;
@@ -825,29 +825,6 @@ footer {
   margin-left: auto;
 }
 
-@media (max-width: 1070px) {
-  .button-container {
-    justify-content: flex-end;
-    margin-right: 10px;
-    width: 100%;
-  }
-  button, .back-button, .next-button {
-    width: auto;
-    font-size: 14px;
-    padding: 12px 15px;
-    margin: 10px 5px;
-  }
-}
-@media (max-width: 600px) {
-  .button-container {
-    margin-right: 5px;
-  }
-  button, .back-button, .next-button {
-    font-size: 12px;
-    padding: 10px 12px;
-    margin: 5px 3px;
-  }
-}
 .payment-card {
   width: clamp(400px, 50vw, 600px); /* Garde une largeur proportionnelle */
   max-width: 90%;

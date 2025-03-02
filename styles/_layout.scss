@@ -1,13 +1,4 @@
-.button-container {
-    display: flex;
-    justify-content: flex-end;  // Aligne les boutons à droite
-    gap: 10px;
-    margin-top: 20px;
-    margin-right: 20px;  // Ajuste la marge pour éviter le débordement
-    width: 100%;  // Assure que le conteneur ne dépasse pas l'écran
-    box-sizing: border-box;  // Prend en compte la marge et le padding dans la largeur
-    overflow: hidden;  // Empêche le débordement des éléments enfants
-}
+
 
 .description {
     font-family: 'Roboto', sans-serif;
@@ -22,33 +13,4 @@
     font-weight: 300;
     font-size: 12px;
     margin-left: auto;
-}
-
-// Media Queries pour les petits écrans
-@media (max-width: 1070px) {
-    .button-container {
-        justify-content: flex-end;  // Garder l'alignement à droite
-        margin-right: 10px;  // Ajouter un peu de marge à droite
-        width: 100%;  // Assurer que le conteneur ne dépasse pas la largeur de l'écran
-    }
-
-    button, .back-button, .next-button {
-        width: auto;  // Laisse les boutons avec une largeur automatique
-        font-size: 14px;  // Réduit la taille du texte
-        padding: 12px 15px;  // Ajuste le padding pour les petits écrans
-        margin: 10px 5px;  // Réduit l'espacement entre les boutons
-    }
-}
-
-// Pour les écrans très petits, par exemple sous 600px
-@media (max-width: 600px) {
-    .button-container {
-        margin-right: 5px;  // Réduit encore la marge pour les très petits écrans
-    }
-
-    button, .back-button, .next-button {
-        font-size: 12px;  // Réduit encore la taille du texte
-        padding: 10px 12px;  // Ajuste encore plus le padding
-        margin: 5px 3px;  // Réduit l'espacement vertical
-    }
 }

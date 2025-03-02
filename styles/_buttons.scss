@@ -13,6 +13,20 @@
     overflow: hidden;  
 }
 
+.button-container {
+    display: flex;
+    justify-content: flex-end;  // Aligne les boutons à droite
+    gap: 20px;  // Espacement entre les boutons
+    flex-wrap: wrap;  // Permet aux boutons de se déplacer sur plusieurs lignes si nécessaire
+    margin: 20px;  // Ajout d'un peu de marge autour du conteneur
+    width: 90%;  // Assure que la largeur du conteneur ne dépasse pas l'écran
+    box-sizing: border-box;  // Prend en compte la marge et le padding dans la largeur
+
+    // S'assure que les boutons restent dans le conteneur
+    overflow: hidden;  
+}
+
+
 button, .depots-button, .next-button, .back-button {
     font-family: $font-secondary;
     background: $button-gradient;
@@ -41,6 +55,7 @@ button, .depots-button, .next-button, .back-button {
 }
 
 .back-button {
+    
     background: transparent;
     color: white;
     border: 2px solid white;
