@@ -2,50 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kinnectric</title>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="Tailwind/output.css"> <!-- Tailwind CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 </head>
-<div class="degradation-line"></div>
-<nav>
-    <div class="logo">KINNECTRIC</div>
-    <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Computers</a></li>
-        <li><a href="#">Telephony & Tablets</a></li>
-        <li><a href="#">TV</a></li>
-        <li><a href="#">Printers</a></li>
-        <li><a href="#">Headphones</a></li>
-    </ul>
-    <div class="cart-icon">
-        <a href="#"><i class="fas fa-shopping-cart"></i></a>
-    </div>
-</nav>
-<body>
-    <div class="container">
-        <div class="breadcrumb">Home / Product /  <b>Details</b></div>
-        <div class="search-bar">
-            <input type="text" placeholder="El Ghazella">
-            <button>⌕</button>
-        </div>    
-        <main>
-            <section class="product-details">
-                <h1>PRODUCT DETAILS</h1>
-                <div class="product-info">
-                    <div class="product-image">
-                        <img src="pc.jpg" alt="Gaming Laptop">
-                        <button class="add-to-cart">ADD TO CART</button>
+<body class="bg-gradient-to-r from-purple-900 to-pink-500 text-white font-sans overflow-x-hidden">
+    <div class="w-full h-1 bg-gradient-to-r from-purple-500 to-pink-500"></div>
+
+    <nav class="flex justify-between items-center p-4 relative z-10">
+        <div class="text-2xl font-bold">KINNECTRIC</div>
+        <button class="md:hidden text-xl" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul id="menu" class="hidden md:flex space-x-6 absolute md:relative bg-purple-900 md:bg-transparent w-full md:w-auto top-0 left-0 md:flex-row flex-col md:space-x-6 space-y-4 md:space-y-0 p-4 md:p-0">
+            <li><a href="#" class="hover:underline">Home</a></li>
+            <li><a href="#" class="hover:underline">Computers</a></li>
+            <li><a href="#" class="hover:underline">Telephony & Tablets</a></li>
+            <li><a href="#" class="hover:underline">TV</a></li>
+            <li><a href="#" class="hover:underline">Printers</a></li>
+            <li><a href="#" class="hover:underline">Headphones</a></li>
+        </ul>
+        <div class="cart-icon">
+            <a href="#"><i class="fas fa-shopping-cart text-white"></i></a>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4">
+        <div class="text-gray-300 text-sm my-4">Home / Product / <b>Details</b></div>
+        
+        <main class="mt-10">
+            <section class="text-center">
+                <h1 class="text-3xl font-bold">PRODUCT DETAILS</h1>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-10 mt-6">
+                    <div class="text-center">
+                        <img src="pc.jpg" alt="Gaming Laptop" class="w-96 rounded-lg">
+                        <button class="mt-4 w-48 p-2 bg-gradient-to-r from-purple-600 to-pink-500 rounded-lg">ADD TO CART</button>
                     </div>
-                    <div class="product-description">
+                    <div class="text-left">
                         <p><strong>PRICE:</strong> 500 TND</p>
                         <p><strong>REFERENCE:</strong> X123FD</p>
-                        <p><strong>COLOR:</strong> <span class="color-option"></span></p>
-                        <ul>
+                        <p><strong>COLOR:</strong> <span class="inline-block w-5 h-5 bg-black rounded-full border border-white ml-2"></span></p>
+                        <ul class="list-disc pl-5 mt-3">
                             <li>High-speed processor and dedicated GPU for max gaming performance.</li>
                             <li>144Hz refresh-rate display for smooth visuals.</li>
                             <li>Advanced thermal management.</li>
@@ -54,86 +57,74 @@
                             <li>Durable battery optimized for long gaming sessions.</li>
                         </ul>
                     </div>
-                </div>                
-            </section>
-           
-            <section class="preview-video">
-                <h2>PREVIEW VIDEO</h2>
-                <div class="video-container">
-                    <img src="pc.jpg" alt="Video Thumbnail">
-                    <button class="play-button">▶</button>
                 </div>
             </section>
         </main>
-        
-        <div class="chatbot-icon">
-            <a href="#" onclick="openChatbox()">
-                <i class="fas fa-robot"></i> <!-- Robot Icon -->
-            </a>
-        </div>
-        
-        
+    </div>
 
-        <footer>
-            <div class="footer-links">
-                <!-- Logo Alignment -->
-                <div class="logo1">
-                    <h5>KINNECTRIC</h5>
-                </div>
-        
-                <!-- Footer Content with Links -->
-                <div>
-                    <h4>BUY NOW</h4>
-                    <ul>
-                        <li><a href="#">Computers</a></li>
-                        <li><a href="#">Phones</a></li>
-                        <li><a href="#">TV</a></li>
-                        <li><a href="#">Printers</a></li>
-                        <li><a href="#">Headphones</a></li>
-                    </ul>
-                </div>
-        
-                <div>
-                    <h4>CUSTOMER SUPPORT</h4>
-                    <ul>
-                        <li><a href="#">Contact us</a></li>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">About</a></li>
-                    </ul>
-                </div>
-        
-                <div>
-                    <h4>CONTACT</h4>
-                    <ul>
-                        <li><a href="#">Email</a></li>
-                        <li><a href="#">LinkedIn</a></li>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">Twitter</a></li>
-                    </ul>
-                </div>
-            
-        
-            <!-- Newsletter Section -->
-            <div class="newsletter">
-                <h4>JOIN OUR NEWSLETTER</h4>
-                <div class="newsletter-input-container">
-                    <input type="email" placeholder="Email Address">
-                    <button>SUBMIT</button>
+    <footer class="mt-10 py-6  text-white">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 text-center">
+            <div>
+                <h5 class="text-xl font-bold">KINNECTRIC</h5>
+            </div>
+            <div>
+                <h4 class="font-bold">BUY NOW</h4>
+                <ul>
+                    <li><a href="#" class="hover:underline">Computers</a></li>
+                    <li><a href="#" class="hover:underline">Phones</a></li>
+                    <li><a href="#" class="hover:underline">TV</a></li>
+                    <li><a href="#" class="hover:underline">Printers</a></li>
+                    <li><a href="#" class="hover:underline">Headphones</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold">CUSTOMER SUPPORT</h4>
+                <ul>
+                    <li><a href="#" class="hover:underline">Contact us</a></li>
+                    <li><a href="#" class="hover:underline">Help Center</a></li>
+                    <li><a href="#" class="hover:underline">About</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold">CONTACT</h4>
+                <ul>
+                    <li><a href="#" class="hover:underline">Email</a></li>
+                    <li><a href="#" class="hover:underline">LinkedIn</a></li>
+                    <li><a href="#" class="hover:underline">Instagram</a></li>
+                    <li><a href="#" class="hover:underline">Twitter</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold">JOIN OUR NEWSLETTER</h4>
+                <div class="newsletter-input-container flex justify-center items-center">
+                    <input type="email" placeholder="Email Address" class="p-2 rounded-l-lg bg-purple-900 text-white border-none focus:outline-none">
+                    <button class="p-2 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-r-lg">SUBMIT</button>
                 </div>
             </div>
         </div>
-        </footer>
-        
-    </div>
-    <div class="degradation-line"></div>
-</body>
-<script>
-    
+    </footer>
 
-    function openChatbox() {
-        // Replace this with your chatbot window logic or open a chat popup
-        alert("heyyyyyy!");
-    }
-  </script>
-  
+    <div class="w-full h-1 bg-gradient-to-r from-purple-500 to-pink-500"></div>
+
+    <div class="chatbot-icon fixed bottom-5 right-5 text-white p-3 rounded-full shadow-lg">
+        <a href="#" class="text-[#FF4FF3] text-3xl"><i class="fas fa-robot"></i></a>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("menu");
+            const isHidden = menu.classList.contains("hidden");
+            menu.classList.toggle("hidden", !isHidden);
+            
+            // Close the menu if clicked outside
+            if (!isHidden) {
+                document.addEventListener('click', (e) => {
+                    if (!menu.contains(e.target) && !e.target.matches('.md:hidden')) {
+                        menu.classList.add("hidden");
+                    }
+                });
+            }
+        }
+    </script>
+</body>
 </html>
