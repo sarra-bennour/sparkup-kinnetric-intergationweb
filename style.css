@@ -129,7 +129,6 @@ body {
 }
 
 nav {
-  background: linear-gradient(to right, #8A2BE2, #4B0082);
   padding: 15px;
   display: flex;
   justify-content: space-between;
@@ -186,6 +185,44 @@ nav ul li a:hover {
   width: 90%;
   box-sizing: border-box;
   overflow: hidden;
+}
+
+.chat-button {
+  background-color: #FF4FF3;
+  padding: 1rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.chat-button:hover {
+  background-color: #832EFF;
+  transform: scale(1.1);
+}
+@media (max-width: 768px) {
+  .chat-button {
+    padding: 0.75rem;
+  }
+}
+
+.chat-button {
+  background: linear-gradient(to right, #832EFF 0%, #FF4FF3 100%);
+  padding: 1rem;
+  border-radius: 9999px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.chat-button:hover {
+  background: linear-gradient(to right, #FF4FF3 0%, #832EFF 100%);
+  transform: scale(1.1);
+}
+.chat-button svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+@media (min-width: 640px) {
+  .chat-button {
+    padding: 1.25rem;
+  }
 }
 
 button, .depots-button, .next-button, .back-button {
@@ -329,6 +366,7 @@ button:hover, .depots-button:hover, .next-button:hover, .back-button:hover {
 }
 
 .address-option {
+  margin-bottom: 50px;
   width: 100%;
   max-width: 800px;
   height: 80px;
@@ -662,7 +700,7 @@ footer {
   display: grid;
   grid-template-columns: repeat(1, 1fr); /* Par défaut une seule colonne */
   gap: 0.25rem;
-  padding: 0 1rem;
+  padding: 0 15rem;
 }
 
 .carousel-item {
@@ -770,6 +808,9 @@ footer {
   .carousel-container {
     grid-template-columns: repeat(6, 1fr);
   }
+}
+.bg-gradient-purple {
+  background-image: linear-gradient(to bottom, #281549, #832eff);
 }
 .edit-icon,
 .delete-icon {

@@ -20,7 +20,7 @@ body {
   /* Navbar */
   nav {
     @apply flex justify-between items-center text-[white] p-[15px];
-    background: linear-gradient(to right, #8a2be2, #4b0082);
+ 
   }
   .logo {
     @apply text-2xl font-[bold] ml-[15px];

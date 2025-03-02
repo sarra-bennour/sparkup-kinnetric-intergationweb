@@ -11,22 +11,14 @@
     <link rel="stylesheet" href="style.css">
 
 </head>
-<body>
-    <!-- Navbar -->
-    <nav>
-        <div class="logo">KINNECTRIC</div>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Computers</a></li>
-            <li><a href="#">Telephony & Tablets</a></li>
-            <li><a href="#">TV</a></li>
-            <li><a href="#">Printers</a></li>
-            <li><a href="#">Headphones</a></li>
-        </ul>
-        <div class="cart-icon">
-            <a href="#"><i class="fas fa-shopping-cart"></i></a>
-        </div>
-    </nav>
+<body class="bg-gradient-purple min-h-screen text-white">
+  
+        <!-- Utilisation d'un iframe pour afficher le footer -->
+        <iframe src="navbar.html" style="width: 100%; height: 200px; border: none;"></iframe>
+     
+    
+
+
 
     <div data-layer="CARD" class="Card">
         <div data-layer="Rectangle 27" class="Rectangle27"></div>
@@ -134,7 +126,7 @@
             </div>
         </div>
     </div>
-    <div class="step-panel hidden" id="step2">
+    <div class="step-panel hidden" id="step2" style="margin-bottom: 60px;">
        
         <div class="flex justify-start">
             <h2 class="select-adress text-2xl lg:text-3xl xl:text-4xl font-bold ml-[250px]">SELECT SHIPPING </h2>
@@ -211,7 +203,7 @@
         
     </div>
 
-    <div class="step-panel hidden" id="step3">
+    <div class="step-panel hidden" id="step3" style="margin-bottom: 60px;">
      
         <div class="flex justify-start">
             <h2 class="select-adress text-2xl lg:text-3xl xl:text-4xl font-bold ml-[250px]">PAYMENT </h2>
@@ -246,15 +238,17 @@
         </div>       <div class="button-container">
             <button class="back-button" onclick="showStep(2)">Back</button>
       </div>
-     
+
       <div class="blur-background"></div>
       <div class="popup-overlay">
           <div class="popup">
               <button class="close-btn">&times;</button>
               <h2>CONGRATS !!</h2>
               <p>Your payment has been successfully completed.</p>
-              <button class="receipt-btn">GET YOUR RECEIPT</button>
-          </div>
+              <a href="Receipt/receipt.html">
+                <button class="receipt-btn">GET YOUR RECEIPT</button>
+            </a>
+             </div>
       </div>
       
 
@@ -263,50 +257,11 @@
     </div>
         
     
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <h3>KINNECTRIC</h3>
-            </div>
-            <div class="footer-section">
-                <h3>BUY NOW</h3>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Computers</a></li>
-                    <li><a href="#">Telephony & Tablets</a></li>
-                    <li><a href="#">TV</a></li>
-                    <li><a href="#">Printers</a></li>
-                    <li><a href="#">Headphones</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>CUSTOMER SUPPORT</h3>
-                <ul>
-                    <li><a href="#">Contact us</a></li>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">About</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>CONTACT</h3>
-                <ul>
-                    <li><a href="#">Email</a></li>
-                    <li><a href="#">LinkedIn</a></li>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">Twitter</a></li>
-                </ul>
-            </div>
-            <div class="footer-section newsletter">
-                <h3>JOIN OUR NEWSLETTER</h3>
-                <div class="newsletter-input">
-                    <input type="email" placeholder="Email Address">
-                    <button type="submit">SUBMIT</button>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <div id="">
+        <!-- Utilisation d'un iframe pour afficher le footer -->
+        <iframe src="footer.html" style="width: 100%; height: 200px; border: none;"></iframe>
+      </div>
+    
 
     <script src="script.js"></script>
 

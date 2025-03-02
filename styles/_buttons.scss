@@ -25,6 +25,46 @@
     // S'assure que les boutons restent dans le conteneur
     overflow: hidden;  
 }
+.chat-button {
+    background-color: #FF4FF3;  // Couleur de fond spécifique pour le bouton de chat
+    padding: 1rem;  // Ajuste le padding pour le bouton
+    border-radius: 50%;  // Forme ronde
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  // Ombre plus légère et distinctive
+    transition: background-color 0.3s ease, transform 0.3s ease;  // Transition au hover
+
+    &:hover {
+        background-color: #832EFF;  // Changement de couleur au survol
+        transform: scale(1.1);  // Légère augmentation de taille au survol
+    }
+
+    // Pour les écrans plus petits
+    @media (max-width: 768px) {
+        padding: 0.75rem;  // Ajuste le padding sur les petits écrans
+    }
+}
+// Styles spécifiques pour le bouton Chat
+.chat-button {
+    background: $button-gradient; // Utilise ta couleur de fond
+    padding: 1rem;
+    border-radius: 9999px; // Arrondi complet pour un bouton circulaire
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); // Ombre douce
+    transition: background 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+        background: linear-gradient(to right, #FF4FF3 0%, #832EFF 100%); // Ajoute un hover gradient
+        transform: scale(1.1); // Légèrement plus grand au survol
+    }
+
+    svg {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+
+    // Responsivité
+    @media (min-width: 640px) {
+        padding: 1.25rem;
+    }
+}
 
 
 button, .depots-button, .next-button, .back-button {

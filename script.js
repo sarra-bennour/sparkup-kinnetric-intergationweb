@@ -53,7 +53,8 @@ generateOptions("minute-carousel", 0, 55, 5);
 
 // Ajouter les mois à la carrousel
 document.querySelectorAll("#month-carousel").forEach(item => {
-  ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"].forEach(mois => {
+    ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    .forEach(mois => {
     let li = document.createElement("li");
     li.textContent = mois;
     li.onclick = function () { selectItem(item, li); };  // Utiliser la fonction de sélection
