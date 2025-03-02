@@ -5,31 +5,96 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kinnectric - Order Details</title>
   <link href="./output.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            purple: '#351862',
+            pink: '#ff4ff3',
+            accent: '#FF4FF3',
+            primary: '#281549',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Chat popup styles */
+    .chat-popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 1rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+    
+    .chat-popup.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .chat-container {
+      width: 100%;
+      max-width: 28rem;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      transform: scale(0.9);
+      transition: transform 0.3s;
+    }
+    
+    .chat-popup.active .chat-container {
+      transform: scale(1);
+    }
+  </style>
 </head>
 <body class="bg-gradient-purple min-h-screen text-white">
   <!-- Header Navigation -->
   <header class="container mx-auto px-4 py-4">
     <div class="flex justify-between items-center">
       <div class="text-2xl font-bold">KINNECTRIC</div>
+      <nav class="hidden md:flex space-x-6">
+        <a href="#" class="hover:text-accent">Home</a>
+        <a href="#" class="hover:text-accent">Computers</a>
+        <a href="#" class="hover:text-accent">Telephony & Tablets</a>
+        <a href="#" class="hover:text-accent">TV</a>
+        <a href="#" class="hover:text-accent">Printers</a>
+        <a href="#" class="hover:text-accent">Headphones</a>
+      </nav>
       <!-- Mobile menu button -->
-      <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+      <button class="md:hidden flex items-center text-white focus:outline-none" id="mobile-menu-button">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
-      <nav id="main-nav" class="hidden md:flex space-x-6 absolute md:relative top-16 left-0 right-0 bg-primary md:bg-transparent p-4 md:p-0 z-50 flex-col md:flex-row items-start md:items-center">
-        <a href="#" class="hover:text-accent py-2 md:py-0">Home</a>
-        <a href="#" class="hover:text-accent py-2 md:py-0">Computers</a>
-        <a href="#" class="hover:text-accent py-2 md:py-0">Telephony & Tablets</a>
-        <a href="#" class="hover:text-accent py-2 md:py-0">TV</a>
-        <a href="#" class="hover:text-accent py-2 md:py-0">Printers</a>
-        <a href="#" class="hover:text-accent py-2 md:py-0">Headphones</a>
-      </nav>
       <div class="text-2xl">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
         </svg>
       </div>
+    </div>
+    
+    <!-- Mobile menu (hidden by default) -->
+    <div class="md:hidden hidden bg-dark/80 mt-2 rounded-lg p-4" id="mobile-menu">
+      <nav class="flex flex-col space-y-3">
+        <a href="#" class="hover:text-accent">Home</a>
+        <a href="#" class="hover:text-accent">Computers</a>
+        <a href="#" class="hover:text-accent">Telephony & Tablets</a>
+        <a href="#" class="hover:text-accent">TV</a>
+        <a href="#" class="hover:text-accent">Printers</a>
+        <a href="#" class="hover:text-accent">Headphones</a>
+      </nav>
     </div>
   </header>
 
@@ -192,32 +257,166 @@
   </footer>
 
   <!-- Chat Button -->
-  <div class="fixed bottom-6 right-6">
-    <button class="bg-accent hover:bg-accent/80 text-white p-4 rounded-full shadow-lg">
+  <div class="fixed bottom-6 right-6 z-10">
+    <button id="chat-button" class="bg-accent hover:bg-accent/80 text-white p-4 rounded-full shadow-lg transition-all">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
       </svg>
     </button>
   </div>
+  
+  <!-- Chat Popup -->
+  <div id="chat-popup" class="chat-popup">
+    <div class="chat-container bg-pink">
+      <!-- Header -->
+      <div class="bg-pink text-white p-4 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 bg-white rounded-md flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-pink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="4" y="4" width="16" height="16" rx="2" />
+              <circle cx="9" cy="9" r="2" />
+              <circle cx="15" cy="9" r="2" />
+              <path d="M8 14h8" />
+            </svg>
+          </div>
+          <span class="font-bold text-xl">AI ASSISTANT</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="w-6 h-1 bg-white rounded"></div>
+          <button id="close-chat">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer hover:opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
 
-  <!-- JavaScript pour la responsivité -->
+      <!-- Question 1 -->
+      <div class="bg-purple text-white p-6 flex justify-between items-center">
+        <div class="flex-1">
+          <p class="text-center text-xl">Does Asus I9 Meet Energy Efficiency Standards?</p>
+        </div>
+        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center ml-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="8" r="4" />
+            <path d="M12 12v8" />
+            <path d="M9 16h6" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Answer 1 -->
+      <div class="bg-pink text-white p-6 flex items-start">
+        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-pink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="4" y="4" width="16" height="16" rx="2" />
+            <circle cx="9" cy="9" r="2" />
+            <circle cx="15" cy="9" r="2" />
+            <path d="M8 14h8" />
+          </svg>
+        </div>
+        <div>
+          <p class="text-xl">Yes, It Is Designed To Optimize Power Consumption While Maintaining High Performance.</p>
+        </div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="bg-purple text-white p-6 flex justify-between items-center">
+        <div class="flex-1">
+          <p class="text-center text-xl">Is This PC Compatible With The Latest Software And Operating Systems?</p>
+        </div>
+        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center ml-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="8" r="4" />
+            <path d="M12 12v8" />
+            <path d="M9 16h6" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Answer 2 -->
+      <div class="bg-pink text-white p-6 flex items-start">
+        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-pink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="4" y="4" width="16" height="16" rx="2" />
+            <circle cx="9" cy="9" r="2" />
+            <circle cx="15" cy="9" r="2" />
+            <path d="M8 14h8" />
+          </svg>
+        </div>
+        <div>
+          <p class="text-xl">Yes, This PC Supports The Latest Operating Systems And Software, Ensuring Smooth Performance And Compatibility.</p>
+        </div>
+      </div>
+
+      <!-- Input Area -->
+      <div class="bg-purple p-4">
+        <div class="bg-purple border-2 border-pink rounded-full flex items-center p-2 px-4">
+          <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center mr-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="8" r="4" />
+              <path d="M12 12v8" />
+              <path d="M9 16h6" />
+            </svg>
+          </div>
+          <span class="text-white flex-1">ASK ME ANYTHING</span>
+          <button class="bg-[#8a2be2] text-white px-4 py-2 rounded-full flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="4" y="4" width="16" height="16" rx="2" />
+              <circle cx="9" cy="9" r="2" />
+              <circle cx="15" cy="9" r="2" />
+              <path d="M8 14h8" />
+            </svg>
+            GENERATE
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript for the chat popup -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Éléments DOM
+      // Chat popup elements
+      const chatButton = document.getElementById('chat-button');
+      const chatPopup = document.getElementById('chat-popup');
+      const closeChat = document.getElementById('close-chat');
+      
+      // Open chat popup when chat button is clicked
+      chatButton.addEventListener('click', function() {
+        chatPopup.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when popup is open
+      });
+      
+      // Close chat popup when close button is clicked
+      closeChat.addEventListener('click', function() {
+        chatPopup.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+      });
+      
+      // Close chat popup when clicking outside the chat container
+      chatPopup.addEventListener('click', function(event) {
+        if (event.target === chatPopup) {
+          chatPopup.classList.remove('active');
+          document.body.style.overflow = ''; // Restore scrolling
+        }
+      });
+
+      // Existing JavaScript for responsiveness
       const mobileMenuButton = document.getElementById('mobile-menu-button');
       const mainNav = document.getElementById('main-nav');
       const headerSection = document.getElementById('header-section');
       const qrCodeSection = document.getElementById('qr-code-section');
       const footerGrid = document.getElementById('footer-grid');
       
-      // Fonction pour vérifier si l'écran est mobile
+      // Function to check if screen is mobile
       function isMobile() {
-        return window.innerWidth < 768; // 768px est le breakpoint md de Tailwind
+        return window.innerWidth < 768; // 768px is Tailwind's md breakpoint
       }
       
-      // Fonction pour ajuster l'interface en fonction de la taille de l'écran
+      // Function to adjust interface based on screen size
       function adjustInterface() {
-        // Ajuster le header
+        // Adjust header
         if (isMobile()) {
           headerSection.classList.remove('flex', 'justify-between', 'items-center');
           headerSection.classList.add('flex', 'flex-col', 'items-start', 'gap-4');
@@ -226,20 +425,20 @@
           headerSection.classList.add('flex', 'justify-between', 'items-center');
         }
         
-        // Ajuster la section QR code
+        // Adjust QR code section
         if (isMobile()) {
           qrCodeSection.style.marginLeft = '0';
           qrCodeSection.style.width = '100%';
           qrCodeSection.style.maxWidth = '320px';
           qrCodeSection.style.margin = '0 auto';
         } else {
-          // Rétablir les styles CSS d'origine pour desktop
+          // Restore original CSS styles for desktop
           qrCodeSection.style.width = '320px';
           qrCodeSection.style.marginLeft = '200px';
         }
       }
       
-      // Toggle du menu mobile
+      // Toggle mobile menu
       mobileMenuButton.addEventListener('click', function() {
         if (mainNav.classList.contains('hidden')) {
           mainNav.classList.remove('hidden');
@@ -250,14 +449,14 @@
         }
       });
       
-      // Ajuster l'interface au chargement
+      // Adjust interface on load
       adjustInterface();
       
-      // Ajuster l'interface lors du redimensionnement de la fenêtre
+      // Adjust interface on window resize
       window.addEventListener('resize', function() {
         adjustInterface();
         
-        // Réinitialiser la navigation sur desktop
+        // Reset navigation on desktop
         if (!isMobile() && mainNav.classList.contains('hidden')) {
           mainNav.classList.remove('hidden');
           mainNav.classList.add('flex');
@@ -267,7 +466,7 @@
         }
       });
       
-      // Rendre les grilles d'informations responsives
+      // Make information grids responsive
       const infoGrids = document.querySelectorAll('.grid.grid-cols-2');
       infoGrids.forEach(grid => {
         if (isMobile()) {
@@ -286,7 +485,7 @@
         });
       });
       
-      // Améliorer l'accessibilité des liens
+      // Improve link accessibility
       const links = document.querySelectorAll('a');
       links.forEach(link => {
         link.addEventListener('focus', function() {
@@ -301,4 +500,3 @@
   </script>
 </body>
 </html>
-
