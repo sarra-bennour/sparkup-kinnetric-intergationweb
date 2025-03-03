@@ -661,6 +661,14 @@ video {
   right: 1.5rem;
 }
 
+.right-2 {
+  right: 0.5rem;
+}
+
+.top-1\/2 {
+  top: 50%;
+}
+
 .isolate {
   isolation: isolate;
 }
@@ -776,6 +784,10 @@ video {
 
 .mt-1 {
   margin-top: 0.25rem;
+}
+
+.mb-12 {
+  margin-bottom: 3rem;
 }
 
 .box-border {
@@ -901,6 +913,10 @@ video {
   height: 24rem;
 }
 
+.h-4 {
+  height: 1rem;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -943,6 +959,10 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-4 {
+  width: 1rem;
 }
 
 .flex-1 {
@@ -991,6 +1011,11 @@ video {
 
 .border-separate {
   border-collapse: separate;
+}
+
+.-translate-y-1\/2 {
+  --tw-translate-y: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .\!transform {
@@ -2023,6 +2048,10 @@ video {
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
 }
 
+.bg-dark\/50 {
+  background-color: rgb(21 19 67 / 0.5);
+}
+
 .bg-opacity-20 {
   --tw-bg-opacity: 0.2;
 }
@@ -2187,6 +2216,10 @@ video {
   padding: 1.5rem;
 }
 
+.p-1 {
+  padding: 0.25rem;
+}
+
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -2200,6 +2233,11 @@ video {
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .pb-8 {
@@ -2298,6 +2336,11 @@ video {
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
 }
 
 .font-bold {
@@ -2462,6 +2505,14 @@ video {
 .placeholder-gray-400::placeholder {
   --tw-placeholder-opacity: 1;
   color: rgb(156 163 175 / var(--tw-placeholder-opacity));
+}
+
+.placeholder-white\/50::-moz-placeholder {
+  color: rgb(255 255 255 / 0.5);
+}
+
+.placeholder-white\/50::placeholder {
+  color: rgb(255 255 255 / 0.5);
 }
 
 .opacity-80 {
@@ -3025,6 +3076,16 @@ body {
   outline-offset: 2px;
 }
 
+.focus\:ring-2:focus {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
+.focus\:ring-accent\/50:focus {
+  --tw-ring-color: rgb(255 79 243 / 0.5);
+}
+
 .focus\:hover\:text-center:hover:focus {
   text-align: center;
 }
@@ -3034,6 +3095,10 @@ body {
 }
 
 @media (min-width: 640px) {
+  .sm\:w-auto {
+    width: auto;
+  }
+
   .sm\:underline {
     text-decoration-line: underline;
   }
