@@ -91,16 +91,18 @@ function selectItemAMPM(item) {
     item.classList.add('selected');
 }
 document.addEventListener("DOMContentLoaded", function() {
-    const payButton = document.querySelector(".pay-button");
-    const popupOverlay = document.querySelector(".popup-overlay");
-    const closeButton = document.querySelector(".close-btn");
+    const payButton = document.querySelector("#pay-btn");
+    const popupOverlay = document.querySelector("#popup-overlay");
+    const closeButton = document.querySelector("#close-btn");
 
     if (payButton) {
         payButton.addEventListener("click", () => {
-            console.log("Bouton PAY cliqué"); // Vérification console
-            popupOverlay.classList.add("active");
-            document.querySelector(".blur-background").style.visibility = "visible";
-            document.querySelector(".blur-background").style.opacity = "1";
+            console.log("Bouton PAY cliqué");
+            // Affiche le popup
+            popupOverlay.classList.remove("hidden");
+            popupOverlay.classList.add("active"); // S'assurer que la classe active est ajoutée
+            document.querySelector("#blur-background").style.visibility = "visible";
+            document.querySelector("#blur-background").style.opacity = "1";
         });
     } else {
         console.error("Le bouton PAY n'a pas été trouvé !");
@@ -108,10 +110,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (closeButton) {
         closeButton.addEventListener("click", () => {
-            console.log("Fermeture du popup"); // Vérification console
+            console.log("Fermeture du popup");
+            // Cache le popup
             popupOverlay.classList.remove("active");
-            document.querySelector(".blur-background").style.visibility = "hidden";
-            document.querySelector(".blur-background").style.opacity = "0";
+            popupOverlay.classList.add("hidden");
+            document.querySelector("#blur-background").style.visibility = "hidden";
+            document.querySelector("#blur-background").style.opacity = "0";
         });
     }
 
@@ -119,9 +123,44 @@ document.addEventListener("DOMContentLoaded", function() {
     popupOverlay.addEventListener("click", (e) => {
         if (e.target === popupOverlay) {
             popupOverlay.classList.remove("active");
-            document.querySelector(".blur-background").style.visibility = "hidden";
-            document.querySelector(".blur-background").style.opacity = "0";
+            popupOverlay.classList.add("hidden");
+            document.querySelector("#blur-background").style.visibility = "hidden";
+            document.querySelector("#blur-background").style.opacity = "0";
         }
     });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+      
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    // Chat popup elements
+    const chatButton = document.getElementById('chat-button');
+    const chatPopup = document.getElementById('chat-popup');
+    const closeChat = document.getElementById('close-chat');
+    
+    // Open chat popup when chat button is clicked
+    chatButton.addEventListener('click', function() {
+      chatPopup.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent scrolling when popup is open
+    });
+    
+    // Close chat popup when close button is clicked
+    closeChat.addEventListener('click', function() {
+      chatPopup.classList.remove('active');
+      document.body.style.overflow = ''; // Restore scrolling
+    });
+    
+    // Close chat popup when clicking outside the chat container
+    chatPopup.addEventListener('click', function(event) {
+      if (event.target === chatPopup) {
+        chatPopup.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+      }
+    });
+    
+    // Toggle mobile menu visibility
+    menuButton.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+    });
+  });

@@ -89,40 +89,48 @@
             font-size: 20px;
         }
         .blur-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
-            visibility: hidden;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out, visibility 0.3s;
-            z-index: 1;
-        }
-        .popup-overlay {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: linear-gradient(135deg, #20002c, #6f00ff);
-            padding: 30px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.2);
-            color: white;
-            max-width: 400px;
-            width: 90%;
-            z-index: 3;
-            visibility: hidden;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out, visibility 0.3s;
-        }
-        .popup-overlay.active {
-            visibility: visible;
-            opacity: 1;
-        }
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s;
+    z-index: 1;
+}
+
+.popup-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #20002c, #6f00ff);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.2);
+    color: white;
+    max-width: 400px;
+    width: 90%;
+    z-index: 3;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s;
+}
+
+.popup-overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup-overlay.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
         .carousel {
     list-style: none;
     padding: 0;
@@ -512,9 +520,10 @@
                     <input type="checkbox" class="w-5 h-5" />
                     <span class="text-sm sm:text-base">Save Info</span>
                 </div>
-                <button id="pay-btn" class="ml-auto bg-gradient-to-r from-[#832EFF] to-[#FF4FF3] text-white font-bold py-3 px-8 rounded-full uppercase hover:opacity-90 transition-opacity text-sm sm:text-base" onclick="showPopup()">
+                <button id="pay-btn" class="ml-auto bg-gradient-to-r from-[#832EFF] to-[#FF4FF3] text-white font-bold py-3 px-8 rounded-full uppercase hover:opacity-90 transition-opacity text-sm sm:text-base">
                     PAY
                 </button>
+                
             </div>
         </div>
     </div>
@@ -525,15 +534,19 @@
     </div>
 </div>
 
-    <div id="blur-background" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 backdrop-blur-md hidden z-10"></div>
-    <div id="popup-overlay" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-purple-800 to-indigo-600 p-8 rounded-2xl text-center shadow-2xl text-white max-w-md w-11/12 hidden z-20">
-        <button id="close-btn" class="absolute top-4 right-4 text-white text-2xl font-bold bg-transparent border-none cursor-pointer">×</button>
-        <h2 class="text-2xl mb-4">CONGRATS !!</h2>
-        <p class="mb-4">Your payment has been successfully completed.</p>
-        <a href="Receipt/receipt.html">
-            <button class="bg-gradient-to-r from-purple-500 to-pink-400 text-white font-semibold py-2 px-6 rounded-full transition-opacity hover:opacity-80">GET YOUR RECEIPT</button>
-        </a>
-    </div>
+   <!-- Background Blur -->
+<div id="blur-background" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 backdrop-blur-md hidden z-10"></div>
+
+<div id="popup-overlay" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-purple-800 to-indigo-600 p-8 rounded-2xl text-center shadow-2xl text-white max-w-md w-11/12 z-20 hidden">
+    <button id="close-btn" class="absolute top-4 right-4 text-white text-2xl font-bold bg-transparent border-none cursor-pointer">×</button>
+    <h2 class="text-2xl mb-4">CONGRATS !!</h2>
+    <p class="mb-4">Your payment has been successfully completed.</p>
+    <a href="Receipt/receipt.html">
+        <button class="bg-gradient-to-r from-purple-500 to-pink-400 text-white font-semibold py-2 px-6 rounded-full transition-opacity hover:opacity-80">GET YOUR RECEIPT</button>
+    </a>
+</div>
+
+
    
 </div>
     </main>
@@ -717,5 +730,6 @@
   </div>
 
     <script src="script.js"></script>
+ 
 </body>
 </html>

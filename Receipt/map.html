@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kinnectric - Votre Reçu</title>
+  <title>Kinnectric - Order Details</title>
   <link href="./output.css" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+  
   <script>
     tailwind.config = {
       theme: {
@@ -73,7 +76,7 @@
         <a href="#" class="hover:text-accent">Headphones</a>
       </nav>
       <!-- Mobile menu button -->
-      <button class="md:hidden flex items-center text-white focus:outline-none" id="mobile-menu-button">
+      <button title="hamburger button" class="md:hidden flex items-center text-white focus:outline-none" id="mobile-menu-button">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
@@ -100,141 +103,55 @@
 
   <!-- Breadcrumb -->
   <div class="container mx-auto px-4 mt-4 text-sm opacity-80 overflow-x-auto">
-    <div class="flex space-x-2 min-w-max">
+    <div class="flex space-x-2 whitespace-nowrap">
       <a href="#" class="hover:text-accent">Home</a>
       <span>/</span>
-      <a href="#" class="hover:text-accent">Cart</a>
+      <a href="#" class="hover:text-accent">Ptoduct</a>
+      
       <span>/</span>
-      <a href="/uii.html" class="hover:text-accent">Payment</a>
-      <span>/</span>
-      <span>Receipt</span>
+      <span>Details</span>
     </div>
   </div>
 
   <!-- Main Content -->
-  <main class="container mx-auto px-4 py-8">
-    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-12">
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold">YOUR RECEIPT</h1>
-      <div class="relative w-full sm:w-auto">
-        <input 
-          type="search" 
-          placeholder="Search" 
-          class="w-full sm:w-auto bg-dark/50 text-white placeholder-white/50 px-4 py-2 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-accent/50"
-        />
-        <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-accent rounded-full p-1">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-        </button>
-      </div>
-    </div>    
-
-    <!-- Customer Info and Receipt Details -->
-    <div class="grid sm:grid-cols-2 gap-8 mb-8">
-      <div class="space-y-6">
-        <div class="grid grid-cols-2">
-          <div class="font-semibold">NAME</div>
-          <div>Sarra Bennour</div>
-        </div>
-        <div class="grid grid-cols-2">
-          <div class="font-semibold">EMAIL</div>
-          <div><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a2d1c3d0d0c38cc0c7cccccdd7d0e2c7d1d2d0cbd68cd6cc">[email&#160;protected]</a></div>
-        </div>
-        <div class="grid grid-cols-2">
-          <div class="font-semibold">PHONE NUMBER</div>
-          <div>+216 12 345 678</div>
-        </div>
-      </div>
-      <div class="space-y-6">
-        <div class="grid grid-cols-2">
-          <div class="font-semibold">RECEIPT</div>
-          <div>#002</div>
-        </div>
-        <div class="grid grid-cols-2">
-          <div class="font-semibold">DATE</div>
-          <div>04/02/2025</div>
-        </div>
-        <div class="grid grid-cols-2">
-          <div class="font-semibold">TIME</div>
-          <div>11:29</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Divider -->
-    <div class="border-t border-dashed border-white opacity-30 my-8"></div>
-
-    <!-- Products Table -->
-    <div class="overflow-x-auto -mx-4 px-4">
-      <table class="w-full min-w-[768px]">
-        <thead>
-          <tr class="text-left">
-            <th class="pb-4 font-semibold w-1/2">NAME</th>
-            <th class="pb-4 font-semibold text-center">QUANTITY</th>
-            <th class="pb-4 font-semibold text-center">PRICE</th>
-            <th class="pb-4 font-semibold text-center">TOTAL</th>
-            <th class="pb-4"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Product 1 -->
-          <tr class="border-b border-white/10">
-            <td class="py-4">
-              <div class="flex items-center space-x-4">
-                <div class="w-16 sm:w-24 h-12 sm:h-16 bg-dark rounded overflow-hidden">
-                  <img src="/Receipt/images/téléchargement.jpg" alt="PC Portable" class="w-full h-full object-cover" />
+  <main class="mt-10">
+    <section class="text-center">
+        <div class="flex flex-col lg:flex-row justify-between items-start p-6  text-white min-h-screen">
+            <div class="w-full lg:w-1/3 bg-white bg-opacity-20 p-6 rounded-xl text-white">
+                <h2 class="text-lg font-bold mb-4">Estimated Delivery Time</h2>
+                <div class="space-y-4">
+                    <div class="flex items-start space-x-2">
+                        <input type="radio" id="time1" name="delivery-time" value="9:15 AM" class="mt-1">
+                        <label for="time1" class="block">
+                            <span class="font-semibold">8:56 AM</span>
+                            <h6 class="text-sm text-gray-200">There is traffic at rondpoint Ghazella, I’m sorry.</h6>
+                        </label>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <input type="radio" id="time2" name="delivery-time" value="9:30 AM" class="mt-1">
+                        <label for="time2" class="block">
+                            <span class="font-semibold">9:15 AM</span>
+                            <h6 class="text-sm text-gray-200">I’m almost there, please wait to pick up your delivery.</h6>
+                        </label>
+                    </div>
                 </div>
-                <div>
-                  <div class="font-semibold">PC PORTABLE</div>
-                  <div class="text-xs sm:text-sm opacity-80">ASUS VIVOBOOK 15 X515KA</div>
-                </div>
-              </div>
-            </td>
-            <td class="py-4 text-center">1</td>
-            <td class="py-4 text-center">2 953 TND</td>
-            <td class="py-4 text-center">2 953 TND</td>
-            <td class="py-4 text-right">
-              <button onclick="window.location.href='map.html'" class="sm:px-4 py-1.5 sm:py-2 rounded-full text-xs whitespace-nowrap bg-accent text-white">
-                TRACK ORDER
-            </button>
-                        </td>
-          </tr>
-          <!-- Product 2 -->
-          <tr class="border-b border-white/10">
-            <td class="py-4">
-              <div class="flex items-center space-x-4">
-                <div class="w-16 sm:w-24 h-12 sm:h-16 bg-dark rounded overflow-hidden">
-                  <img src="/Receipt/images/téléchargement (1).jpg" alt="Samsung Galaxy" class="w-full h-full object-cover" />
-                </div>
-                <div>
-                  <div class="font-semibold">SAMSUNG</div>
-                  <div class="text-xs sm:text-sm opacity-80">GALAXY A52 5G</div>
-                </div>
-              </div>
-            </td>
-            <td class="py-4 text-center">2</td>
-            <td class="py-4 text-center">1 400 TND</td>
-            <td class="py-4 text-center">2 800 TND</td>
-            <td class="py-4 text-right">
-              <button onclick="window.location.href='map.html'" class="sm:px-4 py-1.5 sm:py-2 rounded-full text-xs whitespace-nowrap bg-accent text-white">
-                TRACK ORDER
-            </button>
-                        </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </main>
+                <button class="mt-4 w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 text-white py-2 px-4 rounded-full transition" onclick="window.location.href='/Order details and chatbot/orderdetails.html'">DISCLAIMER</button>
+            </div>
+            <div id="map" class="w-full lg:w-2/3 h-96 bg-gray-800 rounded-xl mt-6 lg:mt-0"></div>
+        </div>
+        
+    </section>
+</main>
 
   <!-- Footer -->
-  <footer class="mt-12 sm:mt-24 pt-8 sm:pt-12 pb-8">
+  <footer class="  pb-8">
     <div class="container mx-auto px-4">
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8">
+      <div id="footer-grid" class="grid md:grid-cols-[200px_1fr_1fr_1fr_300px] gap-8">
         <!-- Brand -->
-        <div class="col-span-2 sm:col-span-3 lg:col-span-1">
-          <div class="text-xl font-bold text-white mb-4 lg:mb-0">KINNECTRIC</div>
+        <div>
+          <div class="text-xl font-bold text-white">KINNECTRIC</div>
         </div>
-  
+
         <!-- Buy Now Links -->
         <div>
           <div class="text-[#FF4FF3] text-sm font-semibold mb-3">BUY NOW</div>
@@ -247,7 +164,7 @@
             <li><a href="#" class="text-white/80 hover:text-white">Headphones</a></li>
           </ul>
         </div>
-  
+
         <!-- Customer Support -->
         <div>
           <div class="text-[#FF4FF3] text-sm font-semibold mb-3">CUSTOMER SUPPORT</div>
@@ -257,7 +174,7 @@
             <li><a href="#" class="text-white/80 hover:text-white">About</a></li>
           </ul>
         </div>
-  
+
         <!-- Contact -->
         <div>
           <div class="text-[#FF4FF3] text-sm font-semibold mb-3">CONTACT</div>
@@ -268,9 +185,9 @@
             <li><a href="#" class="text-white/80 hover:text-white">Twitter</a></li>
           </ul>
         </div>
-  
+
         <!-- Newsletter -->
-        <div class="col-span-2 sm:col-span-3 lg:col-span-1">
+        <div>
           <div class="text-[#FF4FF3] text-sm font-semibold mb-3">JOIN OUR NEWSLETTER</div>
           <div class="flex gap-2 items-center">
             <input 
@@ -278,7 +195,7 @@
               placeholder="Email Address" 
               class="flex-1 bg-[#1A103C] text-white placeholder-gray-400 px-4 py-2 rounded-full text-xs focus:outline-none"
             />
-            <button class="bg-gradient-to-r from-[#832EFF] to-[#FF4FF3] hover:opacity-90 transition-opacity text-white px-4 py-2 rounded-full text-xs font-medium whitespace-nowrap">
+            <button class="bg-gradient-to-r from-[#832EFF] to-[#FF4FF3] hover:opacity-90 transition-opacity text-white px-4 py-2 rounded-full text-xs font-medium">
               SUBMIT
             </button>
           </div>
@@ -287,9 +204,9 @@
     </div>
   </footer>
 
-   <!-- Chat Button -->
-   <div class="fixed bottom-6 right-6 z-10">
-    <button id="chat-button" class="bg-accent hover:bg-accent/80 text-white p-4 rounded-full shadow-lg transition-all">
+  <!-- Chat Button -->
+  <div class="fixed bottom-6 right-6 z-10">
+    <button title="chatbot" id="chat-button" class="bg-accent hover:bg-accent/80 text-white p-4 rounded-full shadow-lg transition-all">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
       </svg>
@@ -405,7 +322,7 @@
     </div>
   </div>
 
-  <!-- JavaScript for mobile menu toggle -->
+  <!-- JavaScript for the chat popup -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       
@@ -441,8 +358,19 @@
         mobileMenu.classList.toggle('hidden');
       });
     });
-  </script>
+
+
+    var map = L.map('map').setView([36.8500, 10.1980], 13); // Coordinates for the center of the map (e.g., London)
   
+    // Adding OpenStreetMap tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+  
+    // Adding a marker at the center location
+    L.marker([36.8500, 10.1980]).addTo(map)
+      .bindPopup('El Ghazela')
+      .openPopup();
+  </script>
 </body>
 </html>
-
