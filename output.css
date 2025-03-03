@@ -3357,6 +3357,10 @@ video {
     margin-top: 6rem;
   }
 
+  .sm\:ml-6 {
+    margin-left: 1.5rem;
+  }
+
   .sm\:h-16 {
     height: 4rem;
   }
@@ -3419,6 +3423,11 @@ video {
     line-height: 1.75rem;
   }
 
+  .sm\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
   .sm\:underline {
     text-decoration-line: underline;
   }
@@ -3427,6 +3436,10 @@ video {
 @media (min-width: 768px) {
   .md\:ml-\[50px\] {
     margin-left: 50px;
+  }
+
+  .md\:ml-12 {
+    margin-left: 3rem;
   }
 
   .md\:flex {
@@ -3473,6 +3486,11 @@ video {
     font-size: 0.75rem;
     line-height: 1rem;
   }
+
+  .md\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -3486,6 +3504,10 @@ video {
 
   .lg\:ml-\[100px\] {
     margin-left: 100px;
+  }
+
+  .lg\:ml-\[250px\] {
+    margin-left: 250px;
   }
 
   .lg\:grid-cols-5 {
@@ -3504,6 +3526,11 @@ video {
   .lg\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
+  }
+
+  .lg\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 
   :is(.dark .dark\:lg\:hover\:\[paint-order\:markers\]:hover) {
