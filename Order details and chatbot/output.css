@@ -572,11 +572,8 @@ video {
   }
 }
 
-@media (min-width: 1536px) {
-  .container {
-    max-width: 1536px;
-  }
-}
+
+
 
 .sr-only {
   position: absolute;
@@ -3036,11 +3033,7 @@ body {
     }
   }
 
-  @media (min-width: 1536px) {
-    .sm\:container {
-      max-width: 1536px;
-    }
-  }
+  
 }
 
 .hover\:bg-accent\/80:hover {

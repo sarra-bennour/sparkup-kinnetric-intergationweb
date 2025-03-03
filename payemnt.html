@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kinnectric - Order Details</title>
+  <title>Kinnectric - Votre Reçu</title>
   <link href="./output.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -100,110 +100,269 @@
 
   <!-- Breadcrumb -->
   <div class="container mx-auto px-4 mt-4 text-sm opacity-80 overflow-x-auto">
-    <div class="flex space-x-2 whitespace-nowrap">
+    <div class="flex space-x-2 min-w-max">
       <a href="#" class="hover:text-accent">Home</a>
       <span>/</span>
       <a href="#" class="hover:text-accent">Cart</a>
       <span>/</span>
-      <a href="#" class="hover:text-accent">Payment</a>
+      <a href="../uii.html" class="hover:text-accent">Payment</a>
       <span>/</span>
-      <a href="#" class="hover:text-accent">Receipt</a>
-      <span>/</span>
-      <a href="#" class="hover:text-accent">Track</a>
-      <span>/</span>
-      <span>Details</span>
+      <span>Receipt</span>
     </div>
   </div>
 
   <!-- Main Content -->
   <main class="container mx-auto px-4 py-8">
-    <div id="header-section" class="flex justify-between items-center mb-12">
-      <h1 class="text-5xl font-bold">ORDER DETAILS</h1>
-      <div class="relative">
-        <input 
-          type="search" 
-          placeholder="Search" 
-          class="bg-dark/50 text-white placeholder-white/50 px-4 py-2 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-accent/50"
-        />
-        <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-accent rounded-full p-1">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-        </button>
-      </div>
+
+    <div data-layer="CARD" class="Card">
+        <div data-layer="Rectangle 27" class="Rectangle27"></div>
+        
+        <div data-layer="Group 8" class="Group8">
+            <!-- Étape 1: Adresse -->
+            <div class="Step1Address text-center">
+                <span class="material-symbols-outlined">home_pin</span>
+                <div>
+                    <span class="step-number">Step 1</span>
+                    <span class="step-label">Address</span>
+                </div>
+            </div>
+        </div>
+    
+        <div data-layer="Group 6" class="Group6">
+            <!-- Étape 2: Shipping -->
+            <div class="Step2Shipping text-center">
+                <span class="material-symbols-outlined">delivery_truck_speed</span>
+                <div>
+                    <span class="step-number">Step 2</span>
+                    <span class="step-label">Shipping</span>
+                </div>
+            </div>
+        </div>
+    
+        <div data-layer="Group 7" class="Group7">
+            <!-- Étape 3: Payment -->
+            <div class="Step3Payment text-center">
+                <span class="material-symbols-outlined">paid</span>
+                <div>
+                    <span class="step-number">Step 3</span>
+                    <span class="step-label">Payment</span>
+                </div>
+            </div>
+        </div>
     </div>
+    
+    
+    <!-- Conteneur principal -->
 
-    <!-- Order Details Content -->
-    <div class="grid md:grid-cols-2 gap-8">
-      <!-- Left Section -->
-      <div class="space-y-6">
-        <div class="rounded-xl overflow-hidden">
-          <img src="/images/images.jpg" alt="Delivery" class="device-width rounded-xl object-cover" />
+     
+    <div class="step-panel" id="step1">
+        <div class="flex justify-start">
+            <h2 class="select-adress text-2xl lg:text-3xl xl:text-4xl font-bold ml-[250px]">SELECT ADDRESS</h2>
         </div>
-        <div class="space-y-4">
-          <div class="grid grid-cols-2">
-            <div class="font-semibold">DELIVERY PERIOD :</div>
-            <div>72H</div>
-          </div>
-          <div class="grid grid-cols-2">
-            <div class="font-semibold">OUR PHONE NUMBER :</div>
-            <div>+216 XX XXX XXX</div>
-          </div>
-          <div class="grid grid-cols-2">
-            <div class="font-semibold">DELIVERY PHONE NUMBER :</div>
-            <div>+216 XX XXX XXX</div>
-          </div>
-        </div>
-        <div class="flex flex-wrap gap-4">
-          <button class="bg-gradient-to-r from-[#832EFF] to-[#FF4FF3] text-white px-6 py-2.5 rounded-full text-sm hover:opacity-90 transition-opacity">
-            SEE MORE PRODUCTS
-          </button>
-          <button class="bg-gradient-to-r from-[#832EFF] to-[#FF4FF3] text-white px-6 py-2.5 rounded-full text-sm hover:opacity-90 transition-opacity">
-            GET YOUR RECEIPT
-          </button>
-        </div>
-      </div>
-
-      <!-- Right Section -->
-      <div id="qr-code-section" class="qr-code-container">
-        <div class="qr-code-inner">
-          <!-- QR Code -->
-          <div class="bg-white p-4 rounded-xl w-32 h-32 flex items-center justify-center">
-            <img 
-              src="/images/Qrcode_wikipedia_fr_v2clean.png" 
-              alt="QR Code" 
-              class="w-24 h-24 object-contain"
-            />
-          </div>
-          
-          <!-- Text Content -->
-          <div class="space-y-8 text-center">
-            <p class="text-white font-medium text-lg uppercase leading-tight">
-              DON'T OPEN THE PACKAGE<br/>
-              UNTIL YOU SCAN THE QR<br/>
-              CODE
-            </p>
+        
+        <div class="address-options">
+            <div class="address-option">
+                <input type="radio" name="address" id="address1" checked>
+                <label for="address1">
+                    <span class="address-text">
+                    <span class="titre-adresse">    TUNIS, ARIANA </span> <br>
+                 
+                        résidence l'avenir cite el ghazela
+                        2083
+                    </span>
+                    <span class="edit-icon">
+                        <span class="material-symbols-outlined edit-size">
+                            edit
+                        </span>
+                    </span>
+                    <span class="delete-icon">
+                        <span class="material-symbols-outlined delete-size">
+                            close
+                        </span>
+                    </span>
+                </label>
+            </div>
             
-            <p class="text-white font-medium text-lg uppercase leading-tight">
-              IN CASE OF ANY<br/>
-              ISSUES,YOU CAN REQUEST<br/>
-              AN EXPRESS RETURN
-            </p>
-          </div>
+            <div class="address-option">
+                <input type="radio" name="address" id="address2">
+                <label for="address2">
+                    <span class="address-text">
+                        <span class="titre-adresse">   TUNIS, ARIANA </span><br>
+                        résidence l'avenir cite el ghazela
+                        2083
+                    </span>
+                    <span class="edit-icon">
+                        <span class="material-symbols-outlined edit-size">
+                            edit
+                        </span>
+                    </span>
+                    <span class="delete-icon">
+                        <span class="material-symbols-outlined delete-size">
+                            close
+                        </span>
+                    </span>
+                </label>
+            </div>
+            
+            <div class="add-address">
+              
+                <span class="plus"><span class="material-symbols-outlined">
+                    add_circle
+                    </span></span>
+              
+            </div>
+            
+    
+            <div class="new-address">
+                <button class="depots-button">Dépôts</button>
+                <button class="back-button" >Back</button>
+                <button class="next-button" onclick="showStep(2)">Next</button>
+            </div>
         </div>
-      </div>
     </div>
+    <div class="step-panel hidden" id="step2" style="margin-bottom: 60px;">
+       
+        <div class="flex justify-start">
+            <h2 class="select-adress text-2xl lg:text-3xl xl:text-4xl font-bold ml-[250px]">SELECT SHIPPING </h2>
+        </div>
+        <div class="shipping-options">
+            <div class="shipping-option">
+                <input type="radio" name="shipping" id="shipping1">
+                <label for="shipping1">
+                    <span class="titre-adresse">FREE</span> 
+                    <span class="description">Regular shipment</span> 
+                    <span class="date">15 juin 2025</span>
+                </label>
+            </div>
+            
+            <div class="shipping-option">
+                <input type="radio" name="shipping" id="shipping2">
+                <label for="shipping2">
+                    <span class="titre-adresse">8TND</span> 
+                    <span class="description">Get your delivery as soon as possible</span>
+                    <span class="date">5 juin 2025</span>
+                </label>
+            </div>
+            
+            <div class="shipping-option">
+                <input type="radio" name="shipping" id="shipping3">
+                <label for="shipping3">
+                    <span class="titre-adresse">Scheduled</span> 
+                    <span class="description">Scheduled Shipment</span> 
+                    <span class="date">Select Date</span>
+                </label>
+            </div>
+            
+        </div>
+    
+        <div class="delivery-time p-4">
+            <h2 class="select-adress text-xl font-bold text-center mb-4">FIX DELIVERY TIME</h2>
+        
+            <div class="carousel-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div class="carousel-item text-center">
+                    <h4 class="font-semibold">DAY</h4>
+                    <ul class="carousel space-y-2 p-2 bg-gray-200 rounded-md" id="day-carousel"></ul>
+                </div>
+                <div class="carousel-item text-center">
+                    <h4 class="font-semibold">MONTH</h4>
+                    <ul class="carousel space-y-2 p-2 bg-gray-200 rounded-md" id="month-carousel"></ul>
+                </div>
+                <div class="carousel-item text-center">
+                    <h4 class="font-semibold">YEAR</h4>
+                    <ul class="carousel space-y-2 p-2 bg-gray-200 rounded-md" id="year-carousel"></ul>
+                </div>
+                <div class="carousel-item text-center">
+                    <h4 class="font-semibold">HOUR</h4>
+                    <ul class="carousel space-y-2 p-2 bg-gray-200 rounded-md" id="hour-carousel"></ul>
+                </div>
+                <div class="carousel-item text-center">
+                    <h4 class="font-semibold">MINUTE</h4>
+                    <ul class="carousel space-y-2 p-2 bg-gray-200 rounded-md" id="minute-carousel"></ul>
+                </div>
+                <div class="carousel-item text-center">
+                    <h4 class="font-semibold">AM & PM</h4>
+                    <ul class="carousel space-y-2 p-2 bg-gray-200 rounded-md" id="AMPM-carousel">
+                        <li class="cursor-pointer p-2 rounded-md bg-gray-300 hover:bg-gray-400" onclick="selectItemAMPM(this)">AM</li>
+                        <li class="cursor-pointer p-2 rounded-md bg-gray-300 hover:bg-gray-400" onclick="selectItemAMPM(this)">PM</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="button-container">
+            <button class="back-button" onclick="showStep(1)">Back</button>
+            <button class="next-button" onclick="showStep(3)">Next</button>
+        </div>
+        
+    </div>
+
+    <div class="step-panel hidden" id="step3" style="margin-bottom: 60px;">
+     
+        <div class="flex justify-start">
+            <h2 class="select-adress text-2xl lg:text-3xl xl:text-4xl font-bold ml-[250px]">PAYMENT </h2>
+        </div>
+        <div class="payment-card">
+            <div class="headerssl">SSL SECURED PAYMENT</div>
+
+            <div class="input-container">
+                <input type="text" placeholder="Cardholder Name">
+            </div>
+
+            <div class="input-container">
+                <input type="text" placeholder="Card Number">
+            </div>
+
+            <div class="input-row">
+                <div class="small-input">
+                    <input type="text" placeholder="Exp Date">
+                </div>
+                <div class="small-input">
+                    <input type="text" placeholder="CVV">
+                </div>
+            </div>
+
+            <div class="save-info">
+                <input type="checkbox" class="checkbox-icon">
+                Save Info
+                <button class="pay-button">PAY</button>
+            </div>
+
+           
+        </div>       <div class="button-container">
+            <button class="back-button" onclick="showStep(2)">Back</button>
+      </div>
+
+      <div class="blur-background"></div>
+      <div class="popup-overlay">
+          <div class="popup">
+              <button class="close-btn">&times;</button>
+              <h2>CONGRATS !!</h2>
+              <p>Your payment has been successfully completed.</p>
+              <a href="Receipt/receipt.html">
+                <button class="receipt-btn">GET YOUR RECEIPT</button>
+            </a>
+             </div>
+      </div>
+      
+
+
+    </div>
+    </div>
+    
+
+
   </main>
 
   <!-- Footer -->
-  <footer class="mt-24 pt-12 pb-8">
+  <footer class="mt-12 sm:mt-24 pt-8 sm:pt-12 pb-8">
     <div class="container mx-auto px-4">
-      <div id="footer-grid" class="grid md:grid-cols-[200px_1fr_1fr_1fr_300px] gap-8">
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8">
         <!-- Brand -->
-        <div>
-          <div class="text-xl font-bold text-white">KINNECTRIC</div>
+        <div class="col-span-2 sm:col-span-3 lg:col-span-1">
+          <div class="text-xl font-bold text-white mb-4 lg:mb-0">KINNECTRIC</div>
         </div>
-
+  
         <!-- Buy Now Links -->
         <div>
           <div class="text-[#FF4FF3] text-sm font-semibold mb-3">BUY NOW</div>
@@ -216,7 +375,7 @@
             <li><a href="#" class="text-white/80 hover:text-white">Headphones</a></li>
           </ul>
         </div>
-
+  
         <!-- Customer Support -->
         <div>
           <div class="text-[#FF4FF3] text-sm font-semibold mb-3">CUSTOMER SUPPORT</div>
@@ -226,7 +385,7 @@
             <li><a href="#" class="text-white/80 hover:text-white">About</a></li>
           </ul>
         </div>
-
+  
         <!-- Contact -->
         <div>
           <div class="text-[#FF4FF3] text-sm font-semibold mb-3">CONTACT</div>
@@ -237,9 +396,9 @@
             <li><a href="#" class="text-white/80 hover:text-white">Twitter</a></li>
           </ul>
         </div>
-
+  
         <!-- Newsletter -->
-        <div>
+        <div class="col-span-2 sm:col-span-3 lg:col-span-1">
           <div class="text-[#FF4FF3] text-sm font-semibold mb-3">JOIN OUR NEWSLETTER</div>
           <div class="flex gap-2 items-center">
             <input 
@@ -247,7 +406,7 @@
               placeholder="Email Address" 
               class="flex-1 bg-[#1A103C] text-white placeholder-gray-400 px-4 py-2 rounded-full text-xs focus:outline-none"
             />
-            <button class="bg-gradient-to-r from-[#832EFF] to-[#FF4FF3] hover:opacity-90 transition-opacity text-white px-4 py-2 rounded-full text-xs font-medium">
+            <button class="bg-gradient-to-r from-[#832EFF] to-[#FF4FF3] hover:opacity-90 transition-opacity text-white px-4 py-2 rounded-full text-xs font-medium whitespace-nowrap">
               SUBMIT
             </button>
           </div>
@@ -256,8 +415,8 @@
     </div>
   </footer>
 
-  <!-- Chat Button -->
-  <div class="fixed bottom-6 right-6 z-10">
+   <!-- Chat Button -->
+   <div class="fixed bottom-6 right-6 z-10">
     <button id="chat-button" class="bg-accent hover:bg-accent/80 text-white p-4 rounded-full shadow-lg transition-all">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
@@ -374,9 +533,12 @@
     </div>
   </div>
 
-  <!-- JavaScript for the chat popup -->
+  <!-- JavaScript for mobile menu toggle -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      
+      const menuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
       // Chat popup elements
       const chatButton = document.getElementById('chat-button');
       const chatPopup = document.getElementById('chat-popup');
@@ -401,102 +563,14 @@
           document.body.style.overflow = ''; // Restore scrolling
         }
       });
-
-      // Existing JavaScript for responsiveness
-      const mobileMenuButton = document.getElementById('mobile-menu-button');
-      const mainNav = document.getElementById('main-nav');
-      const headerSection = document.getElementById('header-section');
-      const qrCodeSection = document.getElementById('qr-code-section');
-      const footerGrid = document.getElementById('footer-grid');
       
-      // Function to check if screen is mobile
-      function isMobile() {
-        return window.innerWidth < 768; // 768px is Tailwind's md breakpoint
-      }
-      
-      // Function to adjust interface based on screen size
-      function adjustInterface() {
-        // Adjust header
-        if (isMobile()) {
-          headerSection.classList.remove('flex', 'justify-between', 'items-center');
-          headerSection.classList.add('flex', 'flex-col', 'items-start', 'gap-4');
-        } else {
-          headerSection.classList.remove('flex-col', 'items-start', 'gap-4');
-          headerSection.classList.add('flex', 'justify-between', 'items-center');
-        }
-        
-        // Adjust QR code section
-        if (isMobile()) {
-          qrCodeSection.style.marginLeft = '0';
-          qrCodeSection.style.width = '100%';
-          qrCodeSection.style.maxWidth = '320px';
-          qrCodeSection.style.margin = '0 auto';
-        } else {
-          // Restore original CSS styles for desktop
-          qrCodeSection.style.width = '320px';
-          qrCodeSection.style.marginLeft = '200px';
-        }
-      }
-      
-      // Toggle mobile menu
-      mobileMenuButton.addEventListener('click', function() {
-        if (mainNav.classList.contains('hidden')) {
-          mainNav.classList.remove('hidden');
-          mainNav.classList.add('flex');
-        } else {
-          mainNav.classList.add('hidden');
-          mainNav.classList.remove('flex');
-        }
-      });
-      
-      // Adjust interface on load
-      adjustInterface();
-      
-      // Adjust interface on window resize
-      window.addEventListener('resize', function() {
-        adjustInterface();
-        
-        // Reset navigation on desktop
-        if (!isMobile() && mainNav.classList.contains('hidden')) {
-          mainNav.classList.remove('hidden');
-          mainNav.classList.add('flex');
-        } else if (isMobile() && !mainNav.classList.contains('hidden') && !mainNav.classList.contains('menu-open')) {
-          mainNav.classList.add('hidden');
-          mainNav.classList.remove('flex');
-        }
-      });
-      
-      // Make information grids responsive
-      const infoGrids = document.querySelectorAll('.grid.grid-cols-2');
-      infoGrids.forEach(grid => {
-        if (isMobile()) {
-          grid.classList.remove('grid-cols-2');
-          grid.classList.add('grid-cols-1', 'gap-1');
-        }
-        
-        window.addEventListener('resize', function() {
-          if (isMobile()) {
-            grid.classList.remove('grid-cols-2');
-            grid.classList.add('grid-cols-1', 'gap-1');
-          } else {
-            grid.classList.remove('grid-cols-1', 'gap-1');
-            grid.classList.add('grid-cols-2');
-          }
-        });
-      });
-      
-      // Improve link accessibility
-      const links = document.querySelectorAll('a');
-      links.forEach(link => {
-        link.addEventListener('focus', function() {
-          this.classList.add('ring-2', 'ring-accent', 'outline-none');
-        });
-        
-        link.addEventListener('blur', function() {
-          this.classList.remove('ring-2', 'ring-accent', 'outline-none');
-        });
+      // Toggle mobile menu visibility
+      menuButton.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
       });
     });
   </script>
+  
+  <script src="script.js"></script>
 </body>
 </html>
