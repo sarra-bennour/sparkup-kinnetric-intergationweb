@@ -336,7 +336,7 @@
             document.querySelectorAll('.flex.items-center.gap-2').forEach(container => {
                 const minusBtn = container.querySelector('button:first-child');
                 const plusBtn = container.querySelector('button:last-child');
-                // const quantityElement = container.querySelector('span');
+                const quantityElement = container.querySelector('span');
                 const priceElement = container.closest('.flex.flex-col.md\\:flex-row.justify-between').querySelector('.font-extrabold');
                 const basePrice = parseFloat(priceElement.textContent.replace(/[^0-9]/g, '')); // Extract base price
 
