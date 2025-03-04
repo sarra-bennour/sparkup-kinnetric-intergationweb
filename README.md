@@ -1,7 +1,3 @@
-Voici un exemple de fichier **README.md** succinct et professionnel pour votre projet. Vous pouvez l'adapter en fonction des spécificités de votre équipe et de votre projet.
-
----
-
 # README - Projet KINNECTRIC
 
 ## 📌 **Description du Projet**
