@@ -1,0 +1,176 @@
+@use 'variables' as *;
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    position: relative;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        padding: 15px;
+    }
+}
+
+.logo {
+    font-weight: bold;
+    font-family: $font-family_1;
+    font-size: 30px;
+    margin-top: 30px;
+    margin-left: 188px;
+    margin-right: 140px;
+
+    @media (max-width: 1024px) {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+    @media (max-width: 768px) {
+        margin: 20px 0;
+        font-size: 24px;
+        text-align: center;
+    }
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    gap: 25px;
+
+    @media (max-width: 768px) {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 250px;
+        height: 100vh;
+        background-color: #301759;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 0;
+        padding-top: 70px;
+        transition: left 0.3s ease;
+        z-index: 100;
+        
+        &.active {
+            left: 0;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color: $color_1;
+        padding: 10px 1px;
+        font-family: $font-family_1;
+        font-weight: 200px;
+        font-size: 17px;
+        letter-spacing: 1px;
+
+        @media (max-width: 768px) {
+            font-size: 16px;
+            padding: 8px 0;
+        }
+    }
+}
+
+/* Mobile cart icon that appears inside the sidebar */
+.mobile-cart-icon {
+    display: none;
+    margin-top: 20px;
+    
+    @media (max-width: 768px) {
+        display: block;
+    }
+    
+    a {
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+    }
+}
+
+/* Desktop cart icon */
+.desktop-cart-icon {
+    display: inline-block;
+
+    a {
+        display: block;    
+        margin-top: 34px;
+        margin-right: 90px;
+        transition: color 0.3s ease;
+
+        @media (max-width: 1024px) {
+            margin-right: 50px;
+        }
+
+        &:hover {
+            color: $color_4;
+        }
+    }
+    
+    /* Hide the desktop cart icon on mobile */
+    @media (max-width: 768px) {
+        display: none;
+    }
+}
+
+/* Hamburger Menu Styles */
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 101;
+
+    @media (max-width: 768px) {
+        display: block;
+    }
+    
+    .bar1, .bar2, .bar3 {
+        width: 25px;
+        height: 3px;
+        background-color: $color_1;
+        margin: 5px 0;
+        transition: 0.4s;
+    }
+    
+    &.change {
+        .bar1 {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        
+        .bar2 {
+            opacity: 0;
+        }
+        
+        .bar3 {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+    }
+}
+
+/* Menu Overlay - Add this to your existing SCSS */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+    display: none;
+    
+    &.active {
+        display: block;
+    }
+}
+
+/* Add this if you want to prevent scrolling when menu is open */
+body {
+    &.menu-open {
+        overflow: hidden;
+    }
+}
+
