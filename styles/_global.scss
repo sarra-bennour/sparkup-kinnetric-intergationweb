@@ -1,0 +1,22 @@
+@import "variables";
+
+body {
+  font-family: $font-primary;
+  margin: 0;
+  padding: 0;
+  background: $gradient-bg;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+.container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 50px auto;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 15px;
+}

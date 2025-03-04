@@ -1,0 +1,450 @@
+/*
+  Based on TailwindCSS recommendations,
+  consider using classes instead of the `@apply` directive
+  @see https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
+*/
+/* Styles généraux */
+body {
+    @apply text-[white] m-0 p-0;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #4b0082, #8a2be2);
+  }
+  .hidden {
+    @apply hidden hidden;
+  }
+  .select-adress {
+    @apply text-[22px] ml-[150px] mt-[50px];
+    font-family: "Roboto", sans-serif;
+  }
+  
+  /* Navbar */
+  nav {
+    @apply flex justify-between items-center text-[white] p-[15px];
+ 
+  }
+  .logo {
+    @apply text-2xl font-[bold] ml-[15px];
+  }
+  nav ul {
+    @apply flex gap-[25px] text-base mr-[15px] p-0;
+    list-style: none;
+  }
+  nav ul li a {
+    @apply text-[white] no-underline hover:underline;
+    font-family: Outfit;
+  }
+  
+  /* Conteneur principal */
+  .container {
+    @apply w-4/5 max-w-[1200px] mx-auto my-[50px] p-[30px] rounded-[15px];
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Conteneur des étapes */
+  .steps-container {
+    @apply flex justify-between mb-5 p-[15px] rounded-[10px];
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Style des étapes */
+  .step {
+    @apply flex-1 text-white cursor-pointer font-[bold] text-center flex items-center justify-center gap-2.5 relative p-[15px] rounded-[10px] before:font-black before:text-xl before:text-[white];
+    background: #979797;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Icônes des étapes */
+  .step::before {
+    font-family: "Font Awesome 5 Free"; /* Assurez-vous d'inclure Font Awesome */
+  }
+  
+  /* Étape active */
+  .step.active {
+    @apply text-[black] before:text-[black];
+    background: #ffffff;
+  }
+  
+  /* Transition douce entre les étapes */
+  .step:hover {
+    background: #c6c6c6;
+  }
+  .step-panel h2 {
+    @apply text-[white] text-2xl mb-5 text-[white] text-2xl mb-5;
+    font-family: "Outfit", sans-serif;
+  }
+  /* Panneaux des étapes */
+  .step-content {
+    @apply flex flex-col items-center justify-center w-6/12 text-center p-10 rounded-[15px] flex flex-col items-center justify-center w-6/12 text-center p-10 rounded-[15px];
+    background: rgba(
+      255,
+      255,
+      255,
+      0.1
+    ); /* Ajustez la largeur selon vos besoins */
+  }
+  .address-options {
+    @apply flex flex-col items-center justify-center text-center;
+  }
+  .address-option {
+    @apply w-[800px] h-20 text-[#281549] flex justify-between items-center box-border relative mx-0 my-2.5 pr-[50px] p-2.5 rounded-[73px]; /* Réduisez la largeur des adresses */
+    background: #d1ced5; /* Espacement entre les adresses */ /* Important pour que les icônes puissent être positionnées à droite dans le conteneur */
+  }
+  .address-option:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  .address-option input[type="radio"] {
+    @apply appearance-none w-6 h-6 cursor-pointer accent-[#6C5DD3] relative transition-[background-color] duration-[0.3s] ease-[ease] mr-[15px] rounded-[50%] border-2 border-solid border-[#888] checked:bg-[rgb(57,21,71)] checked:border-[#6C5DD3] checked:before:content-[''] checked:before:w-4 checked:before:h-4 checked:before:rounded-[50%] checked:before:left-1 checked:before:top-1;
+  }
+  .address-option input[type="radio"]:checked {
+    /* Fond blanc à l'intérieur */
+  }
+  .address-option input[type="radio"]:checked::before {
+    position: center; /* Décalage interne pour créer l'espace */ /* Décalage interne pour créer l'espace */ /* Taille réduite pour créer l'espace entre la bordure et le cercle */ /* Taille réduite */
+  }
+  .titre-adresse {
+    @apply font-[bold];
+  }
+  .address-option label {
+    @apply flex items-center grow cursor-pointer;
+  }
+  .address-option .address-text {
+    @apply text-xs leading-[1.2] max-w-[200px] text-left grow; /* Réduit la taille du texte */ /* Limite la largeur du texte */
+  }
+  .add-address {
+    @apply flex items-center justify-center w-full; /* Centrer horizontalement */ /* La largeur du conteneur */
+  }
+  .line {
+    @apply w-[250px] mt-[50px] border-b-2 border-b-white border-dotted; /* Longueur de la ligne pointillée */ /* L'épaisseur de la ligne pointillée */
+  }
+  .plus {
+    @apply relative mt-[70px] -top-2.5; /* Ajuster pour centrer verticalement l'icône */ /* Pour que l'icône soit positionnée par rapport à la ligne */ /* Ajustez cette valeur pour mieux centrer l'icône */
+  }
+  .new-address {
+    @apply ml-[500px] mt-[50px];
+  }
+  
+  /* Conteneur général du step */
+  .step-content {
+    background: rgba(
+      255,
+      255,
+      255,
+      0.1
+    ); /* Ajustez la largeur selon vos besoins */
+  }
+  
+  /* Conteneur des options de livraison */
+  .shipping-options {
+    @apply flex flex-col items-center justify-center text-center;
+  }
+  
+  /* Style de chaque option de livraison */
+  .shipping-option {
+    @apply w-[800px] h-[70px] text-[#281549] flex justify-between items-center box-border relative mx-0 my-2.5 p-2.5 rounded-[73px]; /* Réduisez la largeur des options */
+    background: #d1ced5;
+  }
+  
+  /* Hover effect */
+  .shipping-option:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Style des radios */
+  .shipping-option input[type="radio"] {
+    @apply appearance-none w-6 h-6 cursor-pointer accent-[#6C5DD3] relative transition-[background-color] duration-[0.3s] ease-[ease] mr-[15px] rounded-[50%] border-2 border-solid border-[#888] checked:bg-[rgb(57,21,71)] checked:border-[#6C5DD3] checked:before:content-[''] checked:before:w-4 checked:before:h-4 checked:before:rounded-[50%] checked:before:left-1 checked:before:top-1;
+  }
+  
+  /* Quand le radio est sélectionné */
+  .shipping-option input[type="radio"]:checked {
+    /* Fond interne noir */
+  }
+  
+  /* Style interne du radio */
+  .shipping-option input[type="radio"]:checked::before {
+    position: center; /* Décalage interne pour créer l'espace */ /* Taille réduite */
+  }
+  
+  /* Alignement et style du texte */
+  .shipping-option label {
+    @apply flex items-center grow cursor-pointer text-base font-medium;
+  }
+  
+  /* Style du texte des options */
+  .shipping-option .shipping-text {
+    @apply text-xs leading-[1.2] max-w-[200px] text-left grow;
+  }
+  
+  /* Titre de l'étape */
+  .step-panel h2 {
+    font-family: "Outfit", sans-serif;
+  }
+  button {
+    @apply text-[white] text-base cursor-pointer mx-[15px] my-2.5 px-5 py-2.5 rounded-[73px] border-[none];
+    font-family: "Outfit", sans-serif;
+    background: linear-gradient(to right, #832eff 0%, #ff4ff3 100%);
+  }
+  button:hover {
+    background: linear-gradient(to right, #ff4ff3 0%, #832eff 100%);
+  }
+  
+  /* Affichage des boutons au bas de l'étape */
+  .step-panel button {
+    @apply w-[150px] inline-block mt-5;
+  }
+  .depots-button,
+  .next-button {
+    @apply text-[white] text-base cursor-pointer px-5 py-2.5 rounded-[73px] border-[none];
+    font-family: "Outfit", sans-serif;
+    background: linear-gradient(
+      to right,
+      #832eff 0%,
+      #ff4ff3 100%
+    ); /* Pour que le texte soit lisible sur ce fond */ /* Pour enlever les bordures par défaut */ /* Ajuster l'espacement interne */ /* Si vous voulez des coins arrondis */ /* Ajuster la taille du texte */ /* Changer le curseur lorsque vous survolez le bouton */
+  }
+  .depots-button:hover,
+  .next-button:hover {
+    background: linear-gradient(
+      to right,
+      #ff4ff3 0%,
+      #832eff 100%
+    ); /* Inverser le dégradé au survol */
+  }
+  .back-button {
+    @apply text-[white] text-base cursor-pointer px-5 py-2.5 rounded-[73px] border-2 border-solid border-[white];
+    font-family: "Outfit", sans-serif;
+    background: transparent; /* Fond transparent */ /* Texte en blanc */ /* Bordure blanche */ /* Ajuster l'espacement interne */ /* Coins arrondis */ /* Taille du texte */ /* Changer le curseur lors du survol */
+  }
+  
+  /* Footer */
+  footer {
+    @apply text-center mt-[50px] p-5;
+    background: #2e0854;
+  }
+  .footer-container {
+    @apply flex justify-around flex-wrap;
+  }
+  .footer-section {
+    @apply m-2.5;
+  }
+  .footer-section h3 {
+    @apply text-[white];
+  }
+  .footer-section ul {
+    @apply p-0;
+    list-style: none;
+  }
+  .footer-section ul li a {
+    @apply text-[white] no-underline hover:underline;
+  }
+  .newsletter-input {
+    @apply flex gap-2.5 mt-2.5;
+  }
+  .newsletter-input input {
+    @apply p-2 rounded-[5px] border-[none];
+  }
+  .newsletter-input button {
+    @apply text-[white] cursor-pointer px-3 py-2 rounded-[5px] border-[none];
+    background: #ff00ff;
+  }
+  .Card {
+    @apply w-full h-[90px] relative bg-[#ffffff3e]; /* Couleur de fond */
+  }
+  .Group8,
+  .Group6,
+  .Group7 {
+    @apply absolute w-[100px] h-10;
+  }
+  .Group8 {
+    @apply left-[230px] top-[29px];
+  }
+  .Group6 {
+    @apply left-[662px] top-[30px];
+  }
+  .Group7 {
+    @apply left-[1094px] top-[29px];
+  }
+  .Step1Address,
+  .Step2Shipping,
+  .Step3Payment {
+    @apply absolute w-[74px] h-[45px];
+  }
+  .Step1Address {
+    @apply left-[62px] top-[3px] text-[#979797];
+  }
+  .Step2Shipping {
+    @apply left-[68px] top-0.5 text-[#979797];
+  }
+  .Step3Payment {
+    @apply left-[62px] top-0.5 text-[#979797];
+  }
+  .step-number {
+    @apply text-base font-bold;
+    font-family: Outfit;
+  }
+  .step-label {
+    @apply text-base font-normal;
+    font-family: Outfit;
+  }
+  
+  /* Couleur pour le step en cours */
+  .Step1Address {
+    /* Step 1 : Gris par défaut */
+  }
+  .Step2Shipping {
+    /* Step 2 : Gris */
+  }
+  .Step3Payment {
+    /* Step 3 : Gris */
+  }
+  
+  /* Couleur pour le texte des étapes */
+  .Step1Address .step-number,
+  .Step1Address .step-label {
+    @apply text-[#979797]; /* Step 1 : Gris */
+  }
+  .Step2Shipping .step-number,
+  .Step2Shipping .step-label {
+    @apply text-[#979797]; /* Step 2 : Gris */
+  }
+  .Step3Payment .step-number,
+  .Step3Payment .step-label {
+    @apply text-[#979797]; /* Step 3 : Gris */
+  }
+  
+  /* Lorsque l'étape 1 est active */
+  .Step1Address.active {
+    @apply text-white; /* Texte blanc lorsque l'étape 1 est active */
+  }
+  .Step2Shipping.active {
+    @apply text-white; /* Texte blanc lorsque l'étape 2 est active */
+  }
+  .Step3Payment.active {
+    @apply text-white; /* Texte blanc lorsque l'étape 3 est active */
+  }
+  
+  /* Quand on n'est pas sur l'étape 1, elle doit rester grise */
+  .Step2Shipping.active ~ .Step1Address,
+  .Step3Payment.active ~ .Step1Address {
+    @apply text-[#979797]; /* Gris lorsque Step1 n'est pas active */
+  }
+  .Frame {
+    @apply absolute left-0 top-0;
+  }
+  svg {
+    @apply fill-none;
+  }
+  .material-symbols-outlined {
+    @apply text-5xl w-12 h-12 inline-block align-middle;
+  }
+  .edit-size,
+  .delete-size {
+    @apply text-2xl w-6 h-6 absolute -translate-y-2/4 right-2.5 top-2/4; /* Ajuster la taille à 24px ou ce que vous préférez */ /* Placer l'icône 10px à partir de la droite */ /* Centrer verticalement l'icône */
+  }
+  .edit-icon,
+  .delete-icon {
+    @apply absolute -translate-y-2/4 top-2/4;
+  }
+  .edit-icon {
+    @apply right-10; /* Espacement à droite pour l'icône "edit" */
+  }
+  .delete-icon {
+    @apply right-2.5; /* Espacement à droite pour l'icône "delete" */
+  }
+  .Group8.active,
+  .Group6.active,
+  .Group7.active {
+    @apply text-[white];
+  }
+  .Group8.active .material-symbols-outlined,
+  .Group6.active .material-symbols-outlined,
+  .Group7.active .material-symbols-outlined {
+    @apply text-[white];
+  }
+  .Group8.active .step-number,
+  .Group6.active .step-number,
+  .Group7.active .step-number {
+    @apply text-[white];
+  }
+  .Group8.active .step-label,
+  .Group6.active .step-label,
+  .Group7.active .step-label {
+    @apply text-[white];
+  }
+  .Group8 .material-symbols-outlined,
+  .Group6 .material-symbols-outlined,
+  .Group7 .material-symbols-outlined {
+    @apply text-[#979797]; /* Icônes grises pour les étapes inactives */
+  }
+  /* Sélecteur de livraison */
+  .carousel-container {
+    @apply flex justify-center items-center overflow-x-auto relative; /* Garde les éléments centrés */ /* Permet un défilement horizontal avec la souris ou le clavier */
+    -webkit-overflow-scrolling: touch; /* Optimise le défilement sur les appareils tactiles */
+  }
+  .carousel-item {
+    @apply text-center mx-[30px] my-0; /* Réduit l'espace entre les éléments, ajustez selon le besoin */
+  }
+  .carousel {
+    @apply h-[50px] overflow-y-scroll scroll-smooth max-h-[120px] flex flex-col m-0 p-0;
+    list-style: none; /* Masque le défilement vertical */ /* Permet l'alignement vertical des éléments */
+    scroll-snap-type: y mandatory; /* Assure un défilement vertical fluide */
+  }
+  .carousel li {
+    @apply text-center cursor-pointer text-black snap-start mx-0 my-[5px] px-2.5 py-[5px] rounded-[5px];
+    background: #d1ced5; /* Accroche chaque élément au début lors du défilement */
+  }
+  .carousel li.selected {
+    @apply bg-[#6C5DD3] text-[white]; /* Changer la couleur de fond lorsqu'il est sélectionné */ /* Changer la couleur du texte pour le rendre plus visible */
+  }
+  .description {
+    @apply font-[normal] text-[15px] mx-[30px];
+    font-family: "Roboto", sans-serif; /* Ajustez si nécessaire */
+  }
+  .date {
+    @apply font-light text-xs ml-auto;
+    font-family: "Roboto", sans-serif; /* Roboto Light */
+  }
+  .button-container {
+    @apply flex justify-end gap-2.5 mr-[250px] mt-5; /* Aligner les boutons à droite */ /* Espacement entre les boutons */ /* Ajoute un peu d'espace au-dessus si nécessaire */ /* Ajoute de l'espace à droite */
+  }
+  .payment-card {
+    @apply w-[600px] border shadow-[0px_10px_20px_rgba(0,0,0,0.2)] flex flex-col ml-[450px] rounded-[53px] border-solid border-[black];
+    background: #d1ced5;
+  }
+  .headerssl {
+    @apply flex justify-center items-center text-xl font-[450] text-[#151343] uppercase mb-5 p-[15px] rounded-t-[35px];
+    background: white;
+  }
+  .input-container {
+    @apply h-[55px] border flex items-center mb-[15px] mx-5 pl-5 rounded-[50px] border-solid border-[#151343];
+  }
+  .input-container input {
+    @apply w-full text-lg pl-2.5 border-[none];
+    background: transparent;
+    outline: none;
+  }
+  .input-row {
+    @apply flex justify-between w-full gap-5 mb-[15px]; /* Augmente l'espace entre Exp Date et CVV */
+  }
+  .small-input {
+    @apply flex-1 h-[55px] border flex items-center mx-5 pl-5 rounded-[50px] border-solid border-[#151343];
+  }
+  .small-input input {
+    @apply w-full text-lg pl-2.5 border-[none];
+    background: transparent;
+    outline: none;
+  }
+  .save-info {
+    @apply flex items-center gap-2.5 text-lg text-[#151343] ml-[30px] mb-[15px];
+  }
+  .checkbox-icon {
+    @apply w-5 h-5;
+  }
+  .pay-button {
+    @apply w-[180px] h-[50px] flex justify-center items-center text-[white] text-xl font-bold uppercase cursor-pointer transition-[0.3s] self-end ml-[200px] rounded-[50px] border-[none] hover:opacity-80;
+    background: linear-gradient(
+      90deg,
+      #832eff 0%,
+      #ff4ff3 100%
+    ); /* ✅ Alignement à droite */
+  }
+  

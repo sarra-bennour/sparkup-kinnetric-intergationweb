@@ -1,0 +1,39 @@
+
+.edit-icon,
+.delete-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.edit-icon {
+    right: 40px;
+}
+
+.delete-icon {
+    right: 10px;
+}
+
+.Group8.active,
+.Group6.active,
+.Group7.active {
+    color: white;
+}
+
+.Group8.active .material-symbols-outlined,
+.Group6.active .material-symbols-outlined,
+.Group7.active .material-symbols-outlined,
+.Group8.active .step-number,
+.Group6.active .step-number,
+.Group7.active .step-number,
+.Group8.active .step-label,
+.Group6.active .step-label,
+.Group7.active .step-label {
+    color: white;
+}
+
+.Group8 .material-symbols-outlined,
+.Group6 .material-symbols-outlined,
+.Group7 .material-symbols-outlined {
+    color: #979797;
+}

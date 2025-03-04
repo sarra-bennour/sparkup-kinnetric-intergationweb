@@ -1,0 +1,135 @@
+@import "variables";
+
+.new-address {
+    display: flex;
+    justify-content: flex-end;  // Aligne les boutons à droite
+    gap: 20px;  // Espacement entre les boutons
+    flex-wrap: wrap;  // Permet aux boutons de se déplacer sur plusieurs lignes si nécessaire
+    margin: 20px;  // Ajout d'un peu de marge autour du conteneur
+    width: 100%;  // Assure que la largeur du conteneur ne dépasse pas l'écran
+    box-sizing: border-box;  // Prend en compte la marge et le padding dans la largeur
+
+    // S'assure que les boutons restent dans le conteneur
+    overflow: hidden;  
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;  // Aligne les boutons à droite
+    gap: 20px;  // Espacement entre les boutons
+    flex-wrap: wrap;  // Permet aux boutons de se déplacer sur plusieurs lignes si nécessaire
+    margin: 20px;  // Ajout d'un peu de marge autour du conteneur
+    width: 90%;  // Assure que la largeur du conteneur ne dépasse pas l'écran
+    box-sizing: border-box;  // Prend en compte la marge et le padding dans la largeur
+
+    // S'assure que les boutons restent dans le conteneur
+    overflow: hidden;  
+}
+.chat-button {
+    background-color: #FF4FF3;  // Couleur de fond spécifique pour le bouton de chat
+    padding: 1rem;  // Ajuste le padding pour le bouton
+    border-radius: 50%;  // Forme ronde
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  // Ombre plus légère et distinctive
+    transition: background-color 0.3s ease, transform 0.3s ease;  // Transition au hover
+
+    &:hover {
+        background-color: #832EFF;  // Changement de couleur au survol
+        transform: scale(1.1);  // Légère augmentation de taille au survol
+    }
+
+    // Pour les écrans plus petits
+    @media (max-width: 768px) {
+        padding: 0.75rem;  // Ajuste le padding sur les petits écrans
+    }
+}
+// Styles spécifiques pour le bouton Chat
+.chat-button {
+    background: $button-gradient; // Utilise ta couleur de fond
+    padding: 1rem;
+    border-radius: 9999px; // Arrondi complet pour un bouton circulaire
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); // Ombre douce
+    transition: background 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+        background: linear-gradient(to right, #FF4FF3 0%, #832EFF 100%); // Ajoute un hover gradient
+        transform: scale(1.1); // Légèrement plus grand au survol
+    }
+
+    svg {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+
+    // Responsivité
+    @media (min-width: 640px) {
+        padding: 1.25rem;
+    }
+}
+
+
+button, .depots-button, .next-button, .back-button {
+    font-family: $font-secondary;
+    background: $button-gradient;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 73px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px 15px;
+    transition: background 0.3s ease;  // Ajout d'une transition sur le hover
+
+    &:hover {
+        background: linear-gradient(to right, #FF4FF3 0%, #832EFF 100%);
+    }
+}
+
+.depots-button,
+.next-button {
+    background: linear-gradient(to right, #832EFF 0%, #FF4FF3 100%);
+    color: white;
+    
+    &:hover {
+        background: linear-gradient(to right, #FF4FF3 0%, #832EFF 100%);
+    }
+}
+
+.back-button {
+    
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 20px;
+    border-radius: 73px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+// Media Queries pour les petits écrans
+@media (max-width: 1070px) {
+    .new-address {
+        justify-content: flex-end;  // Garder l'alignement à droite
+        padding-right: 10px;  // Ajouter un peu de marge à droite
+        width: 100%;  // Assurer que le conteneur ne dépasse pas la largeur de l'écran
+    }
+
+    button, .depots-button, .next-button, .back-button {
+        width: auto;  // Laisse les boutons avec une largeur automatique
+        font-size: 14px;  // Réduit la taille du texte
+        padding: 12px 15px;  // Ajuste le padding pour les petits écrans
+        margin: 10px 5px;  // Réduit l'espacement entre les boutons
+    }
+}
+
+// Pour les écrans très petits, par exemple sous 600px
+@media (max-width: 600px) {
+    .new-address {
+        padding-right: 5px;  // Ajouter encore plus de marge pour les très petits écrans
+    }
+
+    button, .depots-button, .next-button, .back-button {
+        font-size: 12px;  // Réduit encore la taille du texte
+        padding: 10px 12px;  // Ajuste encore plus le padding
+        margin: 5px 3px;  // Réduit l'espacement vertical
+    }
+}

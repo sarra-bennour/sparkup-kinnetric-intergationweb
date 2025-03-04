@@ -1,0 +1,14 @@
+@use 'base/index' as *;
+@use 'components/index' as *;
+
+
+.breadcrumb {
+    color: #bbb;
+    font-size: 14px;
+    padding: 10px 0;
+    margin-left: 60px;
+}
+
+.cart-icon a {
+    color: white; 
+}

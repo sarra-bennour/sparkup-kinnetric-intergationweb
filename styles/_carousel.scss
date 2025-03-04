@@ -1,0 +1,119 @@
+.carousel-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);  /* Par défaut une seule colonne */
+    gap: 0.25rem;
+    padding: 0 15rem;
+}
+
+.carousel-item {
+    text-align: center;
+    padding: 0.25rem;
+    width: auto;
+    max-width: 90%;
+    margin: 0 auto;
+    position: relative; /* Nécessaire pour positionner les flèches par rapport à chaque item */
+}
+
+.carousel-item::before {
+    content: "↓";  /* Flèche pointant vers le bas */
+    font-size: 20px;  /* Taille de la flèche */
+    position: absolute;
+    top: -20px;  /* Positionner la flèche juste au-dessus de l'élément */
+    left: 50%;
+    transform: translateX(-50%);  /* Centrer la flèche horizontalement */
+    color: #b2aec7;  /* Couleur de la flèche (ajustez cette couleur) */
+    animation: bounceDown 1s infinite;  /* Animation pour attirer l'attention */
+}
+
+.carousel-item::after {
+    content: "↑";  /* Flèche pointant vers le haut */
+    font-size: 20px;  /* Taille de la flèche */
+    position: absolute;
+    bottom: -20px;  /* Positionner la flèche juste en dessous de l'élément */
+    left: 50%;
+    transform: translateX(-50%);  /* Centrer la flèche horizontalement */
+    color: #b2aec7;  /* Couleur de la flèche (ajustez cette couleur) */
+    animation: bounceUp 1s infinite;  /* Animation pour attirer l'attention */
+}
+
+/* Animation pour faire rebondir la flèche vers le bas */
+@keyframes bounceDown {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/* Animation pour faire rebondir la flèche vers le haut */
+@keyframes bounceUp {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(5px);
+    }
+}
+
+
+
+.carousel {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 50px;
+    overflow-y: scroll;  /* Permet le défilement mais cache la barre */
+    max-height: 120px;
+    display: flex;
+    flex-direction: column;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+
+/* Pour masquer la barre de défilement, mais garder le défilement fonctionnel */
+.carousel::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+.carousel li {
+    padding: 5px 10px;
+    text-align: center;
+    cursor: pointer;
+    background: #D1CED5;
+    color: #000000;
+    margin: 2px 0;
+    border-radius: 5px;
+    scroll-snap-align: start;
+}
+
+/* Masquer le texte mais garder le carrousel fonctionnel */
+.carousel li span {
+    display: none; /* Cache le texte, mais garde l'élément cliquable */
+}
+
+/* Sélectionner un élément et lui ajouter un style */
+.carousel li.selected {
+    background-color: #6C5DD3;
+    color: white;
+}
+
+/* Points de rupture pour les écrans plus grands */
+@media (min-width: 640px) {
+    .carousel-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .carousel-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .carousel-container {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}

@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kinnectric - Votre Reçu</title>
+  <link href="./output.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            purple: '#351862',
+            pink: '#ff4ff3',
+            accent: '#FF4FF3',
+            primary: '#281549',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Chat popup styles */
+    .chat-popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 1rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+    
+    .chat-popup.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .chat-container {
+      width: 100%;
+      max-width: 28rem;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      transform: scale(0.9);
+      transition: transform 0.3s;
+    }
+    
+    .chat-popup.active .chat-container {
+      transform: scale(1);
+    }
+  </style>
+</head>
+<body class="bg-gradient-purple min-h-screen text-white">
+  <!-- Header Navigation -->
+  <header class="container mx-auto px-4 py-4">
+    <div class="flex justify-between items-center">
+      <div class="text-2xl font-bold">KINNECTRIC</div>
+      <nav class="hidden md:flex space-x-6">
+        <a href="#" class="hover:text-accent">Home</a>
+        <a href="#" class="hover:text-accent">Computers</a>
+        <a href="#" class="hover:text-accent">Telephony & Tablets</a>
+        <a href="#" class="hover:text-accent">TV</a>
+        <a href="#" class="hover:text-accent">Printers</a>
+        <a href="#" class="hover:text-accent">Headphones</a>
+      </nav>
+      <!-- Mobile menu button -->
+      <button class="md:hidden flex items-center text-white focus:outline-none" id="mobile-menu-button">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <div class="text-2xl">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+      </div>
+    </div>
+    
+    <!-- Mobile menu (hidden by default) -->
+    <div class="md:hidden hidden bg-dark/80 mt-2 rounded-lg p-4" id="mobile-menu">
+      <nav class="flex flex-col space-y-3">
+        <a href="#" class="hover:text-accent">Home</a>
+        <a href="#" class="hover:text-accent">Computers</a>
+        <a href="#" class="hover:text-accent">Telephony & Tablets</a>
+        <a href="#" class="hover:text-accent">TV</a>
+        <a href="#" class="hover:text-accent">Printers</a>
+        <a href="#" class="hover:text-accent">Headphones</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="container mx-auto px-4 mt-4 text-sm opacity-80 overflow-x-auto">
+    <div class="flex space-x-2 min-w-max">
+      <a href="#" class="hover:text-accent">Home</a>
+      <span>/</span>
+      <a href="#" class="hover:text-accent">Cart</a>
+      <span>/</span>
+      <a href="../uii.html" class="hover:text-accent">Payment</a>
+      <span>/</span>
+      <span>Receipt</span>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-8">
+
+    <div data-layer="CARD" class="Card">
+        <div data-layer="Rectangle 27" class="Rectangle27"></div>
+        
+        <div data-layer="Group 8" class="Group8">
+            <!-- Étape 1: Adresse -->
+            <div class="Step1Address text-center">
+                <span class="material-symbols-outlined">home_pin</span>
+                <div>
+                    <span class="step-number">Step 1</span>
+                    <span class="step-label">Address</span>
+                </div>
+            </div>
+        </div>
+    
+        <div data-layer="Group 6" class="Group6">
+            <!-- Étape 2: Shipping -->
+            <div class="Step2Shipping text-center">
+                <span class="material-symbols-outlined">delivery_truck_speed</span>
+                <div>
+                    <span class="step-number">Step 2</span>
+                    <span class="step-label">Shipping</span>
+                </div>
+            </div>
+        </div>
+    
+        <div data-layer="Group 7" class="Group7">
+            <!-- Étape 3: Payment -->
+            <div class="Step3Payment text-center">
+                <span class="material-symbols-outlined">paid</span>
+                <div>
+                    <span class="step-number">Step 3</span>
+                    <span class="step-label">Payment</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- Conteneur principal -->
+
+     
+    <div class="step-panel" id="step1">
+        <div class="flex justify-start">
+            <h2 class="select-adress text-2xl lg:text-3xl xl:text-4xl font-bold ml-[250px]">SELECT ADDRESS</h2>
+        </div>
+        
+        <div class="address-options">
+            <div class="address-option">
+                <input type="radio" name="address" id="address1" checked>
+                <label for="address1">
+                    <span class="address-text">
+                    <span class="titre-adresse">    TUNIS, ARIANA </span> <br>
+                 
+                        résidence l'avenir cite el ghazela
+                        2083
+                    </span>
+                    <span class="edit-icon">
+                        <span class="material-symbols-outlined edit-size">
+                            edit
+                        </span>
+                    </span>
+                    <span class="delete-icon">
+                        <span class="material-symbols-outlined delete-size">
+                            close
+                        </span>
+                    </span>
+                </label>
+            </div>
+            
+            <div class="address-option">
+                <input type="radio" name="address" id="address2">
+                <label for="address2">
+                    <span class="address-text">
+                        <span class="titre-adresse">   TUNIS, ARIANA </span><br>
+                        résidence l'avenir cite el ghazela
+                        2083
+                    </span>
+                    <span class="edit-icon">
+                        <span class="material-symbols-outlined edit-size">
+                            edit
+                        </span>
+                    </span>
+                    <span class="delete-icon">
+                        <span class="material-symbols-outlined delete-size">
+                            close
+                        </span>
+                    </span>
+                </label>
+            </div>
+            
+            <div class="add-address">
+              
+                <span class="plus"><span class="material-symbols-outlined">
+                    add_circle
+                    </span></span>
+              
+            </div>
+            
+    
+            <div class="new-address">
+                <button class="depots-button">Dépôts</button>
+                <button class="back-button" >Back</button>
+                <button class="next-button" onclick="showStep(2)">Next</button>
+            </div>
+        </div>
+    </div>
+    <div class="step-panel hidden" id="step2" style="margin-bottom: 60px;">
+       
+        <div class="flex justify-start">
+            <h2 class="select-adress text-2xl lg:text-3xl xl:text-4xl font-bold ml-[250px]">SELECT SHIPPING </h2>
+        </div>
+        <div class="shipping-options">
+            <div class="shipping-option">
+                <input type="radio" name="shipping" id="shipping1">
+                <label for="shipping1">
+                    <span class="titre-adresse">FREE</span> 
+                    <span class="description">Regular shipment</span> 
+                    <span class="date">15 juin 2025</span>
+                </label>
+            </div>
+            
+            <div class="shipping-option">
+                <input type="radio" name="shipping" id="shipping2">
+                <label for="shipping2">
+                    <span class="titre-adresse">8TND</span> 
+                    <span class="description">Get your delivery as soon as possible</span>
+                    <span class="date">5 juin 2025</span>
+                </label>
+            </div>
+            
+            <div class="shipping-option">
+                <input type="radio" name="shipping" id="shipping3">
+                <label for="shipping3">
+                    <span class="titre-adresse">Scheduled</span> 
+                    <span class="description">Scheduled Shipment</span> 
+                    <span class="date">Select Date</span>
+                </label>
+            </div>
+            
+        </div>
+    
+        <div class="delivery-time p-4">
+            <h2 class="select-adress text-xl font-bold text-center mb-4">FIX DELIVERY TIME</h2>
+        
+            <div class="carousel-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div class="carousel-item text-center">
+                    <h4 class="font-semibold">DAY</h4>
+                    <ul class="carousel space-y-2 p-2 bg-gray-200 rounded-md" id="day-carousel"></ul>
+                </div>
+                <div class="carousel-item text-center">
+                    <h4 class="font-semibold">MONTH</h4>
+                    <ul class="carousel space-y-2 p-2 bg-gray-200 rounded-md" id="month-carousel"></ul>
+                </div>
+                <div class="carousel-item text-center">
+                    <h4 class="font-semibold">YEAR</h4>
+                    <ul class="carousel space-y-2 p-2 bg-gray-200 rounded-md" id="year-carousel"></ul>
+                </div>
+                <div class="carousel-item text-center">
+                    <h4 class="font-semibold">HOUR</h4>
+                    <ul class="carousel space-y-2 p-2 bg-gray-200 rounded-md" id="hour-carousel"></ul>
+                </div>
+                <div class="carousel-item text-center">
+                    <h4 class="font-semibold">MINUTE</h4>
+                    <ul class="carousel space-y-2 p-2 bg-gray-200 rounded-md" id="minute-carousel"></ul>
+                </div>
+                <div class="carousel-item text-center">
+                    <h4 class="font-semibold">AM & PM</h4>
+                    <ul class="carousel space-y-2 p-2 bg-gray-200 rounded-md" id="AMPM-carousel">
+                        <li class="cursor-pointer p-2 rounded-md bg-gray-300 hover:bg-gray-400" onclick="selectItemAMPM(this)">AM</li>
+                        <li class="cursor-pointer p-2 rounded-md bg-gray-300 hover:bg-gray-400" onclick="selectItemAMPM(this)">PM</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="button-container">
+            <button class="back-button" onclick="showStep(1)">Back</button>
+            <button class="next-button" onclick="showStep(3)">Next</button>
+        </div>
+        
+    </div>
+
+    <div class="step-panel hidden" id="step3" style="margin-bottom: 60px;">
+     
+        <div class="flex justify-start">
+            <h2 class="select-adress text-2xl lg:text-3xl xl:text-4xl font-bold ml-[250px]">PAYMENT </h2>
+        </div>
+        <div class="payment-card">
+            <div class="headerssl">SSL SECURED PAYMENT</div>
+
+            <div class="input-container">
+                <input type="text" placeholder="Cardholder Name">
+            </div>
+
+            <div class="input-container">
+                <input type="text" placeholder="Card Number">
+            </div>
+
+            <div class="input-row">
+                <div class="small-input">
+                    <input type="text" placeholder="Exp Date">
+                </div>
+                <div class="small-input">
+                    <input type="text" placeholder="CVV">
+                </div>
+            </div>
+
+            <div class="save-info">
+                <input type="checkbox" class="checkbox-icon">
+                Save Info
+                <button class="pay-button">PAY</button>
+            </div>
+
+           
+        </div>       <div class="button-container">
+            <button class="back-button" onclick="showStep(2)">Back</button>
+      </div>
+
+      <div class="blur-background"></div>
+      <div class="popup-overlay">
+          <div class="popup">
+              <button class="close-btn">&times;</button>
+              <h2>CONGRATS !!</h2>
+              <p>Your payment has been successfully completed.</p>
+              <a href="Receipt/receipt.html">
+                <button class="receipt-btn">GET YOUR RECEIPT</button>
+            </a>
+             </div>
+      </div>
+      
+
+
+    </div>
+    </div>
+    
+
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-12 sm:mt-24 pt-8 sm:pt-12 pb-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8">
+        <!-- Brand -->
+        <div class="col-span-2 sm:col-span-3 lg:col-span-1">
+          <div class="text-xl font-bold text-white mb-4 lg:mb-0">KINNECTRIC</div>
+        </div>
+  
+        <!-- Buy Now Links -->
+        <div>
+          <div class="text-[#FF4FF3] text-sm font-semibold mb-3">BUY NOW</div>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#" class="text-white/80 hover:text-white">Home</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white">Computers</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white">Telephony & Tablets</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white">TV</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white">Printers</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white">Headphones</a></li>
+          </ul>
+        </div>
+  
+        <!-- Customer Support -->
+        <div>
+          <div class="text-[#FF4FF3] text-sm font-semibold mb-3">CUSTOMER SUPPORT</div>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#" class="text-white/80 hover:text-white">Contact us</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white">Help Center</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white">About</a></li>
+          </ul>
+        </div>
+  
+        <!-- Contact -->
+        <div>
+          <div class="text-[#FF4FF3] text-sm font-semibold mb-3">CONTACT</div>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#" class="text-white/80 hover:text-white">Email</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white">LinkedIn</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white">Instagram</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white">Twitter</a></li>
+          </ul>
+        </div>
+  
+        <!-- Newsletter -->
+        <div class="col-span-2 sm:col-span-3 lg:col-span-1">
+          <div class="text-[#FF4FF3] text-sm font-semibold mb-3">JOIN OUR NEWSLETTER</div>
+          <div class="flex gap-2 items-center">
+            <input 
+              type="email" 
+              placeholder="Email Address" 
+              class="flex-1 bg-[#1A103C] text-white placeholder-gray-400 px-4 py-2 rounded-full text-xs focus:outline-none"
+            />
+            <button class="bg-gradient-to-r from-[#832EFF] to-[#FF4FF3] hover:opacity-90 transition-opacity text-white px-4 py-2 rounded-full text-xs font-medium whitespace-nowrap">
+              SUBMIT
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+   <!-- Chat Button -->
+   <div class="fixed bottom-6 right-6 z-10">
+    <button id="chat-button" class="bg-accent hover:bg-accent/80 text-white p-4 rounded-full shadow-lg transition-all">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+      </svg>
+    </button>
+  </div>
+  
+  <!-- Chat Popup -->
+  <div id="chat-popup" class="chat-popup">
+    <div class="chat-container bg-pink">
+      <!-- Header -->
+      <div class="bg-pink text-white p-4 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 bg-white rounded-md flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-pink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="4" y="4" width="16" height="16" rx="2" />
+              <circle cx="9" cy="9" r="2" />
+              <circle cx="15" cy="9" r="2" />
+              <path d="M8 14h8" />
+            </svg>
+          </div>
+          <span class="font-bold text-xl">AI ASSISTANT</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="w-6 h-1 bg-white rounded"></div>
+          <button id="close-chat">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer hover:opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Question 1 -->
+      <div class="bg-purple text-white p-6 flex justify-between items-center">
+        <div class="flex-1">
+          <p class="text-center text-xl">Does Asus I9 Meet Energy Efficiency Standards?</p>
+        </div>
+        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center ml-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="8" r="4" />
+            <path d="M12 12v8" />
+            <path d="M9 16h6" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Answer 1 -->
+      <div class="bg-pink text-white p-6 flex items-start">
+        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-pink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="4" y="4" width="16" height="16" rx="2" />
+            <circle cx="9" cy="9" r="2" />
+            <circle cx="15" cy="9" r="2" />
+            <path d="M8 14h8" />
+          </svg>
+        </div>
+        <div>
+          <p class="text-xl">Yes, It Is Designed To Optimize Power Consumption While Maintaining High Performance.</p>
+        </div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="bg-purple text-white p-6 flex justify-between items-center">
+        <div class="flex-1">
+          <p class="text-center text-xl">Is This PC Compatible With The Latest Software And Operating Systems?</p>
+        </div>
+        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center ml-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="8" r="4" />
+            <path d="M12 12v8" />
+            <path d="M9 16h6" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Answer 2 -->
+      <div class="bg-pink text-white p-6 flex items-start">
+        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-pink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="4" y="4" width="16" height="16" rx="2" />
+            <circle cx="9" cy="9" r="2" />
+            <circle cx="15" cy="9" r="2" />
+            <path d="M8 14h8" />
+          </svg>
+        </div>
+        <div>
+          <p class="text-xl">Yes, This PC Supports The Latest Operating Systems And Software, Ensuring Smooth Performance And Compatibility.</p>
+        </div>
+      </div>
+
+      <!-- Input Area -->
+      <div class="bg-purple p-4">
+        <div class="bg-purple border-2 border-pink rounded-full flex items-center p-2 px-4">
+          <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center mr-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="8" r="4" />
+              <path d="M12 12v8" />
+              <path d="M9 16h6" />
+            </svg>
+          </div>
+          <span class="text-white flex-1">ASK ME ANYTHING</span>
+          <button class="bg-[#8a2be2] text-white px-4 py-2 rounded-full flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="4" y="4" width="16" height="16" rx="2" />
+              <circle cx="9" cy="9" r="2" />
+              <circle cx="15" cy="9" r="2" />
+              <path d="M8 14h8" />
+            </svg>
+            GENERATE
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript for mobile menu toggle -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      
+      const menuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      // Chat popup elements
+      const chatButton = document.getElementById('chat-button');
+      const chatPopup = document.getElementById('chat-popup');
+      const closeChat = document.getElementById('close-chat');
+      
+      // Open chat popup when chat button is clicked
+      chatButton.addEventListener('click', function() {
+        chatPopup.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when popup is open
+      });
+      
+      // Close chat popup when close button is clicked
+      closeChat.addEventListener('click', function() {
+        chatPopup.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+      });
+      
+      // Close chat popup when clicking outside the chat container
+      chatPopup.addEventListener('click', function(event) {
+        if (event.target === chatPopup) {
+          chatPopup.classList.remove('active');
+          document.body.style.overflow = ''; // Restore scrolling
+        }
+      });
+      
+      // Toggle mobile menu visibility
+      menuButton.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+      });
+    });
+  </script>
+  
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+@use '../base/variables' as *;
+
+.chatbot-icon {
+    position: fixed;
+    bottom: 150px;
+    right: 30px;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+    background-color: transparent;
+
+    a {
+        color: $primary-color;
+        font-size: 30px;
+        text-decoration: none;
+
+        &:hover {
+            color: $secondary-color;
+        }
+    }
+}

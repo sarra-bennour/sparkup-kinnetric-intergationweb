@@ -1,0 +1,329 @@
+body {
+  background: linear-gradient(135deg, #2b1055, #7b1fa2);
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  background: none;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  position: relative;
+}
+
+.logo {
+  font-family: "Outfit", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  margin-left: 180px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  font-size: 16px;
+  margin-right: 15px;
+  padding: 0;
+  margin-left: auto;
+}
+
+nav ul li a {
+  font-family: "Roboto", sans-serif;
+  color: white;
+  text-decoration: none;
+}
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+button {
+  background: linear-gradient(to right, #832EFF, #FF4FF3);
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  background: linear-gradient(to right, #FF4FF3, #832EFF);
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  margin-left: 740px;
+}
+.search-bar input {
+  background-color: #2b1055;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  width: 200px;
+  margin-right: -5px;
+  color: white;
+}
+.search-bar input::placeholder {
+  color: hsl(0, 0%, 120%);
+}
+.search-bar button {
+  background: linear-gradient(to right, #832EFF, #FF4FF3);
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 50px;
+  margin-right: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+.search-bar button:hover {
+  background: linear-gradient(to right, #FF4FF3, #832EFF);
+}
+
+footer {
+  background: none;
+  padding: 30px;
+  text-align: left;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  align-items: flex-start;
+}
+
+.footer-links div {
+  flex: 1;
+}
+
+footer div ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+footer div ul li {
+  margin: 5px 0;
+}
+
+footer div ul li a {
+  font-family: "Roboto", sans-serif;
+  color: white;
+  text-decoration: none;
+}
+footer div ul li a:hover {
+  text-decoration: underline;
+}
+
+.logo1 {
+  text-align: center;
+  font-family: "Outfit", sans-serif;
+  font-size: 24px;
+  margin-top: -16px;
+}
+
+.footer-links div h4,
+.newsletter h4 {
+  font-family: "Outfit", sans-serif;
+  color: #FF4FF3;
+}
+
+.newsletter {
+  text-align: center;
+}
+
+.newsletter-input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.newsletter input {
+  background-color: #2b1055;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  width: 250px;
+}
+
+.newsletter button {
+  background: linear-gradient(to right, #832EFF, #FF4FF3);
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-left: -15px;
+}
+.newsletter button:hover {
+  background: linear-gradient(to right, #FF4FF3, #832EFF);
+}
+
+.product-details {
+  text-align: left;
+  margin: 50px auto;
+  width: 80%;
+  color: white;
+}
+
+.product-info {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.product-description p {
+  font-family: "Roboto", sans-serif;
+}
+
+.product-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-image img {
+  width: 400px;
+  border-radius: 10px;
+}
+
+.add-to-cart {
+  margin-top: 15px;
+  width: 100%;
+  max-width: 250px;
+  background: linear-gradient(to right, #832EFF, #FF4FF3);
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.add-to-cart:hover {
+  background: linear-gradient(to right, #FF4FF3, #832EFF);
+}
+
+.color-option {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  border-radius: 50%;
+  border: 1px solid white;
+  margin-left: 5px;
+}
+
+.preview-video {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.video-container {
+  position: relative;
+  display: inline-block;
+}
+
+.video-container img {
+  width: 600px;
+  border-radius: 10px;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 30px;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.play-button:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.map-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  margin-right: 31px;
+}
+
+#map {
+  width: 64%;
+  height: 400px;
+  border-radius: 20px;
+}
+
+.left-panel {
+  margin-left: 57px;
+  width: 27%;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 15px;
+  color: white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chatbot-icon {
+  position: fixed;
+  bottom: 150px;
+  right: 30px;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1000;
+  background-color: transparent;
+}
+.chatbot-icon a {
+  color: #FF4FF3;
+  font-size: 30px;
+  text-decoration: none;
+}
+.chatbot-icon a:hover {
+  color: #832EFF;
+}
+
+.breadcrumb {
+  color: #bbb;
+  font-size: 14px;
+  padding: 10px 0;
+  margin-left: 60px;
+}
+
+.cart-icon a {
+  color: white;
+}
+
+/*# sourceMappingURL=style.css.map */

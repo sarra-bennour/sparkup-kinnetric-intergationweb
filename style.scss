@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "styles/variables";
+@import "styles/popup";
+@import "styles/global";
+@import "styles/nav";
+@import "styles/buttons";
+@import "styles/steps";
+@import "styles/address";
+@import "styles/shipping";
+@import 'styles/footer';
+@import 'styles/carousel';
+@import 'styles/icons';
+@import 'styles/layout';
+@import 'styles/payment';
+@import 'styles/form';
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;  /* Cela empêche l'apparition d'un scroll horizontal */
+}
+
+h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 24px;  // Taille par défaut
+    font-weight: bold;
+    margin-left: 250px;  // L'espace à gauche
+
+    // Media Queries pour les petits écrans
+    @media (max-width: 1070px) {
+        font-size: 20px;  // Réduit la taille du titre
+        margin-left: 150px;  // Réduit l'espace à gauche, mais garde un peu de marge
+    }
+
+    @media (max-width: 768px) {
+        font-size: 18px;  // Réduit encore la taille du titre
+        margin-left: 50px;  // Réduit encore l'espace à gauche
+    }
+
+    @media (max-width: 600px) {
+        font-size: 16px;  // Réduit encore la taille du titre
+        margin-left: 20px;  // Laisse un petit espace à gauche pour les très petits écrans
+    }
+}

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KINNECTRIC - E-commerce</title>
+  <link rel="stylesheet" href="output.css">
+  <link rel="stylesheet" href="./css/styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-primary font-outfit min-h-screen flex flex-col overflow-x-hidden">
+  <div class="h-3.5 w-full bg-gradient-custom"></div>
+
+  <!-- Navbar -->
+  <div id="navbar"></div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="bg-purple-800 py-8 md:py-16 mt-16 relative z-10">
+      <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-8 md:mb-0 md:ml-10 lg:ml-20 text-center md:text-left">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-wide mb-6 text-white uppercase"
+              style="
+              letter-spacing: 0.05em;
+              text-shadow: 
+                  0 0 21px #832EFF,
+                  0 0 42px #832EFF,
+                  0 0 151px #832EFF;
+              ">
+            UNBEATABLE<br>
+            PRICES ON YOUR<br>
+            FAVORITE<br>
+            PRODUCTS
+          </h2>
+          <p class="mb-8 text-xl md:text-2xl lg:text-3xl text-secondary font-medium">BUY MORE FOR LESS</p>
+          <button onclick="window.location.href='./products.html'" class="bg-gradient-to-r from-tertiary to-secondary text-white px-6 py-4 md:px-7 md:py-6 rounded-full font-medium text-lg md:text-2xl transition-all duration-300 hover:shadow-lg hover:scale-105 uppercase">
+            SEE OUR PRODUCTS
+          </button>
+        </div>
+        <div class="md:w-1/2 md:pl-8">
+          <img 
+            src="./public/assets/images/hero-image.png" 
+            alt="Laptop keyboard with purple lighting" 
+            class="w-full h-auto"
+            style="border-radius: 6.3rem"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Products -->
+    <section class="py-12 mt-16 relative z-10">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl md:text-6xl text-white font-bold mb-10 text-center md:text-left">OUR PRODUCTS</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <!-- Headphones Card -->
+          <div class="bg-transparent overflow-hidden relative">
+            <img 
+              src="./public/assets/images/headphones-image.png" 
+              alt="Headphones category" 
+              class="w-345 h-485 object-cover"
+              style="border-radius: 6.3rem;"
+            />
+            <div class="absolute bottom-8 left-0 right-0 flex justify-center">
+              <button class="px-8 py-4 md:px-12 md:py-5 text-white font-medium text-base md:text-lg rounded-full bg-gradient-to-r from-tertiary to-secondary duration-300 shadow-lg transition-all hover:shadow-lg hover:scale-105">
+                HEADPHONES
+              </button>
+            </div>
+          </div>
+          
+          <!-- Accessories Card -->
+          <div class="bg-transparent overflow-hidden relative">
+            <img 
+              src="./public/assets/images/accessories-image.png" 
+              alt="Accessories category" 
+              class="w-345 h-485 object-cover"
+              style="border-radius: 6.3rem;"
+            />
+            <div class="absolute bottom-8 left-0 right-0 flex justify-center">
+              <button class="px-8 py-4 md:px-12 md:py-5 text-white font-medium text-base md:text-lg rounded-full bg-gradient-to-r from-tertiary to-secondary duration-300 shadow-lg transition-all hover:shadow-lg hover:scale-105">
+                ACCESSORIES
+              </button>
+            </div>
+          </div>
+          
+          <!-- Phones Card -->
+          <div class="bg-transparent overflow-hidden relative">
+            <img 
+              src="./public/assets/images/phones-image.png" 
+              alt="Phones category" 
+              class="w-345 h-485 object-cover"
+              style="border-radius: 6.3rem;"
+            />
+            <div class="absolute bottom-8 left-0 right-0 flex justify-center">
+              <button class="px-8 py-4 md:px-14 md:py-5 text-white font-medium text-base md:text-lg rounded-full bg-gradient-to-r from-tertiary to-secondary duration-300 shadow-lg transition-all hover:shadow-lg hover:scale-105">
+                PHONES
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Headphones -->
+    <section class="py-12 mt-6 relative z-10">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl md:text-6xl text-white font-bold text-center md:text-left">OUR HEADPHONES</h2>
+        <div class="flex flex-col md:flex-row items-center overflow-hidden p-4 md:p-8 lg:p-12">
+          <div class="md:w-1/2 mb-8 md:mb-0">
+            <img 
+              src="./public/assets/images/headphone.jpg" 
+              alt="Premium Headphones" 
+              class="w-full h-auto"
+              style="border-radius: 6.3rem;"
+            />
+          </div>
+          <div class="md:w-1/2 md:pl-8 lg:pl-12 text-center md:text-left">
+            <span class="inline-block text-secondary font-bold text-xl md:text-2xl mb-4">NEW</span>
+            <h3 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
+              Take Your Music Everywhere
+            </h3>
+            <p class="text-lg md:text-xl text-gray-300 mb-8">Best headphones brands</p>
+            <button class="px-8 py-4 md:px-12 md:py-5 text-white font-medium text-base md:text-lg rounded-full bg-gradient-to-r from-tertiary to-secondary duration-300 shadow-lg transition-all hover:shadow-lg hover:scale-105">
+              SHOP NOW
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Accessories -->
+    <section class="py-12 relative z-10">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl md:text-6xl text-white font-bold mb-10 text-center md:text-left">OUR ACCESSORIES</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <!-- Card 1 -->
+          <div class="overflow-hidden flex flex-col h-full">
+            <img 
+              src="./public/assets/images/pack1.png" 
+              alt="Protective Films" 
+              class="w-full h-48 sm:h-64 md:h-72 object-cover rounded-[6rem]"
+            />
+            <div class="p-4 md:p-6 flex flex-col flex-grow">
+              <p class="text-white font-semibold mb-4 text-lg md:text-xl leading-tight">
+                FOR THOSE WHO WANTS TO PROTECT THEIR PHONES
+              </p>
+              <h3 class="text-secondary font-semibold mb-4 text-xl md:text-2xl tracking-wide">
+                PROTECTIVE FILMS <br> PACK
+              </h3>
+              <div class="mt-auto">
+                <p class="text-white text-xl md:text-2xl font-bold">35 TND</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Card 2 -->
+          <div class="overflow-hidden flex flex-col h-full">
+            <img 
+              src="./public/assets/images/pack2.png" 
+              alt="Phone Cases" 
+              class="w-full h-48 sm:h-64 md:h-72 object-cover rounded-[6rem]"
+            />
+            <div class="p-4 md:p-6 flex flex-col flex-grow">
+              <p class="text-white font-semibold mb-4 text-lg md:text-xl leading-tight">
+                FOR THOSE WHO WANTS TO PERSONALIZE THEIR PHONES
+              </p>
+              <h3 class="text-secondary font-semibold mb-4 text-xl md:text-2xl tracking-wide">
+                PHONE CASES <br> PACK
+              </h3>
+              <div class="mt-auto">
+                <p class="text-white text-xl md:text-2xl font-bold">75 TND</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Card 3 -->
+          <div class="overflow-hidden flex flex-col h-full">
+            <img 
+              src="./public/assets/images/pack3.png" 
+              alt="Phone Cases and Films" 
+              class="w-full h-48 sm:h-64 md:h-72 object-cover rounded-[6rem]"
+            />
+            <div class="p-4 md:p-6 flex flex-col flex-grow">
+              <p class="text-white font-semibold mb-4 text-lg md:text-xl leading-tight">
+                FOR THOSE WHO IN <br> TEAMS
+              </p>
+              <h3 class="text-secondary font-semibold mb-4 text-xl md:text-2xl tracking-wide">
+                PHONE CASES & <br> FILMS PROTECTION <br> PACK
+              </h3>
+              <div class="mt-auto">
+                <p class="text-white text-xl md:text-2xl font-bold">100 TND</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Phones -->
+    <section class="py-12 relative z-10">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl md:text-6xl text-white font-bold mb-10 text-center md:text-left">OUR PHONES</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Carte 1 : iPhone 13 Pro Max -->
+          <div class="overflow-hidden">
+            <img 
+              src="./public/assets/images/iphone.png" 
+              alt="iPhone 13 Pro Max" 
+              class="w-full h-48 sm:h-64 md:h-72 object-cover rounded-[4rem]"
+            />
+            <div class="p-4 md:p-8 ml-4">
+              <h3 class="text-secondary text-2xl md:text-3xl font-bold mb-3">IPHONE 13 PRO MAX</h3>
+              <p class="text-white text-xl md:text-2xl font-medium">5 399 TND</p>
+            </div>
+          </div>
+          
+          <!-- Carte 2 : Samsung Galaxy A52 5G -->
+          <div class="overflow-hidden">
+            <img 
+              src="./public/assets/images/samsung.png" 
+              alt="Samsung Galaxy A52 5G" 
+              class="w-full h-48 sm:h-64 md:h-72 object-cover rounded-[4rem]"
+            />
+            <div class="p-4 md:p-8 ml-4">
+              <h3 class="text-secondary text-2xl md:text-3xl font-bold mb-3">SAMSUNG GALAXY A52 5G</h3>
+              <p class="text-white text-xl md:text-2xl font-medium">1 400 TND</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Brands -->
+    <section class="bg-purple-400 bg-opacity-30 mb-10 relative z-10">
+      <div class="container mx-auto px-4 py-8">
+        <div class="flex flex-wrap justify-center items-center gap-6 md:gap-12 lg:gap-24">
+          <!-- Logo HP -->
+          <img src="./public/assets/images/hp-logo.png" alt="HP" class="w-16 md:w-24 opacity-60" />
+          
+          <!-- Logo Lenovo -->
+          <img src="./public/assets/images/lenovo-logo.png" alt="Lenovo" class="w-24 md:w-32 opacity-60"/>
+          
+          <!-- Logo Samsung -->
+          <img src="./public/assets/images/samsung-logo.png" alt="Samsung" class="w-24 md:w-32 opacity-60"/>
+          
+          <!-- Logo Apple -->
+          <img src="./public/assets/images/iphone-logo.png" alt="Apple" class="w-16 md:w-24 opacity-60"/>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQs -->
+    <section class="py-12 relative text-white z-10">
+      <!-- Background image -->
+      <div class="absolute inset-0 z-0">
+        <img src="./public/assets/images/background.png" alt="Background" class="w-full h-full object-cover" />
+      </div>
+      
+      <!-- Content overlay -->
+      <div class="container mx-auto px-4 relative z-10">
+        <h2 class="text-4xl md:text-6xl text-white font-bold mb-8 text-center md:text-left">FQAS</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- FAQ Item 1 -->
+          <div>
+            <div class="flex justify-start mb-4">
+              <div class="flex items-center justify-center">
+                <img src="./public/assets/images/fqa1.png" alt="IT Products Icon" class="w-12 h-12 md:w-18 md:h-16" />
+              </div>
+            </div>
+            <h3 class="font-semibold text-left mb-3 text-xl md:text-2xl">WHAT TYPES OF IT PRODUCTS DO YOU OFFER?</h3>
+            <p class="text-lg md:text-xl font-medium">
+              We specialize in reconditioned technology products, including laptops, desktops, monitors, and smart home accessories like smart bulbs, cameras, and security systems. All our products are tested and certified for quality.
+            </p>
+          </div>
+          
+          <!-- FAQ Item 2 -->
+          <div>
+            <div class="flex justify-start mb-4">
+              <div class="flex items-center justify-center">
+                <img src="./public/assets/images/fqa2.png" alt="Warranty Icon" class="w-12 h-12 md:w-18 md:h-16" />
+              </div>
+            </div>
+            <h3 class="font-semibold text-left mb-3 text-xl md:text-2xl">DO YOUR PRODUCTS COME WITH A WARRANTY?</h3>
+            <p class="text-lg md:text-xl font-medium">
+              Yes, all our reconditioned products come with a 12-month warranty. This covers any manufacturing defects and ensures you can shop with confidence.
+            </p>
+          </div>
+          
+          <!-- FAQ Item 3 -->
+          <div>
+            <div class="flex justify-start mb-4">
+              <div class="flex items-center justify-center">
+                <img src="./public/assets/images/fqa3.png" alt="Setup Icon" class="w-12 h-12 md:w-18 md:h-16" />
+              </div>
+            </div>
+            <h3 class="font-semibold text-left mb-3 text-xl md:text-2xl">HOW EASY IS IT TO SET UP YOUR PRODUCTS?</h3>
+            <p class="text-lg md:text-xl font-medium">
+              Our products are designed for quick and hassle-free setup. Each item comes with a detailed user guide, and we offer step-by-step video tutorials to help you get started in minutes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blurred Circles -->
+    <div class="absolute inset-0 z-0 h-screen">
+      <!-- Cercle 1 -->
+      <div class="absolute rounded-full bg-[#832EFF] blur-[310px] w-[679px] h-[679px] -translate-x-[309px] -translate-y-[109px] md:w-[300px] md:h-[300px] md:-translate-x-[150px] md:-translate-y-[50px]"></div>
+      
+      <!-- Cercle 2 -->
+      <div class="absolute rounded-full bg-[#FF4FF3] blur-[310px] w-[679px] h-[679px] translate-x-[1173px] translate-y-[515px] md:w-[300px] md:h-[300px] md:translate-x-[150px] md:translate-y-[200px]"></div>
+      
+      <!-- Cercle 3 -->
+      <div class="absolute rounded-full bg-[#FF4FF3] blur-[310px] w-[679px] h-[679px] -translate-x-[427px] translate-y-[1305px] md:w-[300px] md:h-[300px] md:-translate-x-[150px] md:translate-y-[400px]"></div>
+      
+      <!-- Cercle 4 -->
+      <div class="absolute rounded-full bg-[#832EFF] blur-[310px] w-[679px] h-[679px] translate-x-[1100px] translate-y-[2106px] md:w-[300px] md:h-[300px] md:translate-x-[150px] md:translate-y-[600px]"></div>
+      
+      <!-- Cercle 5 -->
+      <div class="absolute rounded-full bg-[#832EFF] blur-[310px] w-[679px] h-[679px] -translate-x-[435px] translate-y-[3178px] md:w-[300px] md:h-[300px] md:-translate-x-[150px] md:translate-y-[800px]"></div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+
+  <!-- Gradient Line -->
+  <div class="h-3.5 w-full bg-gradient-custom"></div>
+
+  <script src="script.js"></script>
+  <script>
+    function loadHTML(id, url) {
+      fetch(url)
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById(id).innerHTML = data;
+        })
+        .catch(error => console.error('Error loading HTML:', error));
+    }
+
+    loadHTML('navbar', 'navbar.html');
+    loadHTML('footer', 'footer.html');
+  </script>
+</body>
+</html>

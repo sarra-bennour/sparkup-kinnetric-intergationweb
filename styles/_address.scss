@@ -1,0 +1,227 @@
+.address-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 10vw;  // Utilisation de la largeur du viewport pour maintenir l'espace de chaque côté
+
+  // Optionnel : un max-width pour que tout s'ajuste sans dépasser une certaine largeur
+  max-width: 100%;
+}
+
+.address-option {
+  margin-bottom: 50px;
+  width: 100%;
+  max-width: 800px;  // Conserver une largeur maximale pour chaque option
+  height: 80px;
+  padding: 10px 20px;
+  background: #D1CED5;
+  color: #281549;
+  border-radius: 73px;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  input[type="radio"] {
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #888;
+    border-radius: 50%;
+    margin-right: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: transparent;
+  }
+
+  input[type="radio"]:checked {
+    border-color: #6C5DD3;
+    background-color: hsl(284, 64%, 30%);
+  }
+  .titre-adresse {
+    font-weight: 400;
+    text-align: left;  /* Le titre est aligné à gauche */
+    margin-right: 30px;  /* Ajouter de l'espace entre le titre et le texte */
+    white-space: nowrap;  /* Ne pas revenir à la ligne pour le titre */
+    font-size: 1.2vw;  /* Taille du titre ajustée pour le mettre en valeur */
+}
+
+.address-text {
+    display: table-row;  /* Utiliser table-row pour gérer l'alignement */
+    justify-content: flex-start;  /* Aligner à gauche pour garder les éléments sur la même ligne */
+    align-items: center;  /* Centrer verticalement le contenu */
+    font-weight: 300;  /* Comme dans .shipping-option .titre-adresse */
+    text-align: left;  /* Aligner le texte à gauche */
+    color: inherit;  /* Garder la couleur héritée */
+    font-size: 1vw;  /* Taille de la police ajustée dynamiquement en fonction de l'écran */
+    width: 100%;  /* Assurer que tout prend toute la largeur disponible */
+    white-space: nowrap;  /* Ne pas revenir à la ligne pour l'adresse */
+    overflow: hidden;  /* Masquer le texte qui dépasse */
+}
+
+@media (max-width: 600px) {
+    .address-text {
+        font-size: 3.5vw;  /* Ajuster la taille de la police pour les petits écrans */
+        text-align: left;  /* Garder l'alignement à gauche sur petits écrans */
+        gap: 10px;  /* Ajouter de l'espace entre le titre et le texte */
+        white-space: nowrap;  /* Ne pas revenir à la ligne même sur petits écrans */
+    }
+
+    .titre-adresse {
+        font-size: 4.5vw;  /* Ajuster la taille du titre pour le mettre plus en valeur sur petits écrans */
+        text-align: left;  /* Garder le titre aligné à gauche */
+    }
+}
+
+@media (max-width: 500px) {
+    .address-text {
+        font-size: 5vw;  /* Réduire la taille de la police pour les très petits écrans */
+        gap: 8px;  /* Réduire l'espace entre le titre et le texte */
+        white-space: nowrap;  /* Toujours ne pas revenir à la ligne */
+    }
+
+    .titre-adresse {
+        font-size: 6vw;  /* Augmenter la taille du titre pour le mettre encore plus en valeur */
+        text-align: left;  /* Garder le titre aligné à gauche */
+    }
+}
+
+@media (max-width: 400px) {
+    .address-text {
+        font-size: 6vw;  /* Taille de la police plus petite pour les très petits écrans */
+        gap: 6px;  /* Réduire l'espace entre le titre et le texte */
+    }
+
+    .titre-adresse {
+        font-size: 7vw;  /* Augmenter encore la taille du titre pour le mettre en valeur */
+    }
+}
+
+  .edit-icon, .delete-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 24px;
+    margin-left: 10px;
+  }
+
+  .edit-size, .delete-size {
+    font-size: 20px;
+  }
+}
+
+// Media queries pour s'assurer que la taille de la police s'ajuste bien sur les petits écrans
+@media (max-width: 1070px) {
+  .address-options {
+    padding: 0 5vw;  // Réduction de l'espace sur les petits écrans
+  }
+
+  .address-option {
+    padding: 8px 15px;
+    font-size: 1.5vw;  // Ajuster la taille du texte pour s'adapter
+  }
+
+  .address-text {
+    font-size: 1.5vw;  // Ajuster la taille du texte
+  }
+
+  .edit-size, .delete-size {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .address-options {
+    padding: 0 5vw;  // Réduire un peu plus l'espace pour les écrans plus petits
+  }
+
+  .address-option {
+    padding: 6px 10px;
+    font-size: 2vw;  // Ajuster davantage la taille du texte
+  }
+
+  .address-text {
+    font-size: 2vw;  // Réduire la taille du texte pour les écrans très petits
+  }
+
+  .edit-size, .delete-size {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .address-options {
+    padding: 0 5vw;  // Réduire encore l'espace à gauche et à droite pour les petits écrans
+  }
+
+  .address-option {
+    padding: 5px 8px;
+    font-size: 2.5vw;  // Plus petit pour les très petits écrans
+  }
+
+  .address-text {
+    font-size: 2.5vw;  // Ajuste la taille du texte pour être plus petite
+  }
+
+  .edit-size, .delete-size {
+    font-size: 14px;
+  }
+}
+.add-address {
+  display: flex;
+  justify-content: center;  // Centrer horizontalement les éléments
+  align-items: center;  // Centrer verticalement les éléments
+  width: 100%;  // Prendre toute la largeur de l'écran
+  position: relative;  // Permet de positionner les éléments par rapport à ce conteneur
+  margin-top: 30px;  // Ajouter de l'espace en haut et garder un espacement visuel constant
+
+ 
+  .plus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;  // Superposer l'icône sur la ligne
+    font-size: 3.5vw;  // Réduire la taille de l'icône pour un meilleur ajustement
+    color: #6C5DD3;  // Couleur de l'icône
+    z-index: 1;  // Assure que l'icône reste au-dessus de la ligne
+    top: 50%;  // Centrer verticalement l'icône
+    transform: translateY(-50%);  // Ajuster l'icône pour bien la centrer au milieu de la ligne
+  }
+
+  .material-symbols-outlined {
+    font-size: inherit;  // Utiliser la taille de police définie dans .plus
+  }
+}
+
+// Media queries pour ajuster la taille de l'icône sur les petits écrans
+@media (max-width: 768px) {
+  .add-address {
+    margin-top: 20px;  // Espacement visuel ajusté pour les petits écrans
+    height: 60px;  // Réduire la hauteur sur les petits écrans
+  }
+
+  .plus {
+    font-size: 5vw;  // Ajuster la taille de l'icône sur les petits écrans
+  }
+
+}
+
+@media (max-width: 480px) {
+  .add-address {
+    margin-top: 15px;  // Réduire un peu plus l'espacement en haut
+    height: 50px;  // Réduire encore la hauteur sur les très petits écrans
+  }
+
+  .plus {
+    font-size: 6vw;  // Augmenter un peu la taille de l'icône pour les petits écrans
+  }
+
+  
+}

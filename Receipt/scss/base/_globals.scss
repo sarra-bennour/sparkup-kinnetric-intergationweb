@@ -1,0 +1,17 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+body {
+    background: $bg-gradient;
+    color: $text-color;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: $container-width;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}

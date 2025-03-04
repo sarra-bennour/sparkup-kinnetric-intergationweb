@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KINNECTRIC - Depots Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                purple: '#351862',
+                pink: '#ff4ff3',
+                accent: '#FF4FF3',
+                primary: '#281549',
+              }
+            }
+          }
+        }
+      </script>
+    <style>
+        /* Chat popup styles */
+        .chat-popup {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: rgba(0, 0, 0, 0.5);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 9999;
+          padding: 1rem;
+          opacity: 0;
+          visibility: hidden;
+          transition: opacity 0.3s, visibility 0.3s;
+        }
+        
+        .chat-popup.active {
+          opacity: 1;
+          visibility: visible;
+        }
+        
+        .chat-container {
+          width: 100%;
+          max-width: 28rem;
+          border-radius: 1.5rem;
+          overflow: hidden;
+          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+          transform: scale(0.9);
+          transition: transform 0.3s;
+        }
+        
+        .chat-popup.active .chat-container {
+          transform: scale(1);
+        }
+      </style>
+</head>
+<body class="bg-primary font-outfit min-h-screen flex flex-col overflow-x-hidden">
+    <div class="h-3.5 w-full bg-gradient-custom"></div>
+
+    <!-- Navbar -->
+    <div id="navbar"></div>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <!-- Breadcrumb -->
+        <div class="mt-10 mb-10 px-4 md:px-8 lg:ml-[190px] relative z-10">
+            <a class="text-white opacity-50 no-underline font-outfit font-regular px-[1px] py-[10px] text-[15px] md:text-[17px] tracking-wide" href="accueil.html">Home / </a>
+            <a class="text-white opacity-50 no-underline font-outfit font-regular px-[1px] py-[10px] text-[15px] md:text-[17px] tracking-wide" href="cart.html">Cart / </a>
+            <a class="text-white opacity-50 no-underline font-outfit font-regular px-[1px] py-[10px] text-[15px] md:text-[17px] tracking-wide" href="../uii.html">Payement / </a>
+            <a class="text-white no-underline font-outfit font-regular px-[1px] py-[10px] text-[15px] md:text-[17px] tracking-wide" href="depotsMap.html">Depots</a>
+        </div>
+
+        <!-- Map Section -->
+        <section class="py-2 relative z-10">
+            <div class="container mx-auto px-4">
+                <!-- Search Bar -->
+                <div class="container mx-auto px-6 py-4 flex justify-end">
+                    <div class="relative inline-block mx-4 md:mx-5 md:mr-8 lg:mr-[100px] w-full md:w-auto">
+                        <input type="text" placeholder="Search" 
+                               class="py-[10px] pl-[13px] pr-[10px] w-full md:w-[270px] h-[44px] 
+                                      rounded-[64px] border-none bg-[#151343] 
+                                      text-white placeholder-white placeholder-opacity-70 
+                                      font-roboto font-light text-[13px]">
+                        <button type="submit" class="absolute right-[10px] top-1/2 transform -translate-y-1/2 p-[10px] bg-gradient-custom text-white cursor-pointer border-none rounded-[73px] w-[55px] h-[34px] flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Map -->
+                <div id="map" class="w-full h-[300px] md:h-[400px] lg:h-[500px] rounded-3xl overflow-hidden mx-auto lg:ml-[100px] lg:w-[1050px]"></div>
+            </div>
+        </section>
+
+        <!-- Floating Button -->
+        <div class="fixed bottom-5 right-5 w-12 h-12 bg-gradient-custom rounded-full flex items-center justify-center text-2xl cursor-pointer shadow-lg z-50">
+            <a id="chat-button"><img src="./public/assets/icons/robot.svg"></a>
+        </div>
+    
+    
+    
+    <!-- Chat Popup -->
+    <div id="chat-popup" class="chat-popup">
+        <div class="chat-container bg-pink">
+          <!-- Header -->
+          <div class="bg-pink text-white p-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 bg-white rounded-md flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-pink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="4" y="4" width="16" height="16" rx="2" />
+                  <circle cx="9" cy="9" r="2" />
+                  <circle cx="15" cy="9" r="2" />
+                  <path d="M8 14h8" />
+                </svg>
+              </div>
+              <span class="font-bold text-xl">AI ASSISTANT</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-6 h-1 bg-white rounded"></div>
+              <button id="close-chat">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer hover:opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+    
+          <!-- Question 1 -->
+          <div class="bg-purple text-white p-6 flex justify-between items-center">
+            <div class="flex-1">
+              <p class="text-center text-xl">Does Asus I9 Meet Energy Efficiency Standards?</p>
+            </div>
+            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center ml-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="8" r="4" />
+                <path d="M12 12v8" />
+                <path d="M9 16h6" />
+              </svg>
+            </div>
+          </div>
+    
+          <!-- Answer 1 -->
+          <div class="bg-pink text-white p-6 flex items-start">
+            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-pink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="4" y="4" width="16" height="16" rx="2" />
+                <circle cx="9" cy="9" r="2" />
+                <circle cx="15" cy="9" r="2" />
+                <path d="M8 14h8" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-xl">Yes, It Is Designed To Optimize Power Consumption While Maintaining High Performance.</p>
+            </div>
+          </div>
+    
+          <!-- Question 2 -->
+          <div class="bg-purple text-white p-6 flex justify-between items-center">
+            <div class="flex-1">
+              <p class="text-center text-xl">Is This PC Compatible With The Latest Software And Operating Systems?</p>
+            </div>
+            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center ml-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="8" r="4" />
+                <path d="M12 12v8" />
+                <path d="M9 16h6" />
+              </svg>
+            </div>
+          </div>
+    
+          <!-- Answer 2 -->
+          <div class="bg-pink text-white p-6 flex items-start">
+            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-pink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="4" y="4" width="16" height="16" rx="2" />
+                <circle cx="9" cy="9" r="2" />
+                <circle cx="15" cy="9" r="2" />
+                <path d="M8 14h8" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-xl">Yes, This PC Supports The Latest Operating Systems And Software, Ensuring Smooth Performance And Compatibility.</p>
+            </div>
+          </div>
+    
+          <!-- Input Area -->
+          <div class="bg-purple p-4">
+            <div class="bg-purple border-2 border-pink rounded-full flex items-center p-2 px-4">
+              <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center mr-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="8" r="4" />
+                  <path d="M12 12v8" />
+                  <path d="M9 16h6" />
+                </svg>
+              </div>
+              <span class="text-white flex-1">ASK ME ANYTHING</span>
+              <button class="bg-[#8a2be2] text-white px-4 py-2 rounded-full flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="4" y="4" width="16" height="16" rx="2" />
+                  <circle cx="9" cy="9" r="2" />
+                  <circle cx="15" cy="9" r="2" />
+                  <path d="M8 14h8" />
+                </svg>
+                GENERATE
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+        <!-- Blurred Circles -->
+        <div class="absolute inset-0 z-0 h-screen">
+            <!-- Circle 1 -->
+            <div class="absolute rounded-full bg-[#832EFF] blur-[310px] w-[300px] h-[300px] md:w-[500px] md:h-[500px] lg:w-[679px] lg:h-[679px] -translate-x-[50%] -translate-y-[50%] lg:-translate-x-[309px] lg:-translate-y-[109px]"></div>
+            
+            <!-- Circle 2 -->
+            <div class="absolute rounded-full bg-[#FF4FF3] blur-[310px] w-[300px] h-[300px] md:w-[500px] md:h-[500px] lg:w-[679px] lg:h-[679px] translate-x-[50%] translate-y-[50%] lg:translate-x-[1173px] lg:translate-y-[515px]"></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <div class="h-3.5 w-full bg-gradient-custom"></div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        function initMap() {
+            var map = L.map('map').setView([36.8065, 10.1815], 12); // Coordonnées de Tunis
+
+            // Charger OpenStreetMap
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+
+            // Ajouter les marqueurs des dépôts
+            var depots = [
+                { coords: [36.8065, 10.1815], name: "Tunis Depot" },
+                { coords: [36.7949, 10.0732], name: "Ariana Depot" }, // Exemple de localisation à Ariana
+                { coords: [36.7256, 10.2921], name: "Ben Arous Depot" } // Exemple de localisation à Ben Arous
+            ];
+
+            depots.forEach(depot => {
+                L.marker(depot.coords).addTo(map)
+                    .bindPopup(depot.name)
+                    .openPopup();
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", initMap);
+</script>
+        <script src="script.js"></script>
+    <script>
+        function loadHTML(id, url) {
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                    
+                    // Initialize sidebar functionality after navbar is loaded
+                    if (id === 'navbar') {
+                        const hamburger = document.querySelector('.hamburger-menu');
+                        const navLinks = document.querySelector('.nav-links');
+                        
+                        if (hamburger && navLinks) {
+                            hamburger.addEventListener('click', function() {
+                                hamburger.classList.toggle('change');
+                                navLinks.classList.toggle('active');
+                                document.body.classList.toggle('sidebar-open');
+                            });
+                        }
+                    }
+                })
+                .catch(error => console.error('Error loading HTML:', error));
+        }
+
+        loadHTML('navbar', 'navbar.html');
+        loadHTML('footer', 'footer.html');
+
+
+         document.addEventListener('DOMContentLoaded', function() {
+       // Toggle mobile menu visibility
+       const menuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      // Chat popup elements
+      const chatButton = document.getElementById('chat-button');
+      const chatPopup = document.getElementById('chat-popup');
+      const closeChat = document.getElementById('close-chat');
+      
+      // Open chat popup when chat button is clicked
+      chatButton.addEventListener('click', function() {
+        chatPopup.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when popup is open
+      });
+      
+      // Close chat popup when close button is clicked
+      closeChat.addEventListener('click', function() {
+        chatPopup.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+      });
+      
+      // Close chat popup when clicking outside the chat container
+      chatPopup.addEventListener('click', function(event) {
+        if (event.target === chatPopup) {
+          chatPopup.classList.remove('active');
+          document.body.style.overflow = ''; // Restore scrolling
+        }
+      });
+    //     // Toggle mobile menu visibility
+    //     menuButton.addEventListener('click', function() {
+    //     mobileMenu.classList.toggle('hidden');
+    //   });
+    
+
+      // Existing JavaScript for responsiveness
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mainNav = document.getElementById('main-nav');
+      const headerSection = document.getElementById('header-section');
+      const qrCodeSection = document.getElementById('qr-code-section');
+      const footerGrid = document.getElementById('footer-grid');
+      
+      // Function to check if screen is mobile
+      function isMobile() {
+        return window.innerWidth < 768; // 768px is Tailwind's md breakpoint
+      }
+      
+      // Function to adjust interface based on screen size
+      function adjustInterface() {
+        // Adjust header
+        if (isMobile()) {
+          headerSection.classList.remove('flex', 'justify-between', 'items-center');
+          headerSection.classList.add('flex', 'flex-col', 'items-start', 'gap-4');
+        } else {
+        //   headerSection.classList.remove('flex-col', 'items-start', 'gap-4');
+          headerSection.classList.add('flex', 'justify-between', 'items-center');
+        }
+        
+        // Adjust QR code section
+        if (isMobile()) {
+          qrCodeSection.style.marginLeft = '0';
+          qrCodeSection.style.width = '100%';
+          qrCodeSection.style.maxWidth = '320px';
+          qrCodeSection.style.margin = '0 auto';
+        } else {
+          // Restore original CSS styles for desktop
+          qrCodeSection.style.width = '320px';
+          qrCodeSection.style.marginLeft = '200px';
+        }
+      }
+      
+      // Toggle mobile menu
+    //   mobileMenuButton.addEventListener('click', function() {
+    //     if (mainNav.classList.contains('hidden')) {
+    //       mainNav.classList.remove('hidden');
+    //       mainNav.classList.add('flex');
+    //     } else {
+    //       mainNav.classList.add('hidden');
+    //       mainNav.classList.remove('flex');
+    //     }
+    //   });
+      
+      // Adjust interface on load
+    //   adjustInterface();
+      
+      // Adjust interface on window resize
+      window.addEventListener('resize', function() {
+        adjustInterface();
+        
+        // Reset navigation on desktop
+        if (!isMobile() && mainNav.classList.contains('hidden')) {
+          mainNav.classList.remove('hidden');
+          mainNav.classList.add('flex');
+        } else if (isMobile() && !mainNav.classList.contains('hidden') && !mainNav.classList.contains('menu-open')) {
+          mainNav.classList.add('hidden');
+          mainNav.classList.remove('flex');
+        }
+      });
+      
+      // Make information grids responsive
+      const infoGrids = document.querySelectorAll('.grid.grid-cols-2');
+      infoGrids.forEach(grid => {
+        if (isMobile()) {
+          grid.classList.remove('grid-cols-2');
+          grid.classList.add('grid-cols-1', 'gap-1');
+        }
+        
+        window.addEventListener('resize', function() {
+          if (isMobile()) {
+            grid.classList.remove('grid-cols-2');
+            grid.classList.add('grid-cols-1', 'gap-1');
+          } else {
+            grid.classList.remove('grid-cols-1', 'gap-1');
+            grid.classList.add('grid-cols-2');
+          }
+        });
+      });
+      
+      // Improve link accessibility
+      const links = document.querySelectorAll('a');
+      links.forEach(link => {
+        link.addEventListener('focus', function() {
+          this.classList.add('ring-2', 'ring-accent', 'outline-none');
+        });
+        
+        link.addEventListener('blur', function() {
+          this.classList.remove('ring-2', 'ring-accent', 'outline-none');
+        });
+      });
+    });
+
+    </script>
+</body>
+</html>

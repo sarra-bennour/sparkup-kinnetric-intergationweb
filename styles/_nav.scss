@@ -1,0 +1,45 @@
+@import "variables";
+
+nav {
+
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 15px;
+  }
+
+  ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    font-size: 16px;
+    margin-right: 15px;
+    padding: 0;
+
+    li a {
+      font-family: $font-secondary;
+      color: white;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // Media query pour les écrans plus petits
+  @media (max-width: 1000px) {
+    ul {
+      display: none;  // Cache complètement la liste de navigation
+    }
+
+    .cart-icon {
+      display: none;  // Cache également l'icône du panier
+    }
+  }
+}
